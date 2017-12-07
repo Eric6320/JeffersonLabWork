@@ -8,15 +8,17 @@ set CORRONE = $3
 set CORRTWO = $4
 set VERTICLE = $5
 
+rm elegantFile.ppss >& /dev/null; touch elegantFile.ppss
+
 # Build script file
-# For each BPM in the information file, make a 
-foreach i (`grep IPM information.twiasc | awk '{print $2}'`)
-	rm "$i-centroidValues.dat" >& /dev/null
-	touch "$i-centroidValues.dat"
+@ x = 1
+while ($x <= $N)
+		
+
+	echo "functionsDir/elegantFunction.sh $CORRONE $CORRSTRENGTHONE $CORRTWO $CORRSTRENGTHTWO $MODIFIEDBEAMLINE $x $VERTICLE" >> elegantFile.ppss
 end
 
 # Run scripts
-rm -r Dir* >& /dev/null
 
 @ x = 1
 while ($x <= $N)
