@@ -21,3 +21,5 @@ elegant "$ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.ele" >& /dev/null
 
 # Save the Cx and Cy values to file
 sdds2stream -col=s,ElementName,Cx,Cxp,Cy,Cyp "$ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.cen" >! "$ELEGANTPATH/centroidValues$TRIAL.dat"
+
+touch "done.dat"

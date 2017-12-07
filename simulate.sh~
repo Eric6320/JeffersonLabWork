@@ -1,10 +1,6 @@
 #!/bin/tcsh
 unset noclobber
 
-setenv FPATH "~/git/JeffersonLabWork/functionsDir"
-setenv RDPATH "~/git/JeffersonLabWork/rawDataDir"
-setenv DPATH "~/git/JeffersonLabWork/dataDir"
-
 # Store variables as command input or defaults
 set N = `$FPATH/setArg.sh N 10 $argv`
 set SEED = `$FPATH/setArg.sh seed 5 $argv`
@@ -17,7 +13,6 @@ set VERTICLE = `echo $CORR1 | grep -c "V"`
 set BPMERROR = `$FPATH/setArg.sh bpmError x $argv`
 set STRENGTHERROR = `$FPATH/setArg.sh strengthError -1 $argv`
 
-
 $FPATH/cleanUp.sh
 set S = `$FPATH/pullS.sh $BPM1 $DESIGNBEAMLINE`
 
@@ -26,16 +21,18 @@ echo "\nN = $N\nSeed = $SEED\ncorr1 = $CORR1\ncorr2 = $CORR2\nbpm1 = $BPM1\ndesi
 # Generate a unit circle and perform a floquet transformation at the specified bpm - *EllipseOne.dat
 $FPATH/setup.sh $BPM1 $N $DESIGNBEAMLINE $VERTICLE $S
 
-exit
-
 # Using the twiss parameters at the given BPM, determine the strengths needed to trace the design ellipse - *Strengths.dat
-determineStrengths.sh $BPM1 $CORR1 $CORR2 $VERTICLE $MODIFIEDBEAMLINE
+$FPATH/determineStrengths.sh $BPM1 $CORR1 $CORR2 $VERTICLE $MODIFIEDBEAMLINE
 
-# Add scalar error to Quadrupole Strengths if applicable - Edit *-centroidValues.dat
+# Add scalar error to Quadrupole Strengths if applicable
 if ($STRENGTHERROR != x) then
 	echo "addStrengthError.sh - Adding strength error"
-	set NEWQUADSTRENGTH = `addStrengthError.sh MQB1A29 $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
+	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh MQB1A29 $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
 endif
+
+$FPATH/runPPSSElegant.sh #TODO add necessary arguments here
+
+exit
 
 # Using the design strengths, trace the ellipse and determine the centroid values - *CentroidValues.dat
 runParallelElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE

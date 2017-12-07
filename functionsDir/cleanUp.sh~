@@ -1,5 +1,5 @@
 #!/bin/tcsh
 
-rm -r ppss_dir >& /dev/null
+rm -r ppss_dir
 
 rm *.fin *.dat *.ppss >& /dev/null
