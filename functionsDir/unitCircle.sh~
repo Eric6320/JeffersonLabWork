@@ -11,5 +11,4 @@ gnuplot $FPATH/makeCircle.gnuplot
 
 # Remove the gnuplot header
 cat "circle.dat" | awk 'NR>5 {print $1" "$2}' >! "circle$1.dat"
-
 rm "circle.dat"

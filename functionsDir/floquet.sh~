@@ -13,8 +13,8 @@ set INVERSE = `echo $argv | grep -c "inverse"`
 
 #sdds2stream -col=s,ElementName,alphax,alphay,betax,betay,psix,psiy $DESIGNTWISSFILE >! information.twiasc
 
-setenv ALPHA `grep -w $BPMONE $RDPATH/information.twiasc | awk -v verticle=$VERTICLE '{print $(3+verticle)}'`
-setenv BETA  `grep -w $BPMONE $RDPATH/information.twiasc | awk -v verticle=$VERTICLE '{print $(5+verticle)}'`
+setenv ALPHA `grep -w $BPMONE information.twiasc | awk -v verticle=$VERTICLE '{print $(3+verticle)}'`
+setenv BETA  `grep -w $BPMONE information.twiasc | awk -v verticle=$VERTICLE '{print $(5+verticle)}'`
 setenv EMITTANCE 1e-9
 
 # Perform the appropriate transformation on the given data file
