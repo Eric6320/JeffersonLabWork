@@ -8,7 +8,7 @@ set VERTICLE = $4
 set S = $5
 
 # Set static twiss parameters and s coordinate of BPM and two chosen quadrupoles
-grep 'IPM' "$RDPATH/information.twiasc" | awk -v S=$S '{if ($1 >= S) print $2" "$1}' >! "downstreamBPM.dat"
+grep 'IPM' "information.twiasc" | awk -v S=$S '{if ($1 >= S) print $2" "$1}' >! "downstreamBPM.dat"
 
 # Generate a unit circle with N evenly spaced data points - circle$N.dat
 if (`ls | grep -c "circle$N.dat"` == 0) then

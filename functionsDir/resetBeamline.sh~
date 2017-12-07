@@ -4,7 +4,7 @@ unset noclobber
 #TODO DONE
 
 set BEAMLINE = $1
-set BPM1 = `~/git/JeffersonLabWork/functionsDir/setArg.sh bpm1 IPM1S03 $argv`
+set BPM1 = `./setArg.sh bpm1 IPM1S03 $argv`
 
 rm $BEAMLINE.* >& /dev/null
 ced2elegant --zone=ARC1 --lattice_name=$BEAMLINE
