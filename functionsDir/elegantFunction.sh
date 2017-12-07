@@ -11,10 +11,8 @@ set VERTICLE = $7
 
 set ELEGANTPATH = "~/git/JeffersonLabWork/elegantPPSSDir"
 
-perl $FPATH/modifyCorrector.pl "$RDPATH/$MODIFIEDBEAMLINE.lte" "$ELEGANTPATH/temp.lte" $CORRONE $CORRSTRENGTHONE #&> /dev/null
-perl $FPATH/modifyCorrector.pl "$ELEGANTPATH/temp.lte" "$ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.lte" $CORRTWO $CORRSTRENGTHTWO #>& /dev/null
-
-sed "s/use_beamline=$MODIFIEDBEAMLINE/use_beamline=$MODIFIEDBEAMLINE$TRIAL/g"; "s/rootname=$MODIFIEDBEAMLINE/rootname=$MODIFIEDBEAMLINE$TRIAL/g"; "s/lattice=$MODIFIEDBEAMLINE/lattice=$MODIFIEDBEAMLINE$TRIAL/g" "$RDPATH/$MODIFIEDBEAMLINE.ele" > "$ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.ele"
+perl $FPATH/modifyCorrector.pl $RDPATH/$MODIFIEDBEAMLINE.lte $ELEGANTPATH/temp.lte $CORRONE $CORRSTRENGTHONE #&> /dev/null
+perl $FPATH/modifyCorrector.pl $ELEGANTPATH/temp.lte $ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.lte $CORRTWO $CORRSTRENGTHTWO #>& /dev/null
 
 # Run elegant on the modified data
 elegant "$ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.ele" >& /dev/null

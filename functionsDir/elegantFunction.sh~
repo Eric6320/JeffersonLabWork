@@ -11,15 +11,13 @@ set VERTICLE = $7
 
 set ELEGANTPATH = "~/git/JeffersonLabWork/elegantPPSSDir"
 
-perl $FPATH/modifyCorrector.pl "$RDPATH/$MODIFIEDBEAMLINE.lte" "$ELEGANTPATH/temp.lte" $CORRONE $CORRSTRENGTHONE #&> /dev/null
-perl $FPATH/modifyCorrector.pl "$ELEGANTPATH/temp.lte" "$ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.lte" $CORRTWO $CORRSTRENGTHTWO #>& /dev/null
+perl $FPATH/modifyCorrector.pl $RDPATH/$MODIFIEDBEAMLINE.lte $ELEGANTPATH/temp.lte $CORRONE $CORRSTRENGTHONE #&> /dev/null
+perl $FPATH/modifyCorrector.pl $ELEGANTPATH/temp.lte $ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.lte $CORRTWO $CORRSTRENGTHTWO #>& /dev/null
 
-sed "s/use_beamline=$MODIFIEDBEAMLINE/use_beamline=$MODIFIEDBEAMLINE$TRIAL/g"; "s/rootname=$MODIFIEDBEAMLINE/rootname=$MODIFIEDBEAMLINE$TRIAL/g"; "s/lattice=$MODIFIEDBEAMLINE/lattice=$MODIFIEDBEAMLINE$TRIAL/g" "$RDPATH/$MODIFIEDBEAMLINE.ele" > "$ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.ele"
+sed "s/use_beamline=$MODIFIEDBEAMLINE/use_beamline=$MODIFIEDBEAMLINE$TRIAL/g"; "s/rootname=$MODIFIEDBEAMLINE/rootname=$MODIFIEDBEAMLINE$TRIAL/g"; "s/lattice=$MODIFIEDBEAMLINE/lattice=$MODIFIEDBEAMLINE$TRIAL/g" $RDPATH/$MODIFIEDBEAMLINE.ele > $ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.ele
 
 # Run elegant on the modified data
 elegant "$ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.ele" >& /dev/null
 
 # Save the Cx and Cy values to file
 sdds2stream -col=s,ElementName,Cx,Cxp,Cy,Cyp "$ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.cen" >! "$ELEGANTPATH/centroidValues$TRIAL.dat"
-
-touch "done.dat"
