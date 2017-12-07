@@ -1,8 +1,8 @@
 #!/bin/tcsh
 unset noclobber
 
-# Read in inputs
-set N = $1
+# Read in inputs #TODO FIX N VALUE
+set N = 5
 set MODIFIEDBEAMLINE = $2
 set CORRONE = $3
 set CORRTWO = $4
@@ -13,10 +13,17 @@ rm elegantFile.ppss >& /dev/null; touch elegantFile.ppss
 # Build script file
 @ x = 1
 while ($x <= $N)
-		
+	
+	set LINE = `cat modifiedStrengths.dat | head -$x | tail -1`
+	set CORRSTRENGTHONE = `echo $LINE | awk '{print $1}'`
+	set CORRSTRENGTHTWO = `echo $LINE | awk '{print $2}'`
 
 	echo "functionsDir/elegantFunction.sh $CORRONE $CORRSTRENGTHONE $CORRTWO $CORRSTRENGTHTWO $MODIFIEDBEAMLINE $x $VERTICLE" >> elegantFile.ppss
+
+	@ x += 1
 end
+
+ppss -f elegantFile.ppss
 
 # Run scripts
 
