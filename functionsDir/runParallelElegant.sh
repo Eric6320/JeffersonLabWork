@@ -1,6 +1,30 @@
 #!/bin/tcsh
 unset noclobber
 
+
+
+
+
+
+
+
+# DEPRECIATED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 set N = $1
 set MODIFIEDBEAMLINE = $2
 set CORRONE = $3

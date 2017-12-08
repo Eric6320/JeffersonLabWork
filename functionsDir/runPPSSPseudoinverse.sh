@@ -1,4 +1,4 @@
-#!bin/tcsh
+#!/bin/tcsh
 unset noclobber
 
 # Set arguments
@@ -7,39 +7,23 @@ set DESIGNBEAMLINE = $2
 set MODIFIEDBEAMLINE = $3
 set VERTICLE = $4
 
-#TODO need to figure out where to put / reference downstreamBPM.dat
+echo "runPPSSPseudoinverse.sh - Generating Transportation Matrices"
 
 # Make ppss file
 @ x = 1
 foreach i (`grep 'IPM' "downstreamBPM.dat" | awk '{print $1}'`)
-
-	#TODO need to figure out what these files are used for
-	set FILEONE = "$BPMONE-centroidValues.dat"
-	set FILETWO = `grep -w $i "downstreamBPM.dat" | awk '{print $1"-centroidValues.dat"}'`
-
-	grep -w $i "downstreamBPM.dat" | awk -v bpm1=$BPMONE '{print bpm1" "$1" "$2}' >> pseudoinverse.ppss
-
+	grep -w $i "downstreamBPM.dat" | awk -v bpm1=$BPMONE -v trial=$x '{print bpm1" "$1" "$2" "trial}' >> pseudoinverse.ppss
 	@ x += 1
 end
 
-
-#TODO not sure if this is correct
 # Run parallel functions
-$FPATH/ppss -f 'pseudoinverse.ppss' -c 'parallelPseudoinverse.sh '
-
-#TODO define $THRESHOLD
+$FPATH/ppss -f 'pseudoinverse.ppss' -c "$FPATH/parallelPseudoinverse.sh "
 
 # Recompile data
-echo "Generating Matrix Files"
-rm $MODIFIEDBEAMLINE.mat >& /dev/null; touch $MODIFIEDBEAMLINE.mat
-
-# TODO change this to take data file, not from pDir
-foreach i (`seq $THRESHOLD`)
-	cat "pDir$i/done.dat" >> $MODIFIEDBEAMLINE.mat
+set FILECOUNT = `ls $ELLIPSEPATH/ | wc -l`
+foreach TRIAL (`seq $FILECOUNT`)
+	cat "$ELLIPSEPATH/mValues$TRIAL.dat" >> $MODIFIEDBEAMLINE.mat
 end
 
-sdds2stream -col=ElementName,s,R11,R12,R21,R22,R33,R34,R43,R44 $DESIGNBEAMLINE.mat >! $DESIGNBEAMLINE.matasc
-
-cat "$DESIGNBEAMLINE.matasc" | awk -v verticle=$VERTICLE '{print $1" "$2" "$(3+4*verticle)" "$(4+4*verticle)" "$(5+4*verticle)" "$(6+4*verticle)}' >! "$DESIGNBEAMLINE.matasc"
-
+cat "$RDPATH/$DESIGNBEAMLINE.matasc" | awk -v verticle=$VERTICLE '{print $1" "$2" "$(3+4*verticle)" "$(4+4*verticle)" "$(5+4*verticle)" "$(6+4*verticle)}' > temp.dat; mv temp.dat "$DESIGNBEAMLINE.matasc"
 $FPATH/cutLineOffTopOrBottom.sh top 1 $DESIGNBEAMLINE.matasc

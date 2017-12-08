@@ -26,13 +26,12 @@ foreach i (`grep 'IPM' "downstreamBPM.dat" | awk '{print $1}'`)
 
 
 	set INFORMATION = `grep -w $i "../downstreamBPM.dat" | awk -v bpm1=$BPMONE '{print bpm1" "$1" "$2}'`
-	
 	(parallelPseudoinverse.sh $INFORMATION &)
 
 	cd ..
 	@ x += 1
 end
-	
+
 set DONECOUNT = `ls pDir* | grep -c "done.dat"`
 @ THRESHOLD = `grep -c "IPM" "downstreamBPM.dat"`
 

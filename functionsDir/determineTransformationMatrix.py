@@ -1,9 +1,12 @@
-import numpy as np
+import numpy as np, sys
 
 # A = B * C  where C is the transformation matrix we've been referring to as M.
 
-A = np.loadtxt('ellipseA.fin', delimiter=',')
-B = np.loadtxt('ellipseB.fin', delimiter=',')
+trial = sys.argv[1]
+ellipsePath = sys.argv[2]+"/"
+
+A = np.loadtxt(str(ellipsePath)+'ellipseA'+str(trial)+'.fin', delimiter=',')
+B = np.loadtxt(str(ellipsePath)+'ellipseB'+str(trial)+'.fin', delimiter=',')
 
 # Use Singular Value Decomposition to calculate the U matrix,
 # Eigenvalues, and Eigenvectors
@@ -25,7 +28,7 @@ Vtranspose = np.transpose(V)
 # Re-construct the pseudo inverted C matrix and write to file
 C = Vtranspose.dot(Sinverse.dot(Utranspose.dot(A)))
 
-outfile = open("ellipseC.fin","w")
+outfile = open(str(ellipsePath)+"ellipseC"+str(trial)+".fin","w")
 for n in range(0,C.shape[0]):
     outfile.write(str(C[n])+"\n")
 

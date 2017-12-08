@@ -1,10 +1,11 @@
 ===== PPSS Item Log File =====
 Host:		opsl00
-Process:	26998
+Process:	25636
 Item:		MBT1S01V -1.2677758439829314E-5 MBT1S02V 3.876932955293278E-5 modified 5 1
-Start date:	Dec 07 21:48:01
+Start date:	Dec 08 16:15:01
 
+ELEGANTPATH: Undefined variable.
 
-Status:		SUCCESS
-Total processing time (hh:mm:ss): 00:00:07
+Status:		FAILURE
+Total processing time (hh:mm:ss): 00:00:00
 
