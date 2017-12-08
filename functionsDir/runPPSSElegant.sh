@@ -39,9 +39,9 @@ while ($x <= $N)
 end
 
 # Run scripts
-ppss -f elegantFile.ppss -c "$FPATH/elegantFunction.sh "
+ppss -f 'elegantFile.ppss' -c "$FPATH/elegantFunction.sh "
 
-
+exit
 
 # TODO VERIFY EVERYTHING BELOW THIS POINT
 
