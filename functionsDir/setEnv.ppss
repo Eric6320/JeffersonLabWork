@@ -4,3 +4,5 @@ setenv JAVAPATH ~/git/JeffersonLabWork/javaFiles
 setenv CENTROIDPATH ~/git/JeffersonLabWork/centroidValuesDir
 setenv ELLIPSEPATH ~/git/JeffersonLabWork/ellipseDir
 setenv ELEGANTPATH ~/git/JeffersonLabWork/elegantPPSSDir
+setenv http_proxy https://jprox.jlab.org:8081
+setenv https_proxy https://jprox.jlab.org:8081
