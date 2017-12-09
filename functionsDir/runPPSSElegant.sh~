@@ -26,7 +26,7 @@ end
 
 # Run scripts
 
-ppss -f 'elegantFile.ppss' -c "$FPATH/elegantFunction.sh " > /dev/null
+$FPATH/ppss -f 'elegantFile.ppss' -c "$FPATH/elegantFunction.sh " > /dev/null
 
 # Recompile
 @ x = 1

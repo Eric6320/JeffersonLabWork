@@ -32,7 +32,6 @@ $FPATH/ppss -f 'elegantFile.ppss' -c "$FPATH/elegantFunction.sh " > /dev/null
 @ x = 1
 while ($x <= $N)
 	foreach BPM (`grep "IPM" $RDPATH/information.twiasc | awk '{print $2}'`)
-		# TODO Varify that I don't need any Cxp or Cyp values
 		grep -w $BPM "$ELEGANTPATH/centroidValues$x.dat" | awk -v verticle=$VERTICLE '{print $(3+2*verticle)" "$(4+2*verticle)}' >> "$CENTROIDPATH/$BPM-centroidValues.dat"
 	end
 	@ x += 1

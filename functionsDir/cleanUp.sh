@@ -7,4 +7,4 @@ rm -r ppss_dir >& /dev/null
 rm -r elegantPPSSDir/* centroidValuesDir/* ellipseDir/* >& /dev/null
 
 # Remove all files with the following extensions
-rm *.fin *.dat *.ppss >& /dev/null
+rm *.fin *.dat *.ppss *.mat* >& /dev/null
