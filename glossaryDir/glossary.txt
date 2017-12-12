@@ -1,0 +1,34 @@
+simulate.sh *
+-setArg.sh -pullS.sh -cleanUp.sh -setup.sh -determineStrengths.sh -addStrengthError.sh -runPPSSElegant.sh -runPPSSPseudoinverse.sh
+
+setArg.sh *
+-setVariable.java
+
+pullS.sh *
+
+cleanUp.sh
+-*
+
+setup.sh *
+-unitCircle.sh -floquet.sh
+
+determineStrengths.sh
+-*
+
+addStrengthError.sh
+-*
+
+runPPSSElegant.sh
+-*
+
+runPPSSPseudoinverse.sh
+-*
+
+setVariable.java *
+
+unitCircle.sh *
+-makeCircle.gnuplot
+
+floquet.sh *
+
+makeCircle.gnuplot *
