@@ -24,5 +24,5 @@ cat $INPUTELLIPSE | awk -v Abpm=$ALPHABPM -v B1=$BETAONE -v B2=$BETATWO -v Bbpm=
 
 echo "determineStrengths.sh - Calculating Quadrupole Strengths"
 # calculate necessary kicker strengths and angles to hit each target in the designEllipseOne.dat file - strengths.dat
-#javac /a/devuser/erict/workspace/Miscellaneous/src/dxprimeCalculations.java
+#javac $JAVAPATH/dxprimeCalculations.java
 java -cp $JAVAPATH dxprimeCalculations $OUTPUTFILE

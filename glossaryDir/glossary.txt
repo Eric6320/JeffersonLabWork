@@ -6,23 +6,22 @@ setArg.sh *
 
 pullS.sh *
 
-cleanUp.sh
--*
+cleanUp.sh *
 
 setup.sh *
 -unitCircle.sh -floquet.sh
 
-determineStrengths.sh
--*
+determineStrengths.sh *
+-dxprimeCalculations.java
 
-addStrengthError.sh
--*
+addStrengthError.sh *
+-modifyQuadStrength.java
 
-runPPSSElegant.sh
--*
+runPPSSElegant.sh *
+-ppss elegantFunction.sh
 
-runPPSSPseudoinverse.sh
--*
+runPPSSPseudoinverse.sh *
+-ppss -parallelPseudoinverse.sh -cutLineOffTopOrBottom.sh
 
 setVariable.java *
 
@@ -32,3 +31,25 @@ unitCircle.sh *
 floquet.sh *
 
 makeCircle.gnuplot *
+
+dxprimeCalculations.java *
+
+modifyQuadStrength.java *
+
+ppss *
+
+elegantFunction.sh *
+-modifyCorrector.pl -modifyElegant.sh
+
+modifyCorrector.pl *
+
+modifyElegant.sh *
+
+parallelPseudoinverse.sh *
+-formatEllipses.sh -determineTransformationMatrix.py
+
+cutLineOffTopOrBottom.sh *
+
+formatEllipses.sh *
+
+determineTransformationMatrix.py *

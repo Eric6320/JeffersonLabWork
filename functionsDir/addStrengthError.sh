@@ -8,7 +8,7 @@ set MODIFIEDBEAMLINE = $3
 set SEED = $4
 set MODIFIEDLATTICE = $RDPATH/$MODIFIEDBEAMLINE.lte
 
-#javac /a/devuser/erict/workspace/Miscellaneous/src/modifyQuadStrength.java
+#javac $JAVAPATH/modifyQuadStrength.java
 java -cp $JAVAPATH modifyQuadStrength $QUAD $PERCENTAGE $MODIFIEDLATTICE "temp.dat" $SEED
 
 mv "temp.dat" $MODIFIEDLATTICE
