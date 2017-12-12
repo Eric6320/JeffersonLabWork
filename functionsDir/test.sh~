@@ -1,4 +1,0 @@
-#!/bin/tcsh
-unset noclobber
-
-echo "This is a test"

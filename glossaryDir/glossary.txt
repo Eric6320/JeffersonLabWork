@@ -18,7 +18,7 @@ addStrengthError.sh *
 -modifyQuadStrength.java
 
 runPPSSElegant.sh *
--ppss elegantFunction.sh
+-ppss -elegantFunction.sh
 
 runPPSSPseudoinverse.sh *
 -ppss -parallelPseudoinverse.sh -cutLineOffTopOrBottom.sh
@@ -53,3 +53,4 @@ cutLineOffTopOrBottom.sh *
 formatEllipses.sh *
 
 determineTransformationMatrix.py *
+
