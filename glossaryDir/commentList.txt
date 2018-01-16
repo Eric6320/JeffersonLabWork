@@ -19,8 +19,6 @@ runPPSSPseudoinverse.sh
 unitCircle.sh 
 -makeCircle.gnuplot
 
-floquet.sh 
-
 makeCircle.gnuplot 
 
 dxprimeCalculations.java 
