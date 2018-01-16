@@ -25,21 +25,17 @@ dxprimeCalculations.java
 
 modifyQuadStrength.java 
 
-ppss 
-
 elegantFunction.sh 
 -modifyCorrector.pl -modifyElegant.sh
 
 modifyCorrector.pl 
 
-modifyElegant.sh 
+modifyElegant.sh - Need to provide example
 
 parallelPseudoinverse.sh 
--formatEllipses.sh -determineTransformationMatrix.py
+-formatEllipses.sh -determineTransformationMatrix.py 
 
-cutLineOffTopOrBottom.sh 
-
-formatEllipses.sh 
+formatEllipses.sh - Need to provide example
 
 determineTransformationMatrix.py 
 
