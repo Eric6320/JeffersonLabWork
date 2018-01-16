@@ -1,5 +1,8 @@
 #!/bin/tcsh
 
+#* Description: Used to clean up unnecessary files from the given directory, as well as empty any directories containing specific data files
+#* Example: $FPATH/cleanUp.sh
+
 # Remove directory and all contents within
 rm -r ppss_dir >& /dev/null
 
