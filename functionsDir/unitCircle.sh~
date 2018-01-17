@@ -3,7 +3,7 @@ unset noclobber
 
 #* Description: Generates a unit circle out of N number of orbits
 #* Argument: $1 - N - Number of orbits to include in the generated Unit Circle
-#* Example: unitCircle.sh 10
+#* Example: 
 #* Main Output: circle$N.dat
 
 # Set number of points in the makeCircle gnuplot script

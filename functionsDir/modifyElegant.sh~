@@ -5,7 +5,7 @@ unset noclobber
 #* Argument: $1 - MODIFIEDBEAMLINE - Name of the beamline which has been modified from the design.
 #* Argument: $2 - TRIAL - Trial number which is substituted into the elegant file
 #* Example: modifyElegant.sh modified 10
-#* Main Output: $MODIFIEDBEAMLINE$TRIAL.ele
+#* Main Output: 
 
 # Set Variables from Arguments
 set MODIFIEDBEAMLINE = $1

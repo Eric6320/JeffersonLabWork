@@ -7,7 +7,7 @@ unset noclobber
 #* Argument: $3 - BPM - Name of the BPM to be used as a reference point for the transformation. BPM from which to pull Twiss information
 #* Argument: $4 - VERTICLE - 1 or 0 indicating whether to make verticle or horizontal considerations for the transformation
 #* Argument: inverse - If the word 'inverse' is included anywhere in the command line argument, the transformation will be an inverse floquet transformation, otherwise it will be a standard floquet transformation
-#* Example: floquet.sh inputFileName outputFileName IPM1S03 1 inverse
+#* Example: floquet.sh INPUTFILENAME OUTPUTFILENAME BPMNAME 1 inverse
 #* Main Output: $OUTPUTFILE - Typically modifiedEllipseOne.dat
 
 # Store argument variables

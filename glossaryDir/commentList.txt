@@ -1,37 +1,30 @@
-simulate.sh 
--setArg.sh -pullS.sh -cleanUp.sh -setup.sh -determineStrengths.sh -addStrengthError.sh -runPPSSElegant.sh -runPPSSPseudoinverse.sh
+simulate.sh - Need main outputs
 
-determineStrengths.sh 
+**********************************************
+
+-addStrengthError.sh -runPPSSElegant.sh -runPPSSPseudoinverse.sh
+
 -dxprimeCalculations.java
 
-addStrengthError.sh 
+addStrengthError.sh *
 -modifyQuadStrength.java
 
-runPPSSElegant.sh 
--ppss -elegantFunction.sh
+runPPSSElegant.sh *
 
-runPPSSPseudoinverse.sh 
--ppss -parallelPseudoinverse.sh -cutLineOffTopOrBottom.sh
+runPPSSPseudoinverse.sh *
+-parallelPseudoinverse.sh
 
-unitCircle.sh - Need to provide example
+dxprimeCalculations.java *
 
-dxprimeCalculations.java 
+modifyQuadStrength.java *
 
-modifyQuadStrength.java 
+modifyCorrector.pl
 
-elegantFunction.sh 
--modifyCorrector.pl -modifyElegant.sh
+parallelPseudoinverse.sh *
+-determineTransformationMatrix.py
 
-modifyCorrector.pl 
+determineTransformationMatrix.py *
 
-modifyElegant.sh - Need to provide example
-
-parallelPseudoinverse.sh 
--formatEllipses.sh -determineTransformationMatrix.py 
-
-formatEllipses.sh - Need to provide example
-
-determineTransformationMatrix.py 
 
 #* Description: Used to check whether a variable has been explicitly set from the command line, or should be set to a specified default value
 #* Argument: $1 - stringToFind - Variable identifier, used to determine which string to search for
@@ -40,3 +33,4 @@ determineTransformationMatrix.py
 #* Example: set N = `$FPATH/setArg.sh N 10 $argv`
 #* Further Comments: Variables passed in from the command line should take the form: ./scriptName.sh variableOneName=valueOne, variableTwoName=valueTwo,;
 #* Further Comments: The comma is necessary for parsing, and is needed after every value, even the last one
+#* Main Output: outputFile.dat

@@ -7,6 +7,7 @@
 #* Example: set N = `$FPATH/setArg.sh N 10 $argv`
 #* Further Comments: Variables passed in from the command line should take the form: ./scriptName.sh variableOneName=valueOne, variableTwoName=valueTwo,;
 #* Further Comments: The comma is necessary for parsing, and is needed after every value, even the last one
+#* Main Output: No output file
 
 #javac /a/devuser/erict/workspace/Miscellaneous/src/setVariable.java
 echo `java -cp $JAVAPATH setVariable $argv`

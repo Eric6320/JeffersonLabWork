@@ -7,7 +7,6 @@ unset noclobber
 #* Argument: $3 - FILE - Name of the file being modified
 #* Example: cutLineOffTopOrBottom.sh top 2 testFile
 #* Further Comments: The TOPORBOTTOM argument needs to be either the exact word "top" or the exact word "bottom" for the script to function
-#* Main Output: Whichever File is passed in will be modified and returned as the modified output
 
 set TOPORBOTTOM = $1
 @ NUMBEROFLINES = $2

@@ -5,6 +5,7 @@ unset noclobber
 #* Argument: $1 - BPM - Name of the BPM whose S coordinate is needed
 #* Argument: $2 - DESIGNBEAMLINE - Root name of the unmodified beamline
 #* Example: set S = `$FPATH/pullS.sh $BPM1 $DESIGNBEAMLINE`
+#* Main Output: No output file
 
 set BPM = $1
 set DESIGNBEAMLINE = $2

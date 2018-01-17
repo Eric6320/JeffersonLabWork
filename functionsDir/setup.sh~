@@ -6,7 +6,7 @@ unset noclobber
 #* Argument: $2 - N - Number of orbits to include in the Unit Circle generation.
 #* Argument: $3 - DESIGNBEAMLINE - Name of the unmodified beamline.
 #* Argument: $4 - MODIFIEDBEAMLINE - Name of the traced out beamline, only the name of the beamline is used
-#* Argument: $5 - VERTICLE - Boolean 1 or 0 which represents whether the transformation is verticle or horizontal
+#* Argument: $5 - VERTICLE - Boolean 1 or 0 which represents whether the transformation is verticle or horizontal.
 #* Argument: $6 - S - S coordinate of BPMONE
 #* Example: setup.sh IPM1S03 10 design 1 1.005
 #* Main Output: modifiedEllipseOne.dat

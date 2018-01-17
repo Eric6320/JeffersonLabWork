@@ -40,13 +40,13 @@ $FPATH/setup.sh $BPM1 $N $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $S
 # Using the twiss parameters at the given BPM, determine the strengths needed to trace the design ellipse
 $FPATH/determineStrengths.sh $BPM1 $CORR1 $CORR2 $VERTICLE $MODIFIEDBEAMLINE
 
+exit
+
 # Add scalar error to Quadrupole Strengths if applicable
 if ($STRENGTHERROR != x) then
 	echo "addStrengthError.sh - Adding strength error"
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh MQB1A29 $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
 endif
-
-exit
 
 # Using the design strengths, trace the ellipse and determine the centroid values - *CentroidValues.dat
 $FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE
