@@ -1,6 +1,15 @@
 #!/bin/tcsh
 unset noclobber
 
+#* Description: Generates beamline Twiss information, downstream bpm information, the base unit circle for transformations, and then transforms that unit circle.
+#* Argument: $1 - BPMONE - BPM whose Twiss information is used to transform the unit circle to the betatron ellipse.
+#* Argument: $2 - N - Number of orbits to include in the Unit Circle generation.
+#* Argument: $3 - DESIGNBEAMLINE - Name of the unmodified beamline.
+#* Argument: $4 - VERTICLE - Boolean 1 or 0 which represents whether the transformation is verticle or horizontal.
+#* Argument: $5 - S - S coordinate of BPMONE
+#* Example: 
+
+# Store Variables
 set BPMONE = $1
 set N = $2
 set DESIGNBEAMLINE = $3
