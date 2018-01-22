@@ -9,7 +9,8 @@ unset noclobber
 #* Argument: $5 - MODIFIEDBEAMLINE - Name of the beamline which will be modified to include trial number, then used to run Elegant
 #* Argument: $6 - TRIAL - Trial identification number
 #* Argument: $7 - VERTICLE - Boolean 1 or 0 which represents whether the transformation is verticle or horizontal
-#* Example: modifyElegant.sh modified 10
+#* Example: ppss -f 'elegantFile.ppss' -c "$FPATH/elegantFunction.sh " > /dev/null
+#* Further Comments: The script will not run / function properly if the elegantFile.ppss has not been generated. Information about that file is in runPPSSElegant.sh
 #* Main Output: $ELEGANTPATH"centroidValues$TRIAL.dat"
 
 # The arguments passed in are one continuous string, so each variable must be pulled from its corresponding column

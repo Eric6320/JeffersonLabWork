@@ -46,13 +46,12 @@ if ($STRENGTHERROR != x) then
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh MQB1A29 $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
 endif
 
-exit
-
 # Using the design strengths, trace the ellipse and determine the centroid values - *CentroidValues.dat
 $FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE
 
 $FPATH/runPPSSPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 #$FPATH/catPPSSOutput.sh
+
 exit
 
 # Determine the transformation matrix M for the modified ellipses - modified.mat

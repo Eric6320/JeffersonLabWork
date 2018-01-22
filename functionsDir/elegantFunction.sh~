@@ -2,14 +2,14 @@
 unset noclobber
 
 #* Description: Changes the copied modified beamline's elegant and lattice files, so elegant data can be generated and distinguished based on trial number
-#* Argument: $1 - CORRONE - 
-#* Argument: $2 - CORRSTRENGTHONE - 
-#* Argument: $3 - CORRTWO - 
-#* Argument: $4 - CORRSTRENGTHTWO - 
-#* Argument: $5 - MODIFIEDBEAMLINE - 
+#* Argument: $1 - CORRONE - First quadrupole whose strength will be modified
+#* Argument: $2 - CORRSTRENGTHONE - Strength to which the first quadrupole will be set to
+#* Argument: $3 - CORRTWO - Second quadrupole whose strength will be modified
+#* Argument: $4 - CORRSTRENGTHTWO - Strength to which the second quadrupole will be set to
+#* Argument: $5 - MODIFIEDBEAMLINE - Name of the beamline which will be modified to include trial number, then used to run Elegant
 #* Argument: $6 - TRIAL - Trial identification number
 #* Argument: $7 - VERTICLE - Boolean 1 or 0 which represents whether the transformation is verticle or horizontal
-#* Example: modifyElegant.sh modified 10
+#* Example: 
 #* Main Output: $ELEGANTPATH"centroidValues$TRIAL.dat"
 
 # The arguments passed in are one continuous string, so each variable must be pulled from its corresponding column

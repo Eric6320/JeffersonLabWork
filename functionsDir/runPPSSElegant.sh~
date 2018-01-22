@@ -8,7 +8,7 @@ unset noclobber
 #* Argument: $4 - CORRTWO - Name of the second quadrupole which is manipulated to trace out each orbit
 #* Argument: $5 - VERTICLE - Boolean 1 or 0 which represents whether the transformation is verticle or horizontal
 #* Example: runPPSSElegant.sh 10 modified MBT1S01V MBT1SO2V 1
-#* Further Comments: All of the data from the elegant calls are stored in the elegantPPSSDir folder, but all centroidValue data files are stored in the centroidValuesDir folder
+#* Further Comments: All of the data from this script is routed to the elegantPPSSDir folder
 #* Main Output: $BPM-centroidValues.dat
 
 echo "runPPSSElegant.sh - Running Elegant to generate centroidValue data files"

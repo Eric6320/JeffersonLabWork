@@ -1,38 +1,29 @@
-simulate.sh - Need main outputs
 
-**********************************************
 
--addStrengthError.sh -runPPSSElegant.sh -runPPSSPseudoinverse.sh
 
--dxprimeCalculations.java
 
-addStrengthError.sh *
--modifyQuadStrength.java
-
-runPPSSElegant.sh *
-
-runPPSSPseudoinverse.sh *
+runPPSSPseudoinverse.sh
 -parallelPseudoinverse.sh
 
-dxprimeCalculations.java *
 
-modifyQuadStrength.java *
+dxprimeCalculations.java
+modifyQuadStrength.java
+dxprimeCalculations.java
+modifyQuadStrength.java
 
--modifyCorrector.pl
-
-modifyCorrector.pl *
-
-parallelPseudoinverse.sh *
--determineTransformationMatrix.py
-
-determineTransformationMatrix.py *
+modifyCorrector.pl
+determineTransformationMatrix.py
+determineTransformationMatrix.py
 
 
-#* Description: Used to check whether a variable has been explicitly set from the command line, or should be set to a specified default value
-#* Argument: $1 - stringToFind - Variable identifier, used to determine which string to search for
-#* Argument: $2 - defaultValue - Value to return if stringToFind is not found in the given arguments
-#* Argument: $3+ - argv - Command line arguments which are parsed to find stringToFind
-#* Example: set N = `$FPATH/setArg.sh N 10 $argv`
-#* Further Comments: Variables passed in from the command line should take the form: ./scriptName.sh variableOneName=valueOne, variableTwoName=valueTwo,;
-#* Further Comments: The comma is necessary for parsing, and is needed after every value, even the last one
-#* Main Output: outputFile.dat
+
+
+
+#* Description:
+#* Argument: $1 - 
+#* Argument: $2 - 
+#* Argument: $3+ - 
+#* Example: 
+#* Further Comments: 
+#* Further Comments: 
+#* Main Output:
