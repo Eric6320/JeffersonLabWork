@@ -9,7 +9,7 @@ unset noclobber
 #* Argument: $5 - VERTICLE - Boolean 1 or 0 which represents whether the transformation is verticle or horizontal
 #* Argument: $6 - S - S coordinate of BPMONE
 #* Example: setup.sh IPM1S03 10 design 1 1.005
-#* Main Output: modifiedEllipseOne.dat
+#* Main Output: $MODIFIEDBEAMLINE"EllipseOne.dat" - Coordinate pairs of design betatron ellipse
 
 # Store Variables
 set BPMONE = $1

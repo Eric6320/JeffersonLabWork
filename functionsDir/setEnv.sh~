@@ -2,7 +2,8 @@
 
 setenv FPATH ~/git/JeffersonLabWork/functionsDir
 setenv RDPATH ~/git/JeffersonLabWork/rawDataDir
-setenv JAVAPATH ~/git/JeffersonLabWork/javaFiles
+setenv PLOTPATH ~/git/JeffersonLabWork/plotsDir
+setenv JAVAPATH ~/git/JeffersonLabWork/javaFiles/src
 setenv CENTROIDPATH ~/git/JeffersonLabWork/centroidValuesDir
 setenv ELLIPSEPATH ~/git/JeffersonLabWork/ellipseDir
 setenv ELEGANTPATH ~/git/JeffersonLabWork/elegantPPSSDir

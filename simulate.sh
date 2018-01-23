@@ -35,9 +35,11 @@ set S = `$FPATH/pullS.sh $BPM1 $DESIGNBEAMLINE`
 echo "\nN = $N\nSeed = $SEED\ncorr1 = $CORR1\ncorr2 = $CORR2\nbpm1 = $BPM1\ndesignBeamline = $DESIGNBEAMLINE\nmodifiedBeamline = $MODIFIEDBEAMLINE\nverticle = $VERTICLE\nstrengthError = $STRENGTHERROR\n"
 
 # Generate a unit circle and perform a floquet transformation at the specified bpm
+#* Output: $MODIFIEDBEAMLINE"EllipseOne.dat" - Coordinate pairs of design betatron ellipse
 $FPATH/setup.sh $BPM1 $N $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $S
 
 # Using the twiss parameters at the given BPM, determine the strengths needed to trace the design ellipse
+#* Output: $MODIFIEDBEAMLINE"Strengths.dat"
 $FPATH/determineStrengths.sh $BPM1 $CORR1 $CORR2 $VERTICLE $MODIFIEDBEAMLINE
 
 # Add scalar error to Quadrupole Strengths if applicable
@@ -46,13 +48,17 @@ if ($STRENGTHERROR != x) then
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh MQB1A29 $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
 endif
 
-# Using the design strengths, trace the ellipse and determine the centroid values - *CentroidValues.dat
+# Using the design strengths, trace the ellipse and determine the centroid values
+#* Output: centroidValuesDir/*BPM*CentroidValues.dat
 $FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE
+
+# Sanity check to ensure that modified values do not vary wildly from the design #TODO INCLUDE DETERMINANT CHECK AND MOVE AFTER PSEUDOINVERSE CODE
+$FPATH/sanityCheck.sh $BPM1"CentroidValues.dat" $BPM1 $N $VERTICLE "floquet" "plot"
+exit
 
 $FPATH/runPPSSPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 #$FPATH/catPPSSOutput.sh
 
-exit
 
 # Determine the transformation matrix M for the modified ellipses - modified.mat
 runParallelPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE

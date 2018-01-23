@@ -1,9 +1,6 @@
 
-
-
-
-runPPSSPseudoinverse.sh
--parallelPseudoinverse.sh
+plot.sh
+sanityCheck.sh
 
 
 dxprimeCalculations.java

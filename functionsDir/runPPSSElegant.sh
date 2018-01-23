@@ -9,7 +9,7 @@ unset noclobber
 #* Argument: $5 - VERTICLE - Boolean 1 or 0 which represents whether the transformation is verticle or horizontal
 #* Example: runPPSSElegant.sh 10 modified MBT1S01V MBT1SO2V 1
 #* Further Comments: All of the data from the elegant calls are stored in the elegantPPSSDir folder, but all centroidValue data files are stored in the centroidValuesDir folder
-#* Main Output: $BPM-centroidValues.dat
+#* Main Output: *BPM*CentroidValues.dat
 
 echo "runPPSSElegant.sh - Running Elegant to generate centroidValue data files"
 
@@ -36,15 +36,18 @@ while ($x <= $N)
 end
 
 # Run Elegant $N number of times in parallel using ppss
-#* Output: centroidValues$TRIAL.dat
+#* Output: $ELEGANTPATH/centroidValues$TRIAL.dat
 $FPATH/ppss -f 'elegantFile.ppss' -c "$FPATH/elegantFunction.sh " > /dev/null
 
 # Recompile all of the centroidValue$TRIAL.dat files into one comprehensive list
-#* Output: $BPM-centroidValues.dat
+#* Output: $CENTROIDPATH/$BPM-centroidValues.dat
 @ x = 1
 while ($x <= $N)
 	foreach BPM (`grep "IPM" $RDPATH/information.twiasc | awk '{print $2}'`)
-		grep -w $BPM "$ELEGANTPATH/centroidValues$x.dat" | awk -v verticle=$VERTICLE '{print $(3+2*verticle)" "$(4+2*verticle)}' >> "$CENTROIDPATH/$BPM-centroidValues.dat"
+		grep -w $BPM "$ELEGANTPATH/centroidValues$x.dat" | awk -v verticle=$VERTICLE '{print $(3+2*verticle)" "$(4+2*verticle)}' >> $CENTROIDPATH/$BPM"CentroidValues.dat"
 	end
 	@ x += 1
 end
+
+# Move a hard coded extra copy of "IPM1S03CentroidValues.dat" to the main directory for the sanity check
+cp $CENTROIDPATH/"IPM1S03CentroidValues.dat" ~/git/JeffersonLabWork/"IPM1S03CentroidValues.dat"
