@@ -24,7 +24,6 @@ setup.sh $BPM1 $N $DESIGNBEAMLINE $VERTICLE $S
 # Using the twiss parameters at the given BPM, determine the strengths needed to trace the design ellipse - *Strengths.dat
 determineStrengths.sh $BPM1 $CORR1 $CORR2 $VERTICLE $MODIFIEDBEAMLINE
 
-
 # Add scalar error to Quadrupole Strengths if applicable - Edit *-centroidValues.dat
 if ($STRENGTHERROR != x) then
 	echo "addStrengthError.sh - Adding strength error"
@@ -37,10 +36,16 @@ runParallelElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE
 # Determine the transformation matrix M for the modified ellipses - modified.mat
 runParallelPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 
+exit
+
+echo "DIFFERENCE AFTER PARALLELPSEUDOINVERSE"
+diff unkicked.matasc ~/git/JeffersonLabWork/unkicked.matasc
+
 # Calculate the CHI2DOF between each of the M matrix elements - comparison*.fin
 runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 
-
+echo "DIFFERENCE AFTER COMPAREM"
+diff unkicked.matasc ~/git/JeffersonLabWork/unkicked.matasc
 
 #./plotPhase.sh $BPM1 $N $VERTICLE,
 #./plotM.sh M=3,title=Pre-Corrected Chi2dof of M,
@@ -53,6 +58,10 @@ if ($STRENGTHERROR != x) then
 	echo "Target strength = $NEWQUADSTRENGTH"
 	echo "Function"
 	function.sh MQB1A29 $NEWQUADSTRENGTH "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+
+	echo "DISTANCE AFTER FUNCTION"
+	diff unkicked.matasc ~/git/JeffersonLabWork/unkicked.matasc
+
 	echo "runParallelCompareM"
 	runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 	echo "Find Outlier"
@@ -60,9 +69,16 @@ if ($STRENGTHERROR != x) then
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,
 	echo "Optimize"
 	optimize.sh MQB1A29 "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+
+	echo "DISTANCE AFTER OPTIMIZE"
+	diff unkicked.matasc ~/git/JeffersonLabWork/unkicked.matasc
+
 	echo "runParallelCompareM"
 	runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 	echo "FindOutlier"
 	findOutlier.sh 3 remove
 #	./plotM.sh M=3,title=Optimized Chi2dof of M with outlier removed,
 endif
+
+echo "DISTANCE AFTER EVERYTHING"
+diff unkicked.matasc ~/git/JeffersonLabWork/unkicked.matasc

@@ -13,8 +13,8 @@ set BPMONE = $1
 set BPMTWO = $2
 set TRIAL = $3
 
-set FILEONE = "$CENTROIDPATH/$BPMONE-centroidValues.dat"
-set FILETWO = "$CENTROIDPATH/$BPMTWO-centroidValues.dat"
+set FILEONE = $CENTROIDPATH/$BPMONE"CentroidValues.dat"
+set FILETWO = $CENTROIDPATH/$BPMTWO"CentroidValues.dat"
 
 # Reformat the data in a SVD Pseudoinverse readable way, ellipseA and ellipseB
 cat $FILETWO | awk '{print $1"\n"$2}' >! $ELLIPSEPATH/ellipseA$TRIAL.fin

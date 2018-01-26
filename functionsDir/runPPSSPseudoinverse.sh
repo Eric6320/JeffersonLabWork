@@ -39,5 +39,6 @@ end
 
 # Reformat the transportation matrix from the design beamline
 #* Output: $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
+
 cat "$RDPATH/$DESIGNBEAMLINE.matasc" | awk -v verticle=$VERTICLE '{print $1" "$2" "$(3+4*verticle)" "$(4+4*verticle)" "$(5+4*verticle)" "$(6+4*verticle)}' > temp.dat; mv temp.dat "$DESIGNBEAMLINE.matasc"
 $FPATH/cutLineOffTopOrBottom.sh top 1 $DESIGNBEAMLINE.matasc

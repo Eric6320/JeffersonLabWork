@@ -1,10 +1,13 @@
 ===== PPSS Item Log File =====
 Host:		opsl00
-Process:	13844
+Process:	26097
 Item:		MBT1S01V 9.320599408767418E-6 MBT1S02V -2.192436790373284E-5 modified 1 1
-Start date:	Jan 25 19:02:53
+Start date:	Jan 25 20:33:38
 
+Unable to find file modified1.lte
+Error for sdds2stream:
+Unable to open file "/usr/devuser/erict/git/JeffersonLabWork/elegantPPSSDir/modified1.cen" for reading (SDDS_InitializeInput)
 
-Status:		SUCCESS
-Total processing time (hh:mm:ss): 00:00:05
+Status:		FAILURE
+Total processing time (hh:mm:ss): 00:00:00
 

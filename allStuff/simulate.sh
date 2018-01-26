@@ -39,8 +39,6 @@ runParallelPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 # Calculate the CHI2DOF between each of the M matrix elements - comparison*.fin
 runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 
-
-
 #./plotPhase.sh $BPM1 $N $VERTICLE,
 #./plotM.sh M=3,title=Pre-Corrected Chi2dof of M,
 #./findOutlier.sh 3 remove

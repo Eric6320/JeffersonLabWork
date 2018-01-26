@@ -5,7 +5,7 @@ unset noclobber
 #* Argument: $1 - BPMONE - First BPM name
 #* Argument: $2 - BPMTWO - Second BPM name
 #* Argument: $3 - TRIAL - Trial number
-#* Example: 
+#* Example: formatEllipses.sh IPM1S03 IPM1S05 5
 #* Main Output: ellipseA$TRIAL.fin, ellipseB$TRIAL.fin
 
 # Set Variables

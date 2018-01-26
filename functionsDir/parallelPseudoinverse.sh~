@@ -1,16 +1,17 @@
 #!/bin/tcsh
 unset noclobber
 
-#* Description: Determines the transformation matrices between the given BPM, and all other BPM downstream
+#* Description: Determines the transformation matrices between the two given BPM
 #* Argument: $1 - BPMONE - BPM to use as a reference point for all SVD pseudoinverse transformations
-#* Argument: $2 - DESIGNBEAMLINE - Name of the unmodified 'design' beamline
-#* Argument: $3 - MODIFIEDBEAMLINE - Modified beamline whose only purpose in this script is to provide a name for the data file containing the M values
-#* Argument: $4 - VERTICLE - Boolean 1 or 0 which represents whether the transformation is verticle or horizontal
-#* Example: runPPSSPseudoinverse.sh IPM1S03 unkicked modified 1
+#* Argument: $2 - BPMTWO - BPM to be used as the ending reference point in the SVD pseudoinverse transformation
+#* Argument: $3 - S - S coordinate of BPMTWO, used primarily for book keeping
+#* Argument: $4 - TRIAL - TRIAL number for parallel bookkeeping
+#* Example: ppss -f 'pseudoinverse.ppss' -c "$FPATH/parallelPseudoinverse.sh "
+#* Further Comments: The script will not function without the pseudoinverse.ppss script having being generated first, information about this script is in runPPSSPseudoinverse.sh
 #* Further Comments: All of the transformation matrix information is stored in the ellipseDir folder
 #* Main Output: mValues$TRIAL.dat
 
-# Store variables as command input or defaults
+# The arguments passed in are one continuous string, so each variable must be pulled from its corresponding column
 set BPMONE = `echo $1 | awk '{print $1}'`
 set BPMTWO = `echo $1 | awk '{print $2}'`
 set S = `echo $1 | awk '{print $3}'`

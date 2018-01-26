@@ -1,0 +1,24 @@
+===== PPSS Item Log File =====
+Host:		opsl00
+Process:	29937
+Item:		IPM1S03 IPM1A06 1.422641104377639e+02 14
+Start date:	Jan 25 20:33:43
+
+/usr/csite/pubtools/python/lib/python2.7/site-packages/numpy/lib/npyio.py:795: UserWarning: loadtxt: Empty input file: "/usr/devuser/erict/git/JeffersonLabWork/ellipseDir/ellipseA14.fin"
+  warnings.warn('loadtxt: Empty input file: "%s"' % fname)
+/usr/csite/pubtools/python/lib/python2.7/site-packages/numpy/lib/npyio.py:795: UserWarning: loadtxt: Empty input file: "/usr/devuser/erict/git/JeffersonLabWork/ellipseDir/ellipseB14.fin"
+  warnings.warn('loadtxt: Empty input file: "%s"' % fname)
+Traceback (most recent call last):
+  File "/usr/devuser/erict/git/JeffersonLabWork/functionsDir/determineTransformationMatrix.py", line 16, in <module>
+    U, S, V = np.linalg.svd(B, full_matrices=False)
+  File "/usr/csite/pubtools/python/lib/python2.7/site-packages/numpy/linalg/linalg.py", line 1273, in svd
+    _assertRank2(a)
+  File "/usr/csite/pubtools/python/lib/python2.7/site-packages/numpy/linalg/linalg.py", line 155, in _assertRank2
+    'two-dimensional' % len(a.shape))
+numpy.linalg.linalg.LinAlgError: 1-dimensional array given. Array must be two-dimensional
+cat: /usr/devuser/erict/git/JeffersonLabWork/ellipseDir/ellipseC14.fin: No such file or directory
+cat: /usr/devuser/erict/git/JeffersonLabWork/ellipseDir/ellipseC14.fin: No such file or directory
+
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:00:01
+
