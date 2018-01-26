@@ -28,7 +28,7 @@ end
 
 # Run each transformation matrix calculation in parallel ussing ppss
 #* Output: mValues$TRIAL.dat
-$FPATH/ppss -f 'pseudoinverse.ppss' -c "$FPATH/parallelPseudoinverse.sh "
+$FPATH/ppss -f 'pseudoinverse.ppss' -c "$FPATH/parallelPseudoinverse.sh " > /dev/null
 
 # Recompile the M values into one data file
 #* Output: MODIFIEDBEAMLINE.mat
@@ -38,6 +38,6 @@ foreach TRIAL (`seq $FILECOUNT`)
 end
 
 # Reformat the transportation matrix from the design beamline
-#* Output: $DESIGNBEAMLINE.matasc
+#* Output: $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 cat "$RDPATH/$DESIGNBEAMLINE.matasc" | awk -v verticle=$VERTICLE '{print $1" "$2" "$(3+4*verticle)" "$(4+4*verticle)" "$(5+4*verticle)" "$(6+4*verticle)}' > temp.dat; mv temp.dat "$DESIGNBEAMLINE.matasc"
 $FPATH/cutLineOffTopOrBottom.sh top 1 $DESIGNBEAMLINE.matasc

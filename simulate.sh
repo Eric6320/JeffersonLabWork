@@ -52,13 +52,17 @@ endif
 #* Output: centroidValuesDir/*BPM*CentroidValues.dat
 $FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE
 
-# Sanity check to ensure that modified values do not vary wildly from the design #TODO INCLUDE DETERMINANT CHECK AND MOVE AFTER PSEUDOINVERSE CODE
-$FPATH/sanityCheck.sh $BPM1"CentroidValues.dat" $BPM1 $N $VERTICLE "floquet" "plot"
-exit
-
+# Use a Singular Value Decomposition Pseudoinverse to generate the two sets of transportation matrices
+#* Output: $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 $FPATH/runPPSSPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 #$FPATH/catPPSSOutput.sh
 
+# Sanity check to ensure that modified values do not vary wildly from the design #TODO INCLUDE DETERMINANT CHECK AND MOVE AFTER PSEUDOINVERSE CODE
+$FPATH/sanityCheck.sh $MODIFIEDBEAMLINE"EllipseOne.dat" $BPM1"CentroidValues.dat" $BPM1 $N $VERTICLE #"plot"
+exit
+
+#TODO figure out if the outputs up to this point match.
+exit
 
 # Determine the transformation matrix M for the modified ellipses - modified.mat
 runParallelPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE

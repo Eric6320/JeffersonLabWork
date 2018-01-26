@@ -8,38 +8,43 @@ unset noclobber
 #* Main Output: TODO
 
 # Set variables from arguments
-set BETATRONFILE = $1
-set BPMONE = $2
-set N = $3
-set VERTICLE = $4
+set BETATRONFILEONE = $1
+set BETATRONFILETWO = $2
+set BPM = $3
+set N = $4
+set VERTICLE = $5
 
-set FLOQUETCHECK = `echo $argv | grep -c "floquet"`
 set PLOTCHECK = `echo $argv | grep -c "plot"`
 
-if ($FLOQUETCHECK == 1) then
-	echo "sanityCheck.sh - Starting Floquet comparison / varification"
+echo "sanityCheck.sh - Starting Floquet comparison / varification"
 
 
-	# Transform the betatron ellipse back to a unit circle
-	$FPATH/floquet.sh $BETATRONFILE "modifiedUnitCircle.dat" $BPMONE $VERTICLE
+# Transform the betatron ellipse back to a unit circle
+$FPATH/floquet.sh $BETATRONFILEONE "modifiedUnitCircleOne.dat" $BPM $VERTICLE
+$FPATH/floquet.sh $BETATRONFILETWO "modifiedUnitCircleTwo.dat" $BPM $VERTICLE
 
-	if ($PLOTCHECK == 1) then
-		# Graph the origional image, the transformed unit circle, and the design unit circle
-		$FPATH/plot.sh $BETATRONFILE title=Initial Betatron Ellipse, xAxisLabel=X, yAxisLabel=xPrime,
-		$FPATH/plot.sh "modifiedUnitCircle.dat" title=Modified Unit Circle, xAxisLabel=Y, yAxisLabel=Y,
-		$FPATH/plot.sh "circle$N.dat" title=Design Unit Circle, xAxisLabel=x, yAxisLabel=Y,
-	endif
-
-	# Paste the two unit circles together to calculate the CHI2DOF between them #TODO possibly put parenthesis around sqrt() in awk
-	paste -d " " "modifiedUnitCircle.dat" "circle$N.dat" >! "floquetComparison.dat"
-	awk '{ sum += sqrt(($1-$3)^2 + ($2-$4)^2)} END { print sum }' "floquetComparison.dat"
-	rm "floquetComparison.dat"
-
-# If it is not a floquet check, it is a determinant varification
-else
-	#TODO ADD THE DETERMINANT VARIFICATION HERE
+if ($PLOTCHECK == 1) then
+	# Graph the origional image, the transformed unit circle, and the design unit circle
+	$FPATH/plot.sh $BETATRONFILE title=Initial Betatron Ellipse, xAxisLabel=X, yAxisLabel=xPrime,
+	$FPATH/plot.sh "modifiedUnitCircleOne.dat" title=Initial Modified Unit Circle, xAxisLabel=X, yAxisLabel=Y,
+	$FPATH/plot.sh "modifiedUnitCircleTwo.dat" title=Traced Modified Unit Circle, xAxisLabel=X, yAxisLabel=Y,
+	$FPATH/plot.sh "circle$N.dat" title=Design Unit Circle, xAxisLabel=X, yAxisLabel=Y,
 endif
 
+# Paste the two unit circles together to calculate the CHI2DOF between them
+paste -d " " "modifiedUnitCircleOne.dat" "circle$N.dat" >! "floquetComparisonOne.dat"
+paste -d " " "modifiedUnitCircleTwo.dat" "circle$N.dat" >! "floquetComparisonTwo.dat"
+set INITIALCOMPARISON = `awk '{ sum += sqrt(($1-$3)^2 + ($2-$4)^2)} END { print sum }' "floquetComparisonOne.dat"`
+set TRACEDCOMPARISON = `awk '{ sum += sqrt(($1-$3)^2 + ($2-$4)^2)} END { print sum }' "floquetComparisonTwo.dat"`
+rm "floquetComparisonOne.dat" "floquetComparisonTwo.dat"
 
+#TODO ADD THE DETERMINANT VARIFICATION HERE
+
+if ($INITIALCOMPARISON>1 || $TRACEDCOMPARISON>1) then 
+	echo "Sanity Check Failed, exiting ... "
+	exit
+else
+	echo "All Sanity Checks Passed"
+endif
 
 
