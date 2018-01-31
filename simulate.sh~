@@ -62,27 +62,21 @@ $FPATH/clearPPSSOutput.sh
 $FPATH/sanityCheck.sh $MODIFIEDBEAMLINE"EllipseOne.dat" $BPM1"CentroidValues.dat" $BPM1 $N $VERTICLE #"plot"
 
 $FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
+#$FPATH/clearPPSSOutput.sh
 #$FPATH/catPPSSOutput.sh
-exit
 
-
-#./plotPhase.sh $BPM1 $N $VERTICLE,
-#./plotM.sh M=3,title=Pre-Corrected Chi2dof of M,
-#./findOutlier.sh 3 remove
-#./plotM.sh M=3,title=Outlier removed Pre-Corrected Chi2dof of M,
-
-#./plotParabola.sh N=50,
+#TODO possibly add another sanity check here plotting the parabola and M values
 
 if ($STRENGTHERROR != x) then
 	echo "Target strength = $NEWQUADSTRENGTH"
-	echo "Function"
-	function.sh MQB1A29 $NEWQUADSTRENGTH "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
-	echo "runParallelCompareM"
-	runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
-	echo "Find Outlier"
-	findOutlier.sh 3 remove
+	echo "function.sh"
+	$FPATH/function.sh MQB1A29 $NEWQUADSTRENGTH "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+	echo "runPPSSCompareM.sh"
+	$FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
+	echo "findOutlier.sh"
+	$FPATH/findOutlier.sh 3 remove
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,
-	echo "Optimize"
+	echo "optimize.sh"
 	optimize.sh MQB1A29 "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 	echo "runParallelCompareM"
 	runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE

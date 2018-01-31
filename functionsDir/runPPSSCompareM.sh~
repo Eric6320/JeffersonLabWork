@@ -1,6 +1,8 @@
 #!/bin/tcsh
 unset noclobber
 
+rm -r chi2Dir/* >& /dev/null
+
 # Set arguments
 set BPMONE = $1
 set DESIGNBEAMLINE = $2
@@ -27,7 +29,7 @@ foreach M (1 2 3 4)
 	cat `grep "IPM" "downstreamBPM.dat" | awk -v M=$M -v path=$CHI2PATH '{print path"/parallel"M"-"$1".dat"}'` >> "$CHI2PATH/newComparison$M.dat"
 end
 
-paste -d " " $CHI2PATH/downstreamBPM.dat $CHI2PATH/newComparison1.dat $CHI2PATH/newComparison2.dat $CHI2PATH/newComparison3.dat $CHI2PATH/newComparison4.dat >! $CHI2PATH/comparisons.fin
+paste -d " " downstreamBPM.dat $CHI2PATH/newComparison1.dat $CHI2PATH/newComparison2.dat $CHI2PATH/newComparison3.dat $CHI2PATH/newComparison4.dat >! $CHI2PATH/comparisons.fin
 
 #Remove the line comparing the BPM to itself
 cutLineOffTopOrBottom.sh top 1 $CHI2PATH/comparisons.fin

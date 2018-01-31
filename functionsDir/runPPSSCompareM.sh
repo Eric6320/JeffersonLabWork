@@ -1,6 +1,10 @@
 #!/bin/tcsh
 unset noclobber
 
+#TODO comment this
+
+rm -r chi2Dir/* >& /dev/null
+
 # Set arguments
 set BPMONE = $1
 set DESIGNBEAMLINE = $2
