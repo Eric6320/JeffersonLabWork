@@ -51,23 +51,20 @@ endif
 # Using the design strengths, trace the ellipse and determine the centroid values
 # Output: centroidValuesDir/*BPM*CentroidValues.dat
 $FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE
+$FPATH/clearPPSSOutput.sh
 
 # Use a Singular Value Decomposition Pseudoinverse to generate the two sets of transportation matrices
 # Output: $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 $FPATH/runPPSSPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+$FPATH/clearPPSSOutput.sh
 
-# Sanity check to ensure that modified values do not vary wildly from the design #TODO INCLUDE DETERMINANT CHECK AND MOVE AFTER PSEUDOINVERSE CODE
+# Sanity check to ensure that modified values do not vary wildly from the design
 $FPATH/sanityCheck.sh $MODIFIEDBEAMLINE"EllipseOne.dat" $BPM1"CentroidValues.dat" $BPM1 $N $VERTICLE #"plot"
 
 $FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
+#$FPATH/clearPPSSOutput.sh
 #$FPATH/catPPSSOutput.sh
 exit
-
-
-
-# Calculate the CHI2DOF between each of the M matrix elements - comparison*.fin
-runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
-
 
 
 #./plotPhase.sh $BPM1 $N $VERTICLE,

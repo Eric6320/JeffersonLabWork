@@ -1,0 +1,414 @@
+Jan 31 14:40:31: DSPLY 
+Jan 31 14:40:31: DSPLY =========================================================
+Jan 31 14:40:31: DSPLY                        |P|P|S|S|                         
+Jan 31 14:40:31: DSPLY Distributed Parallel Processing Shell Script vers. 2.98
+Jan 31 14:40:31: DSPLY =========================================================
+Jan 31 14:40:31: DSPLY Hostname:		opsl00
+Jan 31 14:40:31: DSPLY ---------------------------------------------------------
+Jan 31 14:40:31: DSPLY CPU: Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+Jan 31 14:40:31: DSPLY Found 8 logic processors.
+Jan 31 14:40:31: DSPLY Starting 8 parallel workers.
+Jan 31 14:40:31: DSPLY ---------------------------------------------------------
+Jan 31 14:40:31: INFO  Current active workers is 8
+Jan 31 14:40:31: INFO  Now processing IPM1S03 1 unkicked modified
+Jan 31 14:40:31: INFO  Current active workers is 8
+Jan 31 14:40:31: INFO  Now processing IPM1S05 1 unkicked modified
+Jan 31 14:40:31: INFO  Current active workers is 8
+Jan 31 14:40:31: INFO  Now processing IPM1S07 1 unkicked modified
+Jan 31 14:40:31: INFO  Current active workers is 8
+Jan 31 14:40:32: INFO  Now processing IPM1S08 1 unkicked modified
+Jan 31 14:40:32: INFO  Current active workers is 8
+Jan 31 14:40:32: INFO  Now processing IPM1S09 1 unkicked modified
+Jan 31 14:40:32: INFO  Current active workers is 8
+Jan 31 14:40:32: INFO  Now processing IPM1S10 1 unkicked modified
+Jan 31 14:40:32: INFO  Current active workers is 8
+Jan 31 14:40:32: INFO  Now processing IPM1E01 1 unkicked modified
+Jan 31 14:40:32: INFO  Current active workers is 8
+Jan 31 14:40:32: INFO  Now processing IPM1E02 1 unkicked modified
+Jan 31 14:40:32: INFO  Current active workers is 8
+Jan 31 14:40:32: INFO  Now processing IPM1E03 1 unkicked modified
+Jan 31 14:40:32: INFO  Current active workers is 8
+Jan 31 14:40:32: INFO  Now processing IPM1A01 1 unkicked modified
+Jan 31 14:40:32: INFO  Current active workers is 8
+Jan 31 14:40:32: INFO  Now processing IPM1A03 1 unkicked modified
+Jan 31 14:40:32: INFO  Current active workers is 8
+Jan 31 14:40:32: INFO  Now processing IPM1A04 1 unkicked modified
+Jan 31 14:40:32: INFO  Current active workers is 8
+Jan 31 14:40:32: INFO  Now processing IPM1A05 1 unkicked modified
+Jan 31 14:40:32: INFO  Current active workers is 8
+Jan 31 14:40:33: INFO  Now processing IPM1A06 1 unkicked modified
+Jan 31 14:40:33: INFO  Current active workers is 8
+Jan 31 14:40:33: INFO  Now processing IPM1A07 1 unkicked modified
+Jan 31 14:40:33: INFO  Current active workers is 8
+Jan 31 14:40:33: INFO  Now processing IPM1A08 1 unkicked modified
+Jan 31 14:40:33: INFO  Current active workers is 8
+Jan 31 14:40:33: INFO  Now processing IPM1A09 1 unkicked modified
+Jan 31 14:40:33: INFO  Current active workers is 8
+Jan 31 14:40:33: INFO  Now processing IPM1A10 1 unkicked modified
+Jan 31 14:40:33: INFO  Current active workers is 8
+Jan 31 14:40:33: INFO  Now processing IPM1A11 1 unkicked modified
+Jan 31 14:40:33: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:33: INFO  Current active workers is 8
+Jan 31 14:40:33: INFO  Now processing IPM1A13 1 unkicked modified
+Jan 31 14:40:33: INFO  Current active workers is 8
+Jan 31 14:40:33: INFO  Now processing IPM1A14 1 unkicked modified
+Jan 31 14:40:33: INFO  Current active workers is 8
+Jan 31 14:40:33: INFO  Now processing IPM1A16 1 unkicked modified
+Jan 31 14:40:33: INFO  Current active workers is 8
+Jan 31 14:40:34: INFO  Now processing IPM1A18 1 unkicked modified
+Jan 31 14:40:34: INFO  Current active workers is 8
+Jan 31 14:40:34: INFO  Now processing IPM1A19 1 unkicked modified
+Jan 31 14:40:34: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:34: INFO  Current active workers is 8
+Jan 31 14:40:34: INFO  Now processing IPM1A21 1 unkicked modified
+Jan 31 14:40:34: INFO  Current active workers is 8
+Jan 31 14:40:34: INFO  Now processing IPM1A23 1 unkicked modified
+Jan 31 14:40:34: INFO  Current active workers is 8
+Jan 31 14:40:34: INFO  Now processing IPM1A24 1 unkicked modified
+Jan 31 14:40:34: INFO  Current active workers is 8
+Jan 31 14:40:34: INFO  Now processing IPM1A26 1 unkicked modified
+Jan 31 14:40:34: INFO  Current active workers is 8
+Jan 31 14:40:34: INFO  Now processing IPM1A28 1 unkicked modified
+Jan 31 14:40:34: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:34: INFO  Current active workers is 8
+Jan 31 14:40:34: INFO  Now processing IPM1A29 1 unkicked modified
+Jan 31 14:40:34: INFO  Current active workers is 8
+Jan 31 14:40:34: INFO  Now processing IPM1A31 1 unkicked modified
+Jan 31 14:40:34: INFO  Current active workers is 8
+Jan 31 14:40:34: INFO  Now processing IPM1A33 1 unkicked modified
+Jan 31 14:40:34: INFO  Current active workers is 8
+Jan 31 14:40:35: INFO  Now processing IPM1A34 1 unkicked modified
+Jan 31 14:40:35: INFO  Current active workers is 8
+Jan 31 14:40:35: INFO  Now processing IPM1A36 1 unkicked modified
+Jan 31 14:40:35: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:35: INFO  Current active workers is 8
+Jan 31 14:40:35: INFO  Now processing IPM1A38 1 unkicked modified
+Jan 31 14:40:35: INFO  Current active workers is 8
+Jan 31 14:40:35: INFO  Now processing IPM1A39 1 unkicked modified
+Jan 31 14:40:35: INFO  Current active workers is 8
+Jan 31 14:40:35: INFO  Now processing IPM1R01 1 unkicked modified
+Jan 31 14:40:35: INFO  Current active workers is 8
+Jan 31 14:40:35: INFO  Now processing IPM1R02 1 unkicked modified
+Jan 31 14:40:35: INFO  Current active workers is 8
+Jan 31 14:40:35: INFO  Now processing IPM1R03 1 unkicked modified
+Jan 31 14:40:35: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:35: INFO  Current active workers is 8
+Jan 31 14:40:35: INFO  Now processing IPM1R04 1 unkicked modified
+Jan 31 14:40:35: INFO  Current active workers is 8
+Jan 31 14:40:35: INFO  Now processing IPM1R06 1 unkicked modified
+Jan 31 14:40:35: INFO  Current active workers is 8
+Jan 31 14:40:35: INFO  Now processing IPM1R08 1 unkicked modified
+Jan 31 14:40:35: INFO  Current active workers is 8
+Jan 31 14:40:36: INFO  Now processing IPM1R09 1 unkicked modified
+Jan 31 14:40:36: INFO  Current active workers is 8
+Jan 31 14:40:36: INFO  Now processing IPM1R10 1 unkicked modified
+Jan 31 14:40:36: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:36: INFO  Current active workers is 8
+Jan 31 14:40:36: INFO  Now processing IPM1R10A 1 unkicked modified
+Jan 31 14:40:36: INFO  Current active workers is 8
+Jan 31 14:40:36: INFO  Now processing IPM1S03 2 unkicked modified
+Jan 31 14:40:36: INFO  Current active workers is 8
+Jan 31 14:40:36: INFO  Now processing IPM1S05 2 unkicked modified
+Jan 31 14:40:36: INFO  Current active workers is 8
+Jan 31 14:40:36: INFO  Now processing IPM1S07 2 unkicked modified
+Jan 31 14:40:36: INFO  Current active workers is 8
+Jan 31 14:40:36: INFO  Now processing IPM1S08 2 unkicked modified
+Jan 31 14:40:36: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:36: INFO  Current active workers is 8
+Jan 31 14:40:36: INFO  Now processing IPM1S09 2 unkicked modified
+Jan 31 14:40:36: INFO  Current active workers is 8
+Jan 31 14:40:36: INFO  Now processing IPM1S10 2 unkicked modified
+Jan 31 14:40:36: INFO  Current active workers is 8
+Jan 31 14:40:36: INFO  Now processing IPM1E01 2 unkicked modified
+Jan 31 14:40:36: INFO  Current active workers is 8
+Jan 31 14:40:37: INFO  Now processing IPM1E02 2 unkicked modified
+Jan 31 14:40:37: INFO  Current active workers is 8
+Jan 31 14:40:37: INFO  Now processing IPM1E03 2 unkicked modified
+Jan 31 14:40:37: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:37: INFO  Current active workers is 8
+Jan 31 14:40:37: INFO  Now processing IPM1A01 2 unkicked modified
+Jan 31 14:40:37: INFO  Current active workers is 8
+Jan 31 14:40:37: INFO  Now processing IPM1A03 2 unkicked modified
+Jan 31 14:40:37: INFO  Current active workers is 8
+Jan 31 14:40:37: INFO  Now processing IPM1A04 2 unkicked modified
+Jan 31 14:40:37: INFO  Current active workers is 8
+Jan 31 14:40:37: INFO  Now processing IPM1A05 2 unkicked modified
+Jan 31 14:40:37: INFO  Current active workers is 8
+Jan 31 14:40:37: INFO  Now processing IPM1A06 2 unkicked modified
+Jan 31 14:40:37: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:37: INFO  Current active workers is 8
+Jan 31 14:40:37: INFO  Now processing IPM1A07 2 unkicked modified
+Jan 31 14:40:37: INFO  Current active workers is 8
+Jan 31 14:40:37: INFO  Now processing IPM1A08 2 unkicked modified
+Jan 31 14:40:37: INFO  Current active workers is 8
+Jan 31 14:40:38: INFO  Now processing IPM1A09 2 unkicked modified
+Jan 31 14:40:38: INFO  Current active workers is 8
+Jan 31 14:40:38: INFO  Now processing IPM1A10 2 unkicked modified
+Jan 31 14:40:38: INFO  Current active workers is 8
+Jan 31 14:40:38: INFO  Now processing IPM1A11 2 unkicked modified
+Jan 31 14:40:38: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:38: INFO  Current active workers is 8
+Jan 31 14:40:38: INFO  Now processing IPM1A13 2 unkicked modified
+Jan 31 14:40:38: INFO  Current active workers is 8
+Jan 31 14:40:38: INFO  Now processing IPM1A14 2 unkicked modified
+Jan 31 14:40:38: INFO  Current active workers is 8
+Jan 31 14:40:38: INFO  Now processing IPM1A16 2 unkicked modified
+Jan 31 14:40:38: INFO  Current active workers is 8
+Jan 31 14:40:38: INFO  Now processing IPM1A18 2 unkicked modified
+Jan 31 14:40:38: INFO  Current active workers is 8
+Jan 31 14:40:38: INFO  Now processing IPM1A19 2 unkicked modified
+Jan 31 14:40:38: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:38: INFO  Current active workers is 8
+Jan 31 14:40:38: INFO  Now processing IPM1A21 2 unkicked modified
+Jan 31 14:40:38: INFO  Current active workers is 8
+Jan 31 14:40:38: INFO  Now processing IPM1A23 2 unkicked modified
+Jan 31 14:40:38: INFO  Current active workers is 8
+Jan 31 14:40:39: INFO  Now processing IPM1A24 2 unkicked modified
+Jan 31 14:40:39: INFO  Current active workers is 8
+Jan 31 14:40:39: INFO  Now processing IPM1A26 2 unkicked modified
+Jan 31 14:40:39: INFO  Current active workers is 8
+Jan 31 14:40:39: INFO  Now processing IPM1A28 2 unkicked modified
+Jan 31 14:40:39: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:39: INFO  Current active workers is 8
+Jan 31 14:40:39: INFO  Now processing IPM1A29 2 unkicked modified
+Jan 31 14:40:39: INFO  Current active workers is 8
+Jan 31 14:40:39: INFO  Now processing IPM1A31 2 unkicked modified
+Jan 31 14:40:39: INFO  Current active workers is 8
+Jan 31 14:40:39: INFO  Now processing IPM1A33 2 unkicked modified
+Jan 31 14:40:39: INFO  Current active workers is 8
+Jan 31 14:40:39: INFO  Now processing IPM1A34 2 unkicked modified
+Jan 31 14:40:39: INFO  Current active workers is 8
+Jan 31 14:40:39: INFO  Now processing IPM1A36 2 unkicked modified
+Jan 31 14:40:39: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:39: INFO  Current active workers is 8
+Jan 31 14:40:39: INFO  Now processing IPM1A38 2 unkicked modified
+Jan 31 14:40:39: INFO  Current active workers is 8
+Jan 31 14:40:39: INFO  Now processing IPM1A39 2 unkicked modified
+Jan 31 14:40:40: INFO  Current active workers is 8
+Jan 31 14:40:40: INFO  Now processing IPM1R01 2 unkicked modified
+Jan 31 14:40:40: INFO  Current active workers is 8
+Jan 31 14:40:40: INFO  Now processing IPM1R02 2 unkicked modified
+Jan 31 14:40:40: INFO  Current active workers is 8
+Jan 31 14:40:40: INFO  Now processing IPM1R03 2 unkicked modified
+Jan 31 14:40:40: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:40: INFO  Current active workers is 8
+Jan 31 14:40:40: INFO  Now processing IPM1R04 2 unkicked modified
+Jan 31 14:40:40: INFO  Current active workers is 8
+Jan 31 14:40:40: INFO  Now processing IPM1R06 2 unkicked modified
+Jan 31 14:40:40: INFO  Current active workers is 8
+Jan 31 14:40:40: INFO  Now processing IPM1R08 2 unkicked modified
+Jan 31 14:40:40: INFO  Current active workers is 8
+Jan 31 14:40:40: INFO  Now processing IPM1R09 2 unkicked modified
+Jan 31 14:40:40: INFO  Current active workers is 8
+Jan 31 14:40:40: INFO  Now processing IPM1R10 2 unkicked modified
+Jan 31 14:40:40: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:40: INFO  Current active workers is 8
+Jan 31 14:40:41: INFO  Now processing IPM1R10A 2 unkicked modified
+Jan 31 14:40:41: INFO  Current active workers is 8
+Jan 31 14:40:41: INFO  Now processing IPM1S03 3 unkicked modified
+Jan 31 14:40:41: INFO  Current active workers is 8
+Jan 31 14:40:41: INFO  Now processing IPM1S05 3 unkicked modified
+Jan 31 14:40:41: INFO  Current active workers is 8
+Jan 31 14:40:41: INFO  Now processing IPM1S07 3 unkicked modified
+Jan 31 14:40:41: INFO  Current active workers is 8
+Jan 31 14:40:41: INFO  Now processing IPM1S08 3 unkicked modified
+Jan 31 14:40:41: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:41: INFO  Current active workers is 8
+Jan 31 14:40:41: INFO  Now processing IPM1S09 3 unkicked modified
+Jan 31 14:40:41: INFO  Current active workers is 8
+Jan 31 14:40:41: INFO  Now processing IPM1S10 3 unkicked modified
+Jan 31 14:40:41: INFO  Current active workers is 8
+Jan 31 14:40:41: INFO  Now processing IPM1E01 3 unkicked modified
+Jan 31 14:40:41: INFO  Current active workers is 8
+Jan 31 14:40:41: INFO  Now processing IPM1E02 3 unkicked modified
+Jan 31 14:40:41: INFO  Current active workers is 8
+Jan 31 14:40:42: INFO  Now processing IPM1E03 3 unkicked modified
+Jan 31 14:40:42: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:42: INFO  Current active workers is 8
+Jan 31 14:40:42: INFO  Now processing IPM1A01 3 unkicked modified
+Jan 31 14:40:42: INFO  Current active workers is 8
+Jan 31 14:40:42: INFO  Now processing IPM1A03 3 unkicked modified
+Jan 31 14:40:42: INFO  Current active workers is 8
+Jan 31 14:40:42: INFO  Now processing IPM1A04 3 unkicked modified
+Jan 31 14:40:42: INFO  Current active workers is 8
+Jan 31 14:40:42: INFO  Now processing IPM1A05 3 unkicked modified
+Jan 31 14:40:42: INFO  Current active workers is 8
+Jan 31 14:40:42: INFO  Now processing IPM1A06 3 unkicked modified
+Jan 31 14:40:42: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:42: INFO  Current active workers is 8
+Jan 31 14:40:42: INFO  Now processing IPM1A07 3 unkicked modified
+Jan 31 14:40:42: INFO  Current active workers is 8
+Jan 31 14:40:42: INFO  Now processing IPM1A08 3 unkicked modified
+Jan 31 14:40:42: INFO  Current active workers is 8
+Jan 31 14:40:42: INFO  Now processing IPM1A09 3 unkicked modified
+Jan 31 14:40:42: INFO  Current active workers is 8
+Jan 31 14:40:42: INFO  Now processing IPM1A10 3 unkicked modified
+Jan 31 14:40:42: INFO  Current active workers is 8
+Jan 31 14:40:43: INFO  Now processing IPM1A11 3 unkicked modified
+Jan 31 14:40:43: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:43: INFO  Current active workers is 8
+Jan 31 14:40:43: INFO  Now processing IPM1A13 3 unkicked modified
+Jan 31 14:40:43: INFO  Current active workers is 8
+Jan 31 14:40:43: INFO  Now processing IPM1A14 3 unkicked modified
+Jan 31 14:40:43: INFO  Current active workers is 8
+Jan 31 14:40:43: INFO  Now processing IPM1A16 3 unkicked modified
+Jan 31 14:40:43: INFO  Current active workers is 8
+Jan 31 14:40:43: INFO  Now processing IPM1A18 3 unkicked modified
+Jan 31 14:40:43: INFO  Current active workers is 8
+Jan 31 14:40:43: INFO  Now processing IPM1A19 3 unkicked modified
+Jan 31 14:40:43: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:43: INFO  Current active workers is 8
+Jan 31 14:40:43: INFO  Now processing IPM1A21 3 unkicked modified
+Jan 31 14:40:43: INFO  Current active workers is 8
+Jan 31 14:40:43: INFO  Now processing IPM1A23 3 unkicked modified
+Jan 31 14:40:43: INFO  Current active workers is 8
+Jan 31 14:40:43: INFO  Now processing IPM1A24 3 unkicked modified
+Jan 31 14:40:43: INFO  Current active workers is 8
+Jan 31 14:40:44: INFO  Now processing IPM1A26 3 unkicked modified
+Jan 31 14:40:44: INFO  Current active workers is 8
+Jan 31 14:40:44: INFO  Now processing IPM1A28 3 unkicked modified
+Jan 31 14:40:44: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:44: INFO  Current active workers is 8
+Jan 31 14:40:44: INFO  Now processing IPM1A29 3 unkicked modified
+Jan 31 14:40:44: INFO  Current active workers is 8
+Jan 31 14:40:44: INFO  Now processing IPM1A31 3 unkicked modified
+Jan 31 14:40:44: INFO  Current active workers is 8
+Jan 31 14:40:44: INFO  Now processing IPM1A33 3 unkicked modified
+Jan 31 14:40:44: INFO  Current active workers is 8
+Jan 31 14:40:44: INFO  Now processing IPM1A34 3 unkicked modified
+Jan 31 14:40:44: INFO  Current active workers is 8
+Jan 31 14:40:44: INFO  Now processing IPM1A36 3 unkicked modified
+Jan 31 14:40:44: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:44: INFO  Current active workers is 8
+Jan 31 14:40:44: INFO  Now processing IPM1A38 3 unkicked modified
+Jan 31 14:40:44: INFO  Current active workers is 8
+Jan 31 14:40:44: INFO  Now processing IPM1A39 3 unkicked modified
+Jan 31 14:40:44: INFO  Current active workers is 8
+Jan 31 14:40:44: INFO  Now processing IPM1R01 3 unkicked modified
+Jan 31 14:40:44: INFO  Current active workers is 8
+Jan 31 14:40:45: INFO  Now processing IPM1R02 3 unkicked modified
+Jan 31 14:40:45: INFO  Current active workers is 8
+Jan 31 14:40:45: INFO  Now processing IPM1R03 3 unkicked modified
+Jan 31 14:40:45: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:45: INFO  Current active workers is 8
+Jan 31 14:40:45: INFO  Now processing IPM1R04 3 unkicked modified
+Jan 31 14:40:45: INFO  Current active workers is 8
+Jan 31 14:40:45: INFO  Now processing IPM1R06 3 unkicked modified
+Jan 31 14:40:45: INFO  Current active workers is 8
+Jan 31 14:40:45: INFO  Now processing IPM1R08 3 unkicked modified
+Jan 31 14:40:45: INFO  Current active workers is 8
+Jan 31 14:40:45: INFO  Now processing IPM1R09 3 unkicked modified
+Jan 31 14:40:45: INFO  Current active workers is 8
+Jan 31 14:40:45: INFO  Now processing IPM1R10 3 unkicked modified
+Jan 31 14:40:45: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:45: INFO  Current active workers is 8
+Jan 31 14:40:45: INFO  Now processing IPM1R10A 3 unkicked modified
+Jan 31 14:40:45: INFO  Current active workers is 8
+Jan 31 14:40:45: INFO  Now processing IPM1S03 4 unkicked modified
+Jan 31 14:40:45: INFO  Current active workers is 8
+Jan 31 14:40:45: INFO  Now processing IPM1S05 4 unkicked modified
+Jan 31 14:40:45: INFO  Current active workers is 8
+Jan 31 14:40:46: INFO  Now processing IPM1S07 4 unkicked modified
+Jan 31 14:40:46: INFO  Current active workers is 8
+Jan 31 14:40:46: INFO  Now processing IPM1S08 4 unkicked modified
+Jan 31 14:40:46: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:46: INFO  Current active workers is 8
+Jan 31 14:40:46: INFO  Now processing IPM1S09 4 unkicked modified
+Jan 31 14:40:46: INFO  Current active workers is 8
+Jan 31 14:40:46: INFO  Now processing IPM1S10 4 unkicked modified
+Jan 31 14:40:46: INFO  Current active workers is 8
+Jan 31 14:40:46: INFO  Now processing IPM1E01 4 unkicked modified
+Jan 31 14:40:46: INFO  Current active workers is 8
+Jan 31 14:40:46: INFO  Now processing IPM1E02 4 unkicked modified
+Jan 31 14:40:46: INFO  Current active workers is 8
+Jan 31 14:40:46: INFO  Now processing IPM1E03 4 unkicked modified
+Jan 31 14:40:46: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:46: INFO  Current active workers is 8
+Jan 31 14:40:46: INFO  Now processing IPM1A01 4 unkicked modified
+Jan 31 14:40:46: INFO  Current active workers is 8
+Jan 31 14:40:46: INFO  Now processing IPM1A03 4 unkicked modified
+Jan 31 14:40:46: INFO  Current active workers is 8
+Jan 31 14:40:47: INFO  Now processing IPM1A04 4 unkicked modified
+Jan 31 14:40:47: INFO  Current active workers is 8
+Jan 31 14:40:47: INFO  Now processing IPM1A05 4 unkicked modified
+Jan 31 14:40:47: INFO  Current active workers is 8
+Jan 31 14:40:47: INFO  Now processing IPM1A06 4 unkicked modified
+Jan 31 14:40:47: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:47: INFO  Current active workers is 8
+Jan 31 14:40:47: INFO  Now processing IPM1A07 4 unkicked modified
+Jan 31 14:40:47: INFO  Current active workers is 8
+Jan 31 14:40:47: INFO  Now processing IPM1A08 4 unkicked modified
+Jan 31 14:40:47: INFO  Current active workers is 8
+Jan 31 14:40:47: INFO  Now processing IPM1A09 4 unkicked modified
+Jan 31 14:40:47: INFO  Current active workers is 8
+Jan 31 14:40:47: INFO  Now processing IPM1A10 4 unkicked modified
+Jan 31 14:40:47: INFO  Current active workers is 8
+Jan 31 14:40:47: INFO  Now processing IPM1A11 4 unkicked modified
+Jan 31 14:40:47: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:47: INFO  Current active workers is 8
+Jan 31 14:40:48: INFO  Now processing IPM1A13 4 unkicked modified
+Jan 31 14:40:48: INFO  Current active workers is 8
+Jan 31 14:40:48: INFO  Now processing IPM1A14 4 unkicked modified
+Jan 31 14:40:48: INFO  Current active workers is 8
+Jan 31 14:40:48: INFO  Now processing IPM1A16 4 unkicked modified
+Jan 31 14:40:48: INFO  Current active workers is 8
+Jan 31 14:40:48: INFO  Now processing IPM1A18 4 unkicked modified
+Jan 31 14:40:48: INFO  Current active workers is 8
+Jan 31 14:40:48: INFO  Now processing IPM1A19 4 unkicked modified
+Jan 31 14:40:48: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:48: INFO  Current active workers is 8
+Jan 31 14:40:48: INFO  Now processing IPM1A21 4 unkicked modified
+Jan 31 14:40:48: INFO  Current active workers is 8
+Jan 31 14:40:48: INFO  Now processing IPM1A23 4 unkicked modified
+Jan 31 14:40:48: INFO  Current active workers is 8
+Jan 31 14:40:48: INFO  Now processing IPM1A24 4 unkicked modified
+Jan 31 14:40:48: INFO  Current active workers is 8
+Jan 31 14:40:48: INFO  Now processing IPM1A26 4 unkicked modified
+Jan 31 14:40:48: INFO  Current active workers is 8
+Jan 31 14:40:49: INFO  Now processing IPM1A28 4 unkicked modified
+Jan 31 14:40:49: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:49: INFO  Current active workers is 8
+Jan 31 14:40:49: INFO  Now processing IPM1A29 4 unkicked modified
+Jan 31 14:40:49: INFO  Current active workers is 8
+Jan 31 14:40:49: INFO  Now processing IPM1A31 4 unkicked modified
+Jan 31 14:40:49: INFO  Current active workers is 8
+Jan 31 14:40:49: INFO  Now processing IPM1A33 4 unkicked modified
+Jan 31 14:40:49: INFO  Current active workers is 8
+Jan 31 14:40:49: INFO  Now processing IPM1A34 4 unkicked modified
+Jan 31 14:40:49: INFO  Current active workers is 8
+Jan 31 14:40:49: INFO  Now processing IPM1A36 4 unkicked modified
+Jan 31 14:40:49: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:49: INFO  Current active workers is 8
+Jan 31 14:40:49: INFO  Now processing IPM1A38 4 unkicked modified
+Jan 31 14:40:49: INFO  Current active workers is 8
+Jan 31 14:40:49: INFO  Now processing IPM1A39 4 unkicked modified
+Jan 31 14:40:49: INFO  Current active workers is 8
+Jan 31 14:40:49: INFO  Now processing IPM1R01 4 unkicked modified
+Jan 31 14:40:50: INFO  Current active workers is 8
+Jan 31 14:40:50: INFO  Now processing IPM1R02 4 unkicked modified
+Jan 31 14:40:50: INFO  Current active workers is 8
+Jan 31 14:40:50: INFO  Now processing IPM1R03 4 unkicked modified
+Jan 31 14:40:50: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:50: INFO  Current active workers is 8
+Jan 31 14:40:50: INFO  Now processing IPM1R04 4 unkicked modified
+Jan 31 14:40:50: INFO  Current active workers is 8
+Jan 31 14:40:50: INFO  Now processing IPM1R06 4 unkicked modified
+Jan 31 14:40:50: INFO  Current active workers is 8
+Jan 31 14:40:50: INFO  Now processing IPM1R08 4 unkicked modified
+Jan 31 14:40:50: INFO  Current active workers is 8
+Jan 31 14:40:50: INFO  Now processing IPM1R09 4 unkicked modified
+Jan 31 14:40:50: INFO  Current active workers is 8
+Jan 31 14:40:50: INFO  Now processing IPM1R10 4 unkicked modified
+Jan 31 14:40:50: DSPLY ETA: Wed Jan 31 14:40:31 EST 2018
+Jan 31 14:40:50: INFO  Current active workers is 8
+Jan 31 14:40:50: INFO  Now processing IPM1R10A 4 unkicked modified
+Jan 31 14:40:50: INFO  Current active workers is 8
+Jan 31 14:40:50: INFO  Current active workers is 7
+Jan 31 14:40:51: INFO  Current active workers is 6
+Jan 31 14:40:51: INFO  Current active workers is 5
+Jan 31 14:40:51: INFO  Current active workers is 4
+Jan 31 14:40:51: INFO  Current active workers is 3
+Jan 31 14:40:51: INFO  Current active workers is 2
+Jan 31 14:40:51: INFO  Current active workers is 1
+Jan 31 14:40:51: DSPLY Total processing time (hh:mm:ss): 00:00:20
+Jan 31 14:40:51: DSPLY Finished. Consult ppss_dir/job_log for job output.
