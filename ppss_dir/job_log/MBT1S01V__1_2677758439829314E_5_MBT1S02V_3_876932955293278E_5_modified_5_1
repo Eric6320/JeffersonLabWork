@@ -1,13 +1,14 @@
 ===== PPSS Item Log File =====
 Host:		opsl00
-Process:	26097
+Process:	15645
 Item:		MBT1S01V -1.2677758439829314E-5 MBT1S02V 3.876932955293278E-5 modified 5 1
-Start date:	Jan 25 20:33:38
+Start date:	Jan 30 22:06:10
 
-Unable to find file modified5.lte
-Error for sdds2stream:
-Unable to open file "/usr/devuser/erict/git/JeffersonLabWork/elegantPPSSDir/modified5.cen" for reading (SDDS_InitializeInput)
+found corr: MBT1S01V: VKICK, ORDER=0, TILT=0, CALIBRATION=1, STEERING=1,  &
+set kick: 	B2=0, L=0, KICK=-1.2677758439829314E-5, EDGE_EFFECTS=0
+found corr: MBT1S02V: VKICK, ORDER=0, TILT=0, CALIBRATION=1, STEERING=1,  &
+set kick: 	B2=0, L=0, KICK=3.876932955293278E-5, EDGE_EFFECTS=0
 
-Status:		FAILURE
-Total processing time (hh:mm:ss): 00:00:00
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:00:04
 

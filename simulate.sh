@@ -55,12 +55,15 @@ $FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE
 # Use a Singular Value Decomposition Pseudoinverse to generate the two sets of transportation matrices
 # Output: $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 $FPATH/runPPSSPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
-#$FPATH/catPPSSOutput.sh
 
 # Sanity check to ensure that modified values do not vary wildly from the design #TODO INCLUDE DETERMINANT CHECK AND MOVE AFTER PSEUDOINVERSE CODE
 $FPATH/sanityCheck.sh $MODIFIEDBEAMLINE"EllipseOne.dat" $BPM1"CentroidValues.dat" $BPM1 $N $VERTICLE #"plot"
 
+$FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
+#$FPATH/catPPSSOutput.sh
 exit
+
+
 
 # Calculate the CHI2DOF between each of the M matrix elements - comparison*.fin
 runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE

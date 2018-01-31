@@ -23,11 +23,6 @@
 	beta_x=7.19639473129347,
 	alpha_x=-0.340707348913429,
 &end
-&matrix_output
-	SDDS_output="%s.mat",
-	 SDDS_output_match="IPM*",
-	start_from="IPM1S03"
-&end
 &run_control
 	n_steps=1,
 &end

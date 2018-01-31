@@ -1,5 +1,6 @@
 
-plot.sh
+runPPSSCompareM.sh
+parallelCompareM.sh
 sanityCheck.sh
 
 

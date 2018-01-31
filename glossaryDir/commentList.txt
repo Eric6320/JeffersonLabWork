@@ -1,20 +1,4 @@
 
-sanityCheck.sh
-
-
-dxprimeCalculations.java
-modifyQuadStrength.java
-dxprimeCalculations.java
-modifyQuadStrength.java
-
-modifyCorrector.pl
-determineTransformationMatrix.py
-determineTransformationMatrix.py
-
-
-
-
-
 #* Description:
 #* Argument: $1 - 
 #* Argument: $2 - 

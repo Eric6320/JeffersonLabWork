@@ -1,0 +1,12 @@
+===== PPSS Item Log File =====
+Host:		opsl00
+Process:	28371
+Item:			IPM1S03 IPM1A01 1.105854012577640e+02 10
+Start date:	Jan 30 22:06:40
+
+grep: 1.105854012577640e+02.matasc: No such file or directory
+grep: 10.mat: No such file or directory
+
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:00:00
+

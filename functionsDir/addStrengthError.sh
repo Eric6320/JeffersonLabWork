@@ -20,6 +20,4 @@ set MODIFIEDLATTICE = $RDPATH/$MODIFIEDBEAMLINE.lte
 # Modify the given lattice file so that the strength of $QUAD is multiplied by $PERCENTAGE
 # Output: temp.dat
 #javac $JAVAPATH/modifyQuadStrength.java
-java -cp $JAVAPATH modifyQuadStrength $QUAD $PERCENTAGE $MODIFIEDLATTICE "temp.dat" $SEED
-
-mv "temp.dat" $MODIFIEDLATTICE;
+java -cp $JAVAPATH modifyQuadStrength $QUAD $PERCENTAGE $MODIFIEDLATTICE "$MODIFIEDBEAMLINE.lte" $SEED
