@@ -17,4 +17,11 @@ of a better documentation structure.
 functionsDir - Contains all external scripts which are referenced within simulate.sh. Contains python and perl scripts, but the directory is primarily
 tcshell scripts which perform a wide range of functions. Spanning from 'cleaning up' old data files, to setting environment variables.
 
-ellipseDir - 
+ellipseDir - Contains output files from runPPSSPseudoinverse.sh, which contain transportation matrix M values. These values are later combined into a
+$MODIFIEDBEAMLINE.mat data file, which is used for further chi2dof comparisons.
+
+elegantPPSSDir - Contains an elegant generated set of beamline information for each $N number of beamlines. This beamline information is used to generate centroid
+value pairs, which are combined at each BPM.
+
+centroidValuesDir - Contains $N number of centroid value pairs within a data file for each BPM downstream of the initial reference BPM. These files are later
+formatted to run a Singular Value Decomposition Pseudoinverse.
