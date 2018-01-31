@@ -22,8 +22,6 @@ set INFORMATIONFILE = $RDPATH/information.twiasc
 set OUTPUTFILE = $MODIFIEDBEAMLINE"Strengths.dat"
 set INPUTELLIPSE = $MODIFIEDBEAMLINE"EllipseOne.dat"
 
-echo "$OUTPUTFILE $INPUTELLIPSE"
-
 # Pull necessary Twiss information with BPM and Corrector names as reference
 set ALPHABPM = `grep -w $BPMONE $INFORMATIONFILE | awk -v verticle=$VERTICLE '{print $(3+verticle)}'`		
 set BETAONE = `grep -w $CORRONE $INFORMATIONFILE | awk -v verticle=$VERTICLE '{print $(5+verticle)}'`		

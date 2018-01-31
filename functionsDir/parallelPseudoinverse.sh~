@@ -30,6 +30,6 @@ echo `cat $ELLIPSEPATH/ellipseC$TRIAL.fin` >! $ELLIPSEPATH/temp$TRIAL.dat
 set DETERMINANT = `cat $ELLIPSEPATH/temp$TRIAL.dat | awk '{print ($1*$4 - $2*$3)}'`
 
 # Format the in the form: $BPMTWO $S M1 M2 M3 M4 Determinant: $DETERMINANT
-#* Output: mValues$TRIAL.dat
+#* Output: ellipseDir/mValues$TRIAL.dat
 echo "$BPMTWO $S `cat $ELLIPSEPATH/ellipseC$TRIAL.fin` Determinant: $DETERMINANT" >! "$ELLIPSEPATH/mValues$TRIAL.dat"
 rm $ELLIPSEPATH/ellipse*$TRIAL.fin $ELLIPSEPATH/temp$TRIAL.dat >& /dev/null

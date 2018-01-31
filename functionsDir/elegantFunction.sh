@@ -23,12 +23,12 @@ set TRIAL = `echo $1 | awk '{print $6}'`
 set VERTICLE = `echo $1 | awk '{print $7}'`
 
 # Change the modified lattice file at the given correctors to the given strengths
-#* Output: $MODIFIEDBEAMLINE$TRIAL.lte
+# Output: $MODIFIEDBEAMLINE$TRIAL.lte
 perl $FPATH/modifyCorrector.pl $MODIFIEDBEAMLINE.lte $ELEGANTPATH/temp.lte $CORRONE $CORRSTRENGTHONE >& /dev/null
 perl $FPATH/modifyCorrector.pl $ELEGANTPATH/temp.lte $ELEGANTPATH/$MODIFIEDBEAMLINE$TRIAL.lte $CORRTWO $CORRSTRENGTHTWO >& /dev/null
 
 # Change the origional modified elegant file to include the trial number, allowing for parallel runs of Elegant
-#* Output: $MODIFIEDBEAMLINE$TRIAL.ele
+# Output: $MODIFIEDBEAMLINE$TRIAL.ele
 $FPATH/modifyElegant.sh $MODIFIEDBEAMLINE $TRIAL
 
 # Run elegant on the modified data

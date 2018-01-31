@@ -21,7 +21,7 @@ set CORRTWO = $4
 set VERTICLE = $5
 
 # Build script file containing corrector names, strengths, trial number, and other misc. bookkeeping information
-#* Output: elegantFile.ppss
+# Output: elegantFile.ppss
 rm elegantFile.ppss >& /dev/null; touch elegantFile.ppss
 @ x = 1
 while ($x <= $N)
@@ -36,11 +36,11 @@ while ($x <= $N)
 end
 
 # Run Elegant $N number of times in parallel using ppss
-#* Output: $ELEGANTPATH/centroidValues$TRIAL.dat
+# Output: $ELEGANTPATH/centroidValues$TRIAL.dat
 $FPATH/ppss -f 'elegantFile.ppss' -c "$FPATH/elegantFunction.sh " > /dev/null
 
 # Recompile all of the centroidValue$TRIAL.dat files into one comprehensive list
-#* Output: $CENTROIDPATH/$BPM-centroidValues.dat
+# Output: $CENTROIDPATH/$BPM-centroidValues.dat
 @ x = 1
 while ($x <= $N)
 	foreach BPM (`grep "IPM" $RDPATH/information.twiasc | awk '{print $2}'`)

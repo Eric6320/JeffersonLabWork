@@ -35,7 +35,7 @@ set PSIBPM = `grep -w $BPMONE $INFORMATIONFILE | awk -v verticle=$VERTICLE '{pri
 cat $INPUTELLIPSE | awk -v Abpm=$ALPHABPM -v B1=$BETAONE -v B2=$BETATWO -v Bbpm=$BETABPM -v P1=$PSIONE -v P2=$PSITWO -v Pbpm=$PSIBPM ' {print $1" "$2" "Abpm" "B1" "B2" "Bbpm" "P1" "P2" "Pbpm}' >! "betatronPositions.dat"
 
 # calculate necessary kicker strengths and angles to hit each target in the designEllipseOne.dat file
-#* Output: $MODIFIEDBEAMLINE"Strengths.dat
+# Output: $MODIFIEDBEAMLINE"Strengths.dat
 echo "determineStrengths.sh - Calculating Quadrupole Strengths"
 #javac $JAVAPATH/dxprimeCalculations.java
 java -cp $JAVAPATH dxprimeCalculations $OUTPUTFILE

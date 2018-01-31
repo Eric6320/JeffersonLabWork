@@ -49,5 +49,5 @@ while ($x <= $N)
 	@ x += 1
 end
 
-# Move an extra copy of $BPM1"CentroidValues.dat" to the main directory for the sanity check
-cp $CENTROIDPATH/$BPM1"CentroidValues.dat" ~/git/JeffersonLabWork/$BPM1"CentroidValues.dat"
+# Move a hard coded extra copy of "IPM1S03CentroidValues.dat" to the main directory for the sanity check
+cp $CENTROIDPATH/"IPM1S03CentroidValues.dat" ~/git/JeffersonLabWork/"IPM1S03CentroidValues.dat"

@@ -35,11 +35,11 @@ set S = `$FPATH/pullS.sh $BPM1 $DESIGNBEAMLINE`
 echo "\nN = $N\nSeed = $SEED\ncorr1 = $CORR1\ncorr2 = $CORR2\nbpm1 = $BPM1\ndesignBeamline = $DESIGNBEAMLINE\nmodifiedBeamline = $MODIFIEDBEAMLINE\nverticle = $VERTICLE\nstrengthError = $STRENGTHERROR\n"
 
 # Generate a unit circle and perform a floquet transformation at the specified bpm
-#* Output: $MODIFIEDBEAMLINE"EllipseOne.dat" - Coordinate pairs of design betatron ellipse
+# Output: $MODIFIEDBEAMLINE"EllipseOne.dat" - Coordinate pairs of design betatron ellipse
 $FPATH/setup.sh $BPM1 $N $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $S
 
 # Using the twiss parameters at the given BPM, determine the strengths needed to trace the design ellipse
-#* Output: $MODIFIEDBEAMLINE"Strengths.dat"
+# Output: $MODIFIEDBEAMLINE"Strengths.dat"
 $FPATH/determineStrengths.sh $BPM1 $CORR1 $CORR2 $VERTICLE $MODIFIEDBEAMLINE
 
 # Add scalar error to Quadrupole Strengths if applicable
@@ -49,11 +49,11 @@ if ($STRENGTHERROR != x) then
 endif
 
 # Using the design strengths, trace the ellipse and determine the centroid values
-#* Output: centroidValuesDir/*BPM*CentroidValues.dat
+# Output: centroidValuesDir/*BPM*CentroidValues.dat
 $FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE
 
 # Use a Singular Value Decomposition Pseudoinverse to generate the two sets of transportation matrices
-#* Output: $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
+# Output: $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 $FPATH/runPPSSPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 #$FPATH/catPPSSOutput.sh
 

@@ -22,4 +22,4 @@ set MODIFIEDLATTICE = $RDPATH/$MODIFIEDBEAMLINE.lte
 #javac $JAVAPATH/modifyQuadStrength.java
 java -cp $JAVAPATH modifyQuadStrength $QUAD $PERCENTAGE $MODIFIEDLATTICE "temp.dat" $SEED
 
-mv "temp.dat" $MODIFIEDLATTICE; rm "temp.dat"
+mv "temp.dat" $MODIFIEDLATTICE;

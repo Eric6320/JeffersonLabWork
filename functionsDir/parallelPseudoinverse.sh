@@ -18,11 +18,11 @@ set S = `echo $1 | awk '{print $3}'`
 set TRIAL = `echo $1 | awk '{print $4}'`
 
 # Reformat ellipseA.dat and ellipseB.dat in a MATLAB readable way
-#* Output: ellipseA$TRIAL.fin ellipseB$TRIAL.fin
+# Output: ellipseA$TRIAL.fin ellipseB$TRIAL.fin
 $FPATH/formatEllipses.sh $BPMONE $BPMTWO $TRIAL
 
 # Perform SVD and pseduo inverse on the matrixes
-#* Output: ellipseA2$TRIAL.fin
+# Output: ellipseA2$TRIAL.fin
 python $FPATH/determineTransformationMatrix.py $TRIAL $ELLIPSEPATH
 
 # Calculate determinant to make sure the calculation was performed correctly, should be ~1
@@ -30,6 +30,6 @@ echo `cat $ELLIPSEPATH/ellipseC$TRIAL.fin` >! $ELLIPSEPATH/temp$TRIAL.dat
 set DETERMINANT = `cat $ELLIPSEPATH/temp$TRIAL.dat | awk '{print ($1*$4 - $2*$3)}'`
 
 # Format the in the form: $BPMTWO $S M1 M2 M3 M4 Determinant: $DETERMINANT
-#* Output: ellipseDir/mValues$TRIAL.dat
+# Output: ellipseDir/mValues$TRIAL.dat
 echo "$BPMTWO $S `cat $ELLIPSEPATH/ellipseC$TRIAL.fin` Determinant: $DETERMINANT" >! "$ELLIPSEPATH/mValues$TRIAL.dat"
 rm $ELLIPSEPATH/ellipse*$TRIAL.fin $ELLIPSEPATH/temp$TRIAL.dat >& /dev/null
