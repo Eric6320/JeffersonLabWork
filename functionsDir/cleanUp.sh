@@ -8,7 +8,7 @@
 rm -r ppss_dir >& /dev/null
 
 # Remove contents of directory, but keep the directory itself
-rm -r elegantPPSSDir/* centroidValuesDir/* ellipseDir/* chi2Dir/* >& /dev/null
+rm -r elegantPPSSDir/* centroidValuesDir/* ellipseDir/* chi2Dir/* optimizeDir/* >& /dev/null
 
 # Remove all files with the following extensions
 rm *.fin *.dat *.ppss *.mat* >& /dev/null

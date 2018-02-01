@@ -17,10 +17,7 @@ mv "$OPTIMIZEPATH/$DESIGNBEAMLINE.lte2" "$OPTIMIZEPATH/$DESIGNBEAMLINE.lte"
 
 echo "function.sh - Re-generating transportation Matrix values"
 # Re-Determine M matrix elements by first running elegant on the lattice with the new quadrupole strength
-elegant $OPTIMIZEPATH/$DESIGNBEAMLINE.ele >/dev/null
-
-ls $OPTIMIZEPATH
-exit
+cd $OPTIMIZEPATH; elegant $DESIGNBEAMLINE.ele > /dev/null; cd ..;
 
 # Pull the transportation matrix elements from the $DESIGNBEAMLINE.mat file and put them in an ascii readable format
 sdds2stream -col=ElementName,s,R11,R12,R21,R22,R33,R34,R43,R44 $OPTIMIZEPATH/$DESIGNBEAMLINE.mat >! $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc
