@@ -50,6 +50,9 @@ if ($STRENGTHERROR != x) then
 	echo "Target strength = $NEWQUADSTRENGTH"
 	echo "Function"
 	function.sh MQB1A29 $NEWQUADSTRENGTH "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+
+	exit	
+
 	echo "runParallelCompareM"
 	runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 	echo "Find Outlier"

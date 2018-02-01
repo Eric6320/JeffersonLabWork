@@ -39,8 +39,6 @@ runParallelPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 # Calculate the CHI2DOF between each of the M matrix elements - comparison*.fin
 runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 
-exit
-
 #./plotPhase.sh $BPM1 $N $VERTICLE,
 #./plotM.sh M=3,title=Pre-Corrected Chi2dof of M,
 #./findOutlier.sh 3 remove
@@ -48,10 +46,15 @@ exit
 
 #./plotParabola.sh N=50,
 
+diff comparisons.fin ~/git/JeffersonLabWork/chi2Dir/comparisons.fin
+exit
 if ($STRENGTHERROR != x) then
 	echo "Target strength = $NEWQUADSTRENGTH"
 	echo "Function"
 	function.sh MQB1A29 $NEWQUADSTRENGTH "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+
+	exit	
+
 	echo "runParallelCompareM"
 	runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 	echo "Find Outlier"

@@ -63,6 +63,7 @@ $FPATH/clearPPSSOutput.sh
 # Sanity check to ensure that modified values do not vary wildly from the design
 $FPATH/sanityCheck.sh $MODIFIEDBEAMLINE"EllipseOne.dat" $BPM1"CentroidValues.dat" $BPM1 $N $VERTICLE #"plot"
 
+# Output: $CHI2PATH/comparisons.fin
 $FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE > /dev/null #TODO remove
 #$FPATH/clearPPSSOutput.sh
 #$FPATH/catPPSSOutput.sh
