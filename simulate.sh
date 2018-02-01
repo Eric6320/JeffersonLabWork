@@ -26,13 +26,15 @@ set DESIGNBEAMLINE = `$FPATH/setArg.sh designBeamline unkicked $argv`
 set MODIFIEDBEAMLINE = `$FPATH/setArg.sh modifiedBeamline modified $argv`
 set VERTICLE = `echo $CORR1 | grep -c "V"`
 set STRENGTHERROR = `$FPATH/setArg.sh strengthError -1 $argv`
+set TESTQUAD = `$FPATH/setArg.sh testQuad MQB1A29 $argv`
+set REFERENCEBPM = `$FPATH/setArg.sh referenceBPM IPM1R02 $argv`
 
 # Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
 $FPATH/cleanUp.sh
 set S = `$FPATH/pullS.sh $BPM1 $DESIGNBEAMLINE`
 
 # Print all of the above variables to the terminal
-echo "\nN = $N\nSeed = $SEED\ncorr1 = $CORR1\ncorr2 = $CORR2\nbpm1 = $BPM1\ndesignBeamline = $DESIGNBEAMLINE\nmodifiedBeamline = $MODIFIEDBEAMLINE\nverticle = $VERTICLE\nstrengthError = $STRENGTHERROR\n"
+echo "\nN = $N\nSeed = $SEED\ncorr1 = $CORR1\ncorr2 = $CORR2\nbpm1 = $BPM1\ndesignBeamline = $DESIGNBEAMLINE\nmodifiedBeamline = $MODIFIEDBEAMLINE\nverticle = $VERTICLE\nstrengthError = $STRENGTHERROR\ntestQuad = $TESTQUAD\nreferenceBPM = $REFERENCEBPM\n"
 
 # Generate a unit circle and perform a floquet transformation at the specified bpm
 # Output: $MODIFIEDBEAMLINE"EllipseOne.dat" - Coordinate pairs of design betatron ellipse
@@ -45,32 +47,40 @@ $FPATH/determineStrengths.sh $BPM1 $CORR1 $CORR2 $VERTICLE $MODIFIEDBEAMLINE
 # Add scalar error to Quadrupole Strengths if applicable
 if ($STRENGTHERROR != x) then
 	echo "addStrengthError.sh - Adding strength error"
-	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh MQB1A29 $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
+	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh $TESTQUAD $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
 endif
 
 # Using the design strengths, trace the ellipse and determine the centroid values
 # Output: centroidValuesDir/*BPM*CentroidValues.dat
-$FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE
+$FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE > /dev/null #TODO remove
 $FPATH/clearPPSSOutput.sh
 
 # Use a Singular Value Decomposition Pseudoinverse to generate the two sets of transportation matrices
 # Output: $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
-$FPATH/runPPSSPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+$FPATH/runPPSSPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE > /dev/null #TODO remove
 $FPATH/clearPPSSOutput.sh
 
 # Sanity check to ensure that modified values do not vary wildly from the design
 $FPATH/sanityCheck.sh $MODIFIEDBEAMLINE"EllipseOne.dat" $BPM1"CentroidValues.dat" $BPM1 $N $VERTICLE #"plot"
 
-$FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
+$FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE > /dev/null #TODO remove
 #$FPATH/clearPPSSOutput.sh
 #$FPATH/catPPSSOutput.sh
 
 #TODO possibly add another sanity check here plotting the parabola and M values
 
 if ($STRENGTHERROR != x) then
+
+	#TODO copy any necessary files into the optimization directory
+	cp $RDPATH/$DESIGNBEAMLINE.lte $OPTIMIZEPATH/$DESIGNBEAMLINE.lte
+	cp $RDPATH/$DESIGNBEAMLINE.ele $OPTIMIZEPATH/$DESIGNBEAMLINE.ele
+
 	echo "Target strength = $NEWQUADSTRENGTH"
-	echo "function.sh"
-	$FPATH/function.sh MQB1A29 $NEWQUADSTRENGTH "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+	echo "function.sh - Setting "
+	$FPATH/function.sh $TESTQUAD $NEWQUADSTRENGTH $REFERENCEBPM $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+
+	exit
+
 	echo "runPPSSCompareM.sh"
 	$FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 

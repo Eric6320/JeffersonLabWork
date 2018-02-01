@@ -1,6 +1,7 @@
 #!/bin/tcsh
 unset noclobber
-# Arguments: $BPMTWO $M $DESIGNBEAMLINE $MODIFIEDBEAMLINE
+
+#TODO comment this script
 
 set BPMTWO = $1
 set M = $2

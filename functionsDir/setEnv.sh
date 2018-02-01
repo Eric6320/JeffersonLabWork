@@ -8,5 +8,6 @@ setenv CENTROIDPATH ~/git/JeffersonLabWork/centroidValuesDir
 setenv ELLIPSEPATH ~/git/JeffersonLabWork/ellipseDir
 setenv ELEGANTPATH ~/git/JeffersonLabWork/elegantPPSSDir
 setenv CHI2PATH ~/git/JeffersonLabWork/chi2Dir
+setenv OPTIMIZEPATH ~/git/JeffersonLabWork/optimizeDir
 setenv http_proxy "http_proxy https://jlab.org:8081"
 setenv https_proxy "https_proxy https://jlab.org:8081"
