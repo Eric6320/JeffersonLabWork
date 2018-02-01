@@ -5,10 +5,10 @@
 #* Main Output: No output file
 
 # Remove directory and all contents within
-rm -r ppss_dir >& /dev/null
+rm -r ~/git/JeffersonLabWork/ppss_dir >& /dev/null
 
 # Remove contents of directory, but keep the directory itself
-rm elegantPPSSDir/* centroidValuesDir/* ellipseDir/* chi2Dir/* optimizeDir/* >& /dev/null
+rm $ELEGANTPATH/* $CENTROIDPATH/* $ELLIPSEPATH/* $CHI2PATH/* $OPTIMIZEPATH/* >& /dev/null
 
 # Remove all files with the following extensions
 rm *.fin *.dat *.ppss *.mat* >& /dev/null
