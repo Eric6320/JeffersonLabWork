@@ -75,6 +75,7 @@ if ($STRENGTHERROR != x) then
 	#TODO copy any necessary files into the optimization directory
 	cp $RDPATH/$DESIGNBEAMLINE.lte $OPTIMIZEPATH/$DESIGNBEAMLINE.lte
 	cp $RDPATH/$DESIGNBEAMLINE.ele $OPTIMIZEPATH/$DESIGNBEAMLINE.ele
+	mv $MODIFIEDBEAMLINE.mat $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
 
 	echo "Target strength = $NEWQUADSTRENGTH"
 	echo "function.sh - Setting "

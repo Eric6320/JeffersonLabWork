@@ -46,8 +46,6 @@ runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 
 #./plotParabola.sh N=50,
 
-diff comparisons.fin ~/git/JeffersonLabWork/chi2Dir/comparisons.fin
-exit
 if ($STRENGTHERROR != x) then
 	echo "Target strength = $NEWQUADSTRENGTH"
 	echo "Function"

@@ -38,4 +38,4 @@ set INITIALCOMPARISON = `awk '{ sum += sqrt(($1-$3)^2 + ($2-$4)^2)} END { print 
 set TRACEDCOMPARISON = `awk '{ sum += sqrt(($1-$3)^2 + ($2-$4)^2)} END { print sum }' "floquetComparisonTwo.dat"`
 rm "floquetComparisonOne.dat" "floquetComparisonTwo.dat"
 
-echo $INITIALCOMPARISON $TRACEDCOMPARISON
+echo "Initial Comparison: $INITIALCOMPARISON Traced Comparison: $TRACEDCOMPARISON"

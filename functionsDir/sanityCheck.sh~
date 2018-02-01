@@ -10,10 +10,9 @@ unset noclobber
 # Set variables from arguments
 set BETATRONFILEONE = $1
 set BETATRONFILETWO = $2
-set DETERMINANTFILE = $3
-set BPM = $4
-set N = $5
-set VERTICLE = $6
+set BPM = $3
+set N = $4
+set VERTICLE = $5
 
 set PLOTCHECK = `echo $argv | grep -c "plot"`
 

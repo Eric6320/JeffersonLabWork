@@ -70,8 +70,6 @@ $FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE > /dev/null #T
 
 #TODO possibly add another sanity check here plotting the parabola and M values
 
-exit
-
 if ($STRENGTHERROR != x) then
 
 	#TODO copy any necessary files into the optimization directory

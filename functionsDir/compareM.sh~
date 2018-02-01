@@ -1,11 +1,12 @@
 #!/bin/tcsh
 unset noclobber
-# Arguments: $BPMTWO $M $DESIGNBEAMLINE $MODIFIEDBEAMLINE
+
+#TODO comment this script
 
 set BPMTWO = $1
 set M = $2
-set DESIGNBEAMLINE = $3
-set MODIFIEDBEAMLINE = $4
+set DESIGNFILE = $3
+set MODIFIEDFILE = $4
 
 set DESIGNFILE = $DESIGNBEAMLINE".matasc"
 set MODIFIEDFILE = $MODIFIEDBEAMLINE".mat"
