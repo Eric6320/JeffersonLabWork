@@ -37,7 +37,7 @@ end
 
 # Run Elegant $N number of times in parallel using ppss
 # Output: $ELEGANTPATH/centroidValues$TRIAL.dat
-$FPATH/ppss -f 'elegantFile.ppss' -c "$FPATH/elegantFunction.sh " #> /dev/null
+$FPATH/ppss -f 'elegantFile.ppss' -c "$FPATH/elegantFunction.sh " > /dev/null
 
 # Recompile all of the centroidValue$TRIAL.dat files into one comprehensive list
 # Output: $CENTROIDPATH/$BPM-centroidValues.dat
@@ -51,3 +51,6 @@ end
 
 # Move a hard coded extra copy of "IPM1S03CentroidValues.dat" to the main directory for the sanity check
 cp $CENTROIDPATH/"IPM1S03CentroidValues.dat" ~/git/JeffersonLabWork/"IPM1S03CentroidValues.dat"
+
+# Clear the job log
+$FPATH/clearPPSSOutput.sh

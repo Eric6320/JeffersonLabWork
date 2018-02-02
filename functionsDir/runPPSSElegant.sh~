@@ -51,3 +51,5 @@ end
 
 # Move a hard coded extra copy of "IPM1S03CentroidValues.dat" to the main directory for the sanity check
 cp $CENTROIDPATH/"IPM1S03CentroidValues.dat" ~/git/JeffersonLabWork/"IPM1S03CentroidValues.dat"
+
+$FPATH/clearPPSSOutput.sh

@@ -52,20 +52,17 @@ endif
 
 # Using the design strengths, trace the ellipse and determine the centroid values
 # Output: centroidValuesDir/*BPM*CentroidValues.dat
-$FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE > /dev/null #TODO remove
-$FPATH/clearPPSSOutput.sh
+$FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE
 
 # Use a Singular Value Decomposition Pseudoinverse to generate the two sets of transportation matrices
 # Output: $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
-$FPATH/runPPSSPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE > /dev/null #TODO remove
-$FPATH/clearPPSSOutput.sh
+$FPATH/runPPSSPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 
 # Sanity check to ensure that modified values do not vary wildly from the design
 $FPATH/sanityCheck.sh $MODIFIEDBEAMLINE"EllipseOne.dat" $BPM1"CentroidValues.dat" $BPM1 $N $VERTICLE #"plot"
 
 # Output: $CHI2PATH/comparisons.fin
-$FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE > /dev/null #TODO remove
-#$FPATH/clearPPSSOutput.sh
+$FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 #$FPATH/catPPSSOutput.sh
 
 #TODO possibly add another sanity check here plotting the parabola and M values
@@ -78,13 +75,12 @@ if ($STRENGTHERROR != x) then
 	mv $MODIFIEDBEAMLINE.mat $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
 
 	echo "Target strength = $NEWQUADSTRENGTH"
-	echo "function.sh - Setting "
+	echo "function.sh - Setting $TESTQUAD to $NEWQUADSTRENGTH to determine ideal chi2dof"
 	$FPATH/function.sh $TESTQUAD $NEWQUADSTRENGTH $REFERENCEBPM $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 
-	exit
-
-	echo "runPPSSCompareM.sh"
-	$FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
+	#Re-calculating Transportation matrix comparisons
+	# Output: $CHI2PATH/comparisons.fin
+	$FPATH/runPPSSCompareM.sh $BPM1 $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
 
 	exit
 

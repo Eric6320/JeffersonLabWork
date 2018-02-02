@@ -51,10 +51,13 @@ if ($STRENGTHERROR != x) then
 	echo "Function"
 	function.sh MQB1A29 $NEWQUADSTRENGTH "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 
-	exit	
-
 	echo "runParallelCompareM"
 	runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
+
+	echo "Printing Differences"
+	diff comparisons.fin ~/git/JeffersonLabWork/chi2Dir/comparisons.fin
+
+	exit
 	echo "Find Outlier"
 	findOutlier.sh 3 remove
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,

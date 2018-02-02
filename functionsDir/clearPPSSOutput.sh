@@ -5,4 +5,4 @@
 #* Main Output: No output file
 
 # Remove directory and all contents within
-rm -r ppss_dir >& /dev/null
+rm -r ~/git/JeffersonLabWork/ppss_dir >& /dev/null
