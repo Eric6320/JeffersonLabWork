@@ -3,28 +3,29 @@ unset noclobber
 
 #TODO comment this
 
-rm -r chi2Dir/* >& /dev/null
+# Clear the chi2Dir 
+rm -r $CHI2PATH/* >& /dev/null
 
-# Set arguments
+# Set variables from command line arguments
 set BPMONE = $1
 set DESIGNFILE = $2
 set MODIFIEDFILE = $3
 set S = `$FPATH/pullS.sh $BPMONE`
 
 echo "runPPSSCompareM.sh - Comparing Transportation Matrix Values"
-rm compareM.ppss >& /dev/null; touch compareM.ppss
 
-# Make ppss file
+# Generate ppss file containing each BPM downstream, each possible M number (1-4), and the names of the files containing Transportation Matrix values
+rm compareM.ppss >& /dev/null; touch compareM.ppss
 foreach x (1 2 3 4)
 	foreach i (`grep 'IPM' "downstreamBPM.dat" | awk '{print $1}'`)
 		echo "$i $x $DESIGNFILE $MODIFIEDFILE" >> compareM.ppss
 	end
 end
 
-# Run parallel functions
+# Run parallelCompareM.sh using compareM.ppss to compare each Transportation Matrix element at each downstream BPM
 $FPATH/ppss -f 'compareM.ppss' -c "$FPATH/parallelCompareM.sh " > /dev/null
 
-# Recompile data
+# Recompile the comparison data into a separate script for each M number (1-4)
 foreach M (1 2 3 4)
 	rm "$CHI2PATH/newComparison$M.dat" >& /dev/null
 	touch "$CHI2PATH/newComparison$M.dat"

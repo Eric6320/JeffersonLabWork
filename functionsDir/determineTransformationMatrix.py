@@ -1,5 +1,7 @@
 import numpy as np, sys
 
+# TODO finish commenting this fully
+
 # A = B * C  where C is the transformation matrix we've been referring to as M.
 
 trial = sys.argv[1]
