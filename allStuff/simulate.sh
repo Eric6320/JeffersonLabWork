@@ -54,12 +54,8 @@ if ($STRENGTHERROR != x) then
 	echo "runParallelCompareM"
 	runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 
-	echo "Printing Differences"
-	diff comparisons.fin ~/git/JeffersonLabWork/chi2Dir/comparisons.fin
-
 	echo "Find Outlier"
 	findOutlier.sh 3 comparisons.fin remove
-	exit
 
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,
 	echo "Optimize"

@@ -10,13 +10,13 @@ set DESIGNBEAMLINE = $4
 set MODIFIEDBEAMLINE = $5
 set VERTICLE = $6
 
-echo "function.sh - Adjusting strength of $QUAD to $STRENGTH, measuring at $BPM"
+#echo "function.sh - Adjusting strength of $QUAD to $STRENGTH, measuring at $BPM"
 #javac /a/devuser/erict/workspace/Miscellaneous/src/changeQuadStrength.java
 java -cp /a/devuser/erict/workspace/Miscellaneous/src/ changeQuadStrength $QUAD $STRENGTH "$OPTIMIZEPATH/$DESIGNBEAMLINE.lte" "$OPTIMIZEPATH/$DESIGNBEAMLINE.lte2"
 mv "$OPTIMIZEPATH/$DESIGNBEAMLINE.lte2" "$OPTIMIZEPATH/$DESIGNBEAMLINE.lte"
 
 
-echo "function.sh - Re-generating transportation Matrix values"
+#echo "function.sh - Re-generating transportation Matrix values"
 # Re-Determine M matrix elements by first running elegant on the lattice with the new quadrupole strength
 cd $OPTIMIZEPATH; elegant $DESIGNBEAMLINE.ele > /dev/null; cd ..;
 
@@ -29,6 +29,6 @@ $FPATH/cutLineOffTopOrBottom.sh top 1 temp.fin
 # Re-name and move the file back to the optimize directory
 mv temp.fin $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc
 
-echo "function.sh - Comparing new M value"
+#echo "function.sh - Comparing new M value"
 set CHI2DOF = `$FPATH/compareM.sh $BPM 3 $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat`
 echo "CHI2DOF = $CHI2DOF"

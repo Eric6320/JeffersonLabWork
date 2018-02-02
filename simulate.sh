@@ -85,14 +85,13 @@ if ($STRENGTHERROR != x) then
 	echo "findOutlier.sh - Finding and removing outlier before optimization"
 	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
 
-	exit
+	echo "optimize.sh - Optimizing Beamline"
+	$FPATH/optimize.sh $TESTQUAD $REFERENCEBPM $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE "$FPATH/function.sh"
 
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,
-	echo "optimize.sh"
-	optimize.sh MQB1A29 "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
-	echo "runParallelCompareM"
-	runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
-	echo "FindOutlier"
-	findOutlier.sh 3 remove
+	$FPATH/runPPSSCompareM.sh $BPM1 $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
+	
+	echo "findOutlier.sh - Finding and removing outlier after optimization"
+	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
 #	./plotM.sh M=3,title=Optimized Chi2dof of M with outlier removed,
 endif

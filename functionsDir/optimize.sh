@@ -8,6 +8,7 @@ set REFERENCEBPM = $2
 set DESIGNBEAMLINE = $3
 set MODIFIEDBEAMLINE = $4
 set VERTICLE = $5
+set FUNCTIONNAME = $6
 
-javac /a/devuser/erict/workspace/Miscellaneous/src/optimizeQuad.java
-java -cp /a/devuser/erict/workspace/Miscellaneous/src/ optimizeQuad $QUAD $REFERENCEBPM $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+javac $JAVAPATH/optimizeQuad.java
+java -cp $JAVAPATH optimizeQuad $QUAD $REFERENCEBPM $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $FUNCTIONNAME
