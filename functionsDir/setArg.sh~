@@ -9,5 +9,5 @@
 #* Further Comments: The comma is necessary for parsing, and is needed after every value, even the last one
 #* Main Output: No output file
 
-#javac $JAVAPATH/setVariable.java
+#javac /a/devuser/erict/workspace/Miscellaneous/src/setVariable.java
 echo `java -cp $JAVAPATH setVariable $argv`

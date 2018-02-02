@@ -7,7 +7,7 @@ set M = $1
 set FILE = $2
 
 if (`echo $argv | grep -c compile` == 1) then
-	echo "COMPILING"	
+	echo "Compiling"	
 	javac $JAVAPATH/findOutlier.java
 endif
 

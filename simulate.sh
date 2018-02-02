@@ -82,10 +82,11 @@ if ($STRENGTHERROR != x) then
 	# Output: $CHI2PATH/comparisons.fin
 	$FPATH/runPPSSCompareM.sh $BPM1 $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
 
+	echo "findOutlier.sh - Finding and removing outlier before optimization"
+	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
+
 	exit
 
-	echo "findOutlier.sh"
-	$FPATH/findOutlier.sh 3 remove
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,
 	echo "optimize.sh"
 	optimize.sh MQB1A29 "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE

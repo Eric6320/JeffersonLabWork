@@ -57,15 +57,16 @@ if ($STRENGTHERROR != x) then
 	echo "Printing Differences"
 	diff comparisons.fin ~/git/JeffersonLabWork/chi2Dir/comparisons.fin
 
-	exit
 	echo "Find Outlier"
-	findOutlier.sh 3 remove
+	findOutlier.sh 3 comparisons.fin remove
+	exit
+
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,
 	echo "Optimize"
 	optimize.sh MQB1A29 "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 	echo "runParallelCompareM"
 	runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 	echo "FindOutlier"
-	findOutlier.sh 3 remove
+	findOutlier.sh 3 comparisons.fin remove
 #	./plotM.sh M=3,title=Optimized Chi2dof of M with outlier removed,
 endif
