@@ -59,7 +59,7 @@ if ($STRENGTHERROR != x) then
 
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,
 	echo "Optimize"
-	optimize.sh MQB1A29 "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+	optimize.sh MQB1A29 "IPM1R02" $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE "function.sh"
 	echo "runParallelCompareM"
 	runParallelCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 	echo "FindOutlier"

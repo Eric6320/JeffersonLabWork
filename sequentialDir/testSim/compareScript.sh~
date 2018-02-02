@@ -1,7 +1,0 @@
-#!/bin/tcsh
-unset noclobber
-
-foreach i (`ls ~/git/JeffersonLabWork/centroidValuesDir/`)
-	echo $i
-end
-

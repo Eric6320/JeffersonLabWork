@@ -32,7 +32,7 @@ if ($STRENGTHERROR != x) then
 endif
 
 # Using the design strengths, trace the ellipse and determine the centroid values - *CentroidValues.dat
-time ./rayTraceEllipse.sh $BPM1 $CORR1 $CORR2 $MODIFIEDBEAMLINE $VERTICLE
+./rayTraceEllipse.sh $BPM1 $CORR1 $CORR2 $MODIFIEDBEAMLINE $VERTICLE
 
 # Add scalar error to BPM measurement accuracy if applicable - Edit *-centroidValues.dat
 #TODO this still needs to be fixed
@@ -41,10 +41,10 @@ if ($BPMERROR != x) then
 endif
 
 # Determine the transformation matrix M for the modified ellipses - modified.mat
-time ./runPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+./runPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 
 # Calculate the CHI2DOF between each of the M matrix elements - comparison*.fin #TODO revisit what needs to be deleted in the runCompareScript
-time ./runCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
+./runCompareM.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE
 
 #./plotPhase.sh $BPM1 $N $VERTICLE,
 #./plotM.sh M=3,title=Pre-Corrected Chi2dof of M,

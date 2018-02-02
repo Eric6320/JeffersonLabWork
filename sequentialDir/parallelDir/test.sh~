@@ -1,9 +1,0 @@
-#!/bin/tcsh
-unset noclobber
-
-IFS=$'\n'
-
-foreach i (`grep 'IPM' "downstreamBPM.dat" | awk '{print $1" "$2}'`)
-	echo $i
-end
-

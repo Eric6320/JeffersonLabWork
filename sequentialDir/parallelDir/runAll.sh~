@@ -1,3 +1,0 @@
-#!/bin/tcsh
-
-./simulate.sh strengthError=-1, ; ./findOutlier.sh 3 remove ; ./plotM.sh M=3, title=Post Corrected CHI2DOF with outlier removed of M,
