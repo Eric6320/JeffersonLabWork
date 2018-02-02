@@ -1,0 +1,11 @@
+#!/bin/tcsh
+unset noclobber
+# Arguments: $DESIGNBEAMLINE $VERTICLE
+
+set DESIGNBEAMLINE = `./setArg.sh designBeamline unkicked $argv`
+set VERTICLE = `./setArg.sh verticle 1 $argv`
+
+sdds2stream -col=ElementName,s,R11,R12,R21,R22,R33,R34,R43,R44 $DESIGNBEAMLINE.mat >! $DESIGNBEAMLINE.matasc
+
+cat $DESIGNBEAMLINE.matasc | awk -v verticle=$VERTICLE '{print $1" "$2" "$(3+4*verticle)" "$(4+4*verticle)" "$(5+4*verticle)" "$(6+4*verticle)}' >! temp.fin
+tail -n +2 temp.fin >! $DESIGNBEAMLINE.matasc

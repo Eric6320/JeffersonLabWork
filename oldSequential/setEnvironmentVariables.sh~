@@ -1,0 +1,52 @@
+#!/bin/tcsh
+
+unset noclobber
+
+# Store variables as command input or defaults
+setenv N `./setArg.sh N 8 $argv`
+setenv SEED `./setArg.sh seed 0 $argv`
+setenv CORR1 `./setArg.sh corr1 MBT1S01V $argv`
+setenv CORR2 `./setArg.sh corr2 MBT1S02V $argv`
+setenv BPM1 `./setArg.sh bpm1 IPM1S03 $argv`
+setenv DESIGNBEAMLINE `./setArg.sh designBeamline unkicked $argv`
+setenv MODIFIEDBEAMLINE `./setArg.sh modifiedBeamline modified $argv`
+setenv VERTICLE `echo $CORR1 | grep -c "V"`
+setenv BPMERROR `./setArg.sh bpmError 0 $argv`
+setenv STRENGTHERROR `./setArg.sh strengthError 0 $argv`
+
+echo "Printing Arguments *****************************************************"
+setenv | tail -10
+
+echo "Generating Unit Circle and performing Inverse Floquet Tansformations****"
+# Generate a unit circle and perform a floquet transformation at the specified bpm - *EllipseOne.dat
+#TODO uncomment the resetbeamline after you're done testing
+./setup.sh
+
+echo "Calculating Quadrupole Strengths****************************************"
+# Using the twiss parameters at the given BPM, determine the strengths needed to trace the design ellipse - *Strengths.dat
+./determineStrengths.sh "modified"
+
+echo "Calculating Centroid Values*********************************************"
+# Using the design strengths, trace the ellipse and determine the centroid values - *CentroidValues.dat
+./rayTraceEllipse.sh "modified"
+
+# Add scalar error to BPM measurement accuracy if applicable - Edit *-centroidValues.dat
+#TODO this still needs to be fixed
+if ($BPMERROR != 0) then
+	echo "Adding BPM Error *******************************************************"	
+	./addBPMError.sh
+endif
+
+# Plot the difference between the design unit circle and the modified unit circle
+#TODO make this script take in axis args, write a gnuplot script
+#./plotDifference.sh
+
+echo "Generating M Matrices***************************************************"
+# Determine the transformation matrix M for the modified ellipses - modified.mat
+./runPseudoinverse.sh
+
+# Calculate the CHI2DOF between each of the M matrix elements - comparison*.fin #TODO revisit what needs to be deleted in the runCompareScript
+./runCompareM.sh
+
+./plotM.sh 1 2 3 4
+

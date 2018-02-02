@@ -1,0 +1,9 @@
+set title 'CHI2DOF of M4'
+set xlabel 'S Coordinate'
+set ylabel 'CHI2DOF'
+
+plot 'plotM4.dat' using 1:2 title 'CHI2DOF of M4' with points
+
+set table "plotM4.png"
+plot 'plotM4.dat' using 1:2 title 'CHI2DOF of M4' with points
+unset table

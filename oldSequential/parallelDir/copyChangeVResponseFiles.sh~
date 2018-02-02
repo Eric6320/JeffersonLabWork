@@ -1,0 +1,11 @@
+#!/bin/tcsh
+unset noclobber
+
+set x = $1
+
+set array = {"runParallelPseudoinverse.sh","parallelPseudoInverse.sh","downstreamBPM.dat", "determineTransformationMatrix.py", "modifyCorrector.py"}
+
+foreach i ()
+	echo "Copying: $i"
+	cp $i "cDir$x/$i"
+exit

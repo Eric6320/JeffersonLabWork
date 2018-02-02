@@ -1,0 +1,7 @@
+#!/bin/tcsh
+unset noclobber
+
+set DESIGNBEAMLINE = $1
+
+javac /a/devuser/erict/workspace/Miscellaneous/src/determineQStrengths.java
+java -cp /a/devuser/erict/workspace/Miscellaneous/src/ determineQStrengths "$DESIGNBEAMLINE.lte" "quadStrengths.dat"

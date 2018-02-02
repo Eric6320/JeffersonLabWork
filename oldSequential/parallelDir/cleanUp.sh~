@@ -1,0 +1,12 @@
+#!/bin/tcsh
+
+rm ~/dataFiles/*.fin ~/dataFiles/*.dat >& /dev/null
+
+exit
+
+rm *.fin *.dat >& /dev/null
+
+foreach x ($argv)
+	echo "Resetting $x beamline"
+	./resetBeamline.sh $x > /dev/null
+end
