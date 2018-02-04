@@ -1,6 +1,13 @@
 import numpy as np, sys
 
-# TODO finish commenting this fully
+#* Description:
+#* Argument: $1 - 
+#* Argument: $2 - 
+#* Argument: $3+ - 
+#* Example: 
+#* Further Comments: 
+#* Further Comments: 
+#* Main Output:
 
 # A = B * C  where C is the transformation matrix we've been referring to as M.
 

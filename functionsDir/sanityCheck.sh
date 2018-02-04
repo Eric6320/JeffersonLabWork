@@ -1,11 +1,14 @@
 #!/bin/tcsh
 unset noclobber
 
-#* Description: TODO
-#* Argument: TODO
-#* Example: TODO
-#* Further Comments: TODO
-#* Main Output: TODO
+#* Description:
+#* Argument: $1 - 
+#* Argument: $2 - 
+#* Argument: $3+ - 
+#* Example: 
+#* Further Comments: 
+#* Further Comments: 
+#* Main Output:
 
 # Set variables from arguments
 set BETATRONFILEONE = $1

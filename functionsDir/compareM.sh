@@ -1,7 +1,14 @@
 #!/bin/tcsh
 unset noclobber
 
-#TODO comment this script
+#* Description:
+#* Argument: $1 - 
+#* Argument: $2 - 
+#* Argument: $3+ - 
+#* Example: 
+#* Further Comments: 
+#* Further Comments: 
+#* Main Output:
 
 set BPMTWO = $1
 set M = $2

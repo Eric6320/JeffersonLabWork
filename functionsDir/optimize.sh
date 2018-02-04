@@ -1,7 +1,14 @@
 #!/bin/tcsh
 unset noclobber
 
-# TODO comment this
+#* Description:
+#* Argument: $1 - 
+#* Argument: $2 - 
+#* Argument: $3+ - 
+#* Example: 
+#* Further Comments: 
+#* Further Comments: 
+#* Main Output:
 
 # Set variables from command line arguments
 set QUAD = $1

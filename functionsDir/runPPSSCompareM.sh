@@ -1,7 +1,14 @@
 #!/bin/tcsh
 unset noclobber
 
-#TODO comment this
+#* Description:
+#* Argument: $1 - 
+#* Argument: $2 - 
+#* Argument: $3+ - 
+#* Example: 
+#* Further Comments: 
+#* Further Comments: 
+#* Main Output:
 
 # Clear the chi2Dir 
 rm -r $CHI2PATH/* >& /dev/null
