@@ -2,17 +2,31 @@
 unset noclobber
 
 #* Description:
-#* Argument: $1 - 
+#* Argument: - 
+#* Argument: - 
+#* Argument: - 
+#* Argument: - 
+#* Argument: - 
 #* Example: 
 #* Further Comments: 
 #* Further Comments: 
 #* Main Output:
 
 # Set variables from command line arguments
-set DESIGNBEAMLINE = $1
+set N = `$FPATH/setArg.sh N 10 $argv`
+set SEED = `$FPATH/setArg.sh seed 5 $argv`
+set CORR1 = `$FPATH/setArg.sh corr1 MBT1S01V $argv`
+set CORR2 = `$FPATH/setArg.sh corr2 MBT1S02V $argv`
+set BPM1 = `$FPATH/setArg.sh bpm1 IPM1S03 $argv`
+set DESIGNBEAMLINE = `$FPATH/setArg.sh designBeamline unkicked $argv`
+set MODIFIEDBEAMLINE = `$FPATH/setArg.sh modifiedBeamline modified $argv`
+set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
 
 set DESIGNLATTICE = "$RDPATH/$DESIGNBEAMLINE.lte"
 set DESIGNTWISSFILE = "$RDPATH/$DESIGNBEAMLINE.twi"
+
+# Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
+$FPATH/cleanUp.sh "change"
 
 # Searches through the given lattice file for the quadrupole with the largest absolute strength, and adds one percent of that strength to all other quadrupoles on the same beamline
 # Output: $CHANGEPATH/"quadStrengths.dat"
@@ -20,25 +34,20 @@ $FPATH/determineQStrengths.sh $DESIGNLATTICE $CHANGEPATH/"quadStrengths.dat"
 
 # Determine how many quadrupoles exist on the given beamline
 @ THRESHOLD = `sdds2stream -col=ElementName $DESIGNTWISSFILE | grep -c "MQ"`
-echo "$THRESHOLD"
 
-exit
-
-# For each Quadrupole in the design twiss file
+# For each Quadrupole in the design twiss file, determine the chi2dof response from changing its design strength to the modified one in $CHANGEPATH/"quadStrengths.dat"
 @ x = 1
 foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
+	
+	echo "********************************************Determining Sum CHI2DOF for $i********************************************"
 
-	#mkdir "$CHANGEPATH/$i\Dir"
-
-	set STRENGTH = `cat "quadStrengths.dat" | head -$x | tail -1`
-
-	#echo "Launching Comparison Call for $i"
-
-	$FPATH/changeFunction.sh $i $STRENGTH
+	set STRENGTH = `cat $CHANGEPATH/"quadStrengths.dat" | head -$x | tail -1`
+	$JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1, changeQuad=$i, changeQuadStrength=$STRENGTH, changeM=$CHANGEM,"
 
 	@ x += 1
-	exit
 end
+
+exit
 
 set DONECOUNT = `ls cDir* | grep -c "sumChi2DOF.dat"`
 

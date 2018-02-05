@@ -1,6 +1,10 @@
 #!/bin/tcsh
 unset noclobber
 
+
+
+#TODO probably delete this script
+
 # Generate all $DESIGNBEAMLINE and $MODIFIEDBEAMLINE files
 cleanUp.sh unkicked modified > /dev/null
 

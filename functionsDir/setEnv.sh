@@ -1,5 +1,6 @@
 #!/bin/tcsh
 
+setenv JPATH ~/git/JeffersonLabWork
 setenv FPATH ~/git/JeffersonLabWork/functionsDir
 setenv RDPATH ~/git/JeffersonLabWork/rawDataDir
 setenv PLOTPATH ~/git/JeffersonLabWork/plotsDir
