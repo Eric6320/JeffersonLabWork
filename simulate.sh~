@@ -91,7 +91,15 @@ if ($STRENGTHERROR != x) then
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,
 	$FPATH/runPPSSCompareM.sh $BPM1 $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
 	
-	echo "findOutlier.sh - Finding and removing outlier before optimization"
+	echo "findOutlier.sh - Finding and removing outlier after optimization"
 	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
 #	./plotM.sh M=3,title=Optimized Chi2dof of M with outlier removed,
 endif
+
+#TODO MAKE SURE THIS CALL IS CORRECT
+#$FPATH/changeVResponse.sh $RDPATH/$DESIGNBEAMLINE
+
+#TODO comment determineQuadStrength.sh
+#$FPATH/determineQuadStrengths.sh #TODO add proper arguments
+
+#$FPATH/plot.sh #TODO add proper arguments $BETATRONFILE title=Initial Betatron Ellipse, xAxisLabel=X, yAxisLabel=xPrime,

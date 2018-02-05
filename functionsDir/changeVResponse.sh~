@@ -28,11 +28,11 @@ exit
 @ x = 1
 foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 
-	#mkdir "$CHANGEPATH/$i\Dir"
+	mkdir "$CHANGEPATH/$i\Dir"
 
 	set STRENGTH = `cat "quadStrengths.dat" | head -$x | tail -1`
 
-	#echo "Launching Comparison Call for $i"
+	echo "Launching Comparison Call for $i"
 
 	$FPATH/changeFunction.sh $i $STRENGTH
 

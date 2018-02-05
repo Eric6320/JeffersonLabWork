@@ -97,8 +97,7 @@ if ($STRENGTHERROR != x) then
 endif
 
 #TODO MAKE SURE THIS CALL IS CORRECT
-#TODO comment changeVResponse.sh
-#$FPATH/changeVResponse.sh #TODO add proper arguments
+#$FPATH/changeVResponse.sh $DESIGNBEAMLINE
 
 #TODO comment determineQuadStrength.sh
 #$FPATH/determineQuadStrengths.sh #TODO add proper arguments
