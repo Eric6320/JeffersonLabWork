@@ -40,3 +40,14 @@ for n in range(0,C.shape[0]):
     outfile.write(str(C[n])+"\n")
 
 outfile.close()
+
+#TODO possibly change this to Sinverse
+outfileS = open(str(matrixPath)+'sValues.fin',"w")
+for n in range(0,S.shape[0]):
+    outfileS.write(str(C[n])+"\n")
+
+outfileS.close()
+
+# TODO format the S matrix in such a way that it can be plotted
+
+set DETERMINANT = `cat $ELLIPSEPATH/temp$TRIAL.dat | awk '{print ($1*$4 - $2*$3)}'`

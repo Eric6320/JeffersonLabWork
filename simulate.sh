@@ -95,3 +95,12 @@ if ($STRENGTHERROR != x) then
 	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
 #	./plotM.sh M=3,title=Optimized Chi2dof of M with outlier removed,
 endif
+
+#TODO MAKE SURE THIS CALL IS CORRECT
+#TODO comment changeVResponse.sh
+#$FPATH/changeVResponse.sh #TODO add proper arguments
+
+#TODO comment determineQuadStrength.sh
+#$FPATH/determineQuadStrengths.sh #TODO add proper arguments
+
+#$FPATH/plot.sh #TODO add proper arguments $BETATRONFILE title=Initial Betatron Ellipse, xAxisLabel=X, yAxisLabel=xPrime,
