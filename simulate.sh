@@ -13,6 +13,7 @@ unset noclobber
 #* Argument: MODIFIEDBEAMLINE - Name of the beamline which will have components modified throughout the process - ele, lte
 #* Argument: STRENGTHERROR - Percentage that the strength of a given quadrupole will be modified by. EX, -1 means change the sign on the strength
 
+#TODO revisit if all of these arguments are necessary after writing findChange.sh
 #* Argument: CHANGE - Boolean value indicating whether or not the script is being called from within changeVResponse.sh
 #* Argument: CHANGEQUAD - Quadrupole whose strength will be modified to determine a new CHI2DOF sum
 #* Argument: CHANGEQUADSTRENGTH - Strength to which $CHANGEQUAD will be set to
@@ -33,7 +34,7 @@ set MODIFIEDBEAMLINE = `$FPATH/setArg.sh modifiedBeamline modified $argv`
 set VERTICLE = `echo $CORR1 | grep -c "V"`
 
 # These variables are only referenced if there is optimization
-set STRENGTHERROR = `$FPATH/setArg.sh strengthError -1 $argv`
+set STRENGTHERROR = `$FPATH/setArg.sh strengthError x $argv`
 set TESTQUAD = `$FPATH/setArg.sh testQuad MQB1A29 $argv`
 set REFERENCEBPM = `$FPATH/setArg.sh referenceBPM IPM1R02 $argv`
 
@@ -42,6 +43,7 @@ set CHANGE = `$FPATH/setArg.sh change 0 $argv`
 set CHANGEQUAD = `$FPATH/setArg.sh changeQuad noDefault $argv`
 set CHANGEQUADSTRENGTH = `$FPATH/setArg.sh changeQuadStrength noDefault $argv`
 set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
+set DELTAQUAD = `$FPATH/setArg.sh deltaQuad noDefault $argv`
 
 # Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
 $FPATH/cleanUp.sh
@@ -59,6 +61,8 @@ $FPATH/determineStrengths.sh $BPM1 $CORR1 $CORR2 $VERTICLE $MODIFIEDBEAMLINE
 if ($STRENGTHERROR != x) then
 	echo "addStrengthError.sh - Adding strength error"
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh $TESTQUAD $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
+else
+	cp "$RDPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
 endif
 
 # If the script is being called from within changeVResponse.sh, change $CORR to $CORRSTRENGTH in the $MODIFIEDLATTICE
@@ -85,16 +89,19 @@ $FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 
 # If the script is being called from within changeVResponse.sh, end the script here
 if ($CHANGE == 1) then
-	echo "sumM.sh - Calculating CHI2DOF sum for M=$CHANGEM"
-	$FPATH/sumM.sh $CHANGEM "$CHI2PATH/comparisons.fin" >! $CHANGEPATH/"$CHANGEQUAD-sumChi2DOF.dat"
+	if ($CHANGEQUAD != "noDefault") then
+		echo "findChange.sh - Determining BPM change after each quadrupole"
+		$FPATH/findChange.sh $CHANGEM $CHANGEQUAD $BPM1 $DESIGNBEAMLINE "$CHANGEPATH/standardComparisons.fin" "$CHI2PATH/comparisons.fin"
+	endif
 	exit
 endif
+
+$FPATH/plotM.sh
 
 # TODO possibly add another sanity check here plotting the parabola and M values
 # TODO Modify this to include any other sources of error if applicable
 if ($STRENGTHERROR != x) then
 
-	#TODO copy any necessary files into the optimization directory
 	cp $RDPATH/$DESIGNBEAMLINE.lte $OPTIMIZEPATH/$DESIGNBEAMLINE.lte
 	cp $RDPATH/$DESIGNBEAMLINE.ele $OPTIMIZEPATH/$DESIGNBEAMLINE.ele
 	mv $MODIFIEDBEAMLINE.mat $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
@@ -107,8 +114,8 @@ if ($STRENGTHERROR != x) then
 	# Output: $CHI2PATH/comparisons.fin
 	$FPATH/runPPSSCompareM.sh $BPM1 $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
 
-	echo "findOutlier.sh - Finding and removing outlier before optimization"
-	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
+#	echo "findOutlier.sh - Finding and removing outlier before optimization"
+#	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
 
 	echo "optimize.sh - Optimizing Beamline"
 	$FPATH/optimize.sh $TESTQUAD $REFERENCEBPM $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE "$FPATH/function.sh"
@@ -116,8 +123,8 @@ if ($STRENGTHERROR != x) then
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,
 	$FPATH/runPPSSCompareM.sh $BPM1 $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
 	
-	echo "findOutlier.sh - Finding and removing outlier after optimization"
-	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
+#	echo "findOutlier.sh - Finding and removing outlier after optimization"
+#	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
 #	./plotM.sh M=3,title=Optimized Chi2dof of M with outlier removed,
 endif
 

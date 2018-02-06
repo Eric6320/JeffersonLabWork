@@ -28,24 +28,34 @@ set DESIGNTWISSFILE = "$RDPATH/$DESIGNBEAMLINE.twi"
 # Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
 $FPATH/cleanUp.sh "change"
 
+# Determine the baseline CHI2DOF values against which to compare, then move and rename to standardComparisons.fin in the changeDir directory
+$JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1,"
+mv "$CHI2PATH/comparisons.fin" "$CHANGEPATH/standardComparisons.fin"
+
 # Searches through the given lattice file for the quadrupole with the largest absolute strength, and adds one percent of that strength to all other quadrupoles on the same beamline
 # Output: $CHANGEPATH/"quadStrengths.dat"
-$FPATH/determineQStrengths.sh $DESIGNLATTICE $CHANGEPATH/"quadStrengths.dat"
+echo "determineQStrengths.sh - Adding 1% of max quadrupole strength to all quadrupoles"
+set DELTAQ = `$FPATH/determineQStrengths.sh $DESIGNLATTICE $CHANGEPATH/"quadStrengths.dat"`
+echo "Delta Q: $DELTAQ"
 
 # Determine how many quadrupoles exist on the given beamline
 @ THRESHOLD = `sdds2stream -col=ElementName $DESIGNTWISSFILE | grep -c "MQ"`
 
+# TODO I'm apparently still not clear on the structure of this matrix
 # For each Quadrupole in the design twiss file, determine the chi2dof response from changing its design strength to the modified one in $CHANGEPATH/"quadStrengths.dat"
 @ x = 1
 foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
+	
+	echo "********************************************Determining Sum CHI2DOF for $i********************************************"
 
 	set STRENGTH = `cat $CHANGEPATH/"quadStrengths.dat" | head -$x | tail -1`
-
 	$JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1, changeQuad=$i, changeQuadStrength=$STRENGTH, changeM=$CHANGEM,"
 
 	@ x += 1
 end
 
+#TODO put either a >> or paste based on what you find in Simulate.sh
+#TODO divide everyting in the response file by $DELTAQ
 exit
 
 set DONECOUNT = `ls cDir* | grep -c "sumChi2DOF.dat"`

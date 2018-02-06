@@ -12,9 +12,7 @@ set OUTPUTFILE = $2
 
 # Compile the script if the argument line contains the word 'compile'
 if (`echo $argv | grep -c "compile"` == 1) then
-	echo "determineQStrengths.sh - Compiling determineQStrengths.java"
 	javac $JAVAPATH/determineQStrengths.java
 endif
 
-echo "determineQStrengths.sh - Adding 1% of max quadrupole strength to all quadrupoles"
 java -cp $JAVAPATH determineQStrengths $DESIGNLATTICE $OUTPUTFILE
