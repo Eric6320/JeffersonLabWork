@@ -96,7 +96,7 @@ if ($CHANGE == 1) then
 	exit
 endif
 
-$FPATH/plotM.sh
+$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Pre Optimization M Plot,"
 
 # TODO possibly add another sanity check here plotting the parabola and M values
 # TODO Modify this to include any other sources of error if applicable
@@ -114,19 +114,20 @@ if ($STRENGTHERROR != x) then
 	# Output: $CHI2PATH/comparisons.fin
 	$FPATH/runPPSSCompareM.sh $BPM1 $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
 
-	echo "findOutlier.sh - Finding and removing outlier before optimization"
-	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
-
 	echo "optimize.sh - Optimizing Beamline"
 	$FPATH/optimize.sh $TESTQUAD $REFERENCEBPM $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE "$FPATH/function.sh"
 
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,
 	$FPATH/runPPSSCompareM.sh $BPM1 $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
-	
+
+	$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Post Optimization M Plot,"
+
 	echo "findOutlier.sh - Finding and removing outlier after optimization"
 	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
 #	./plotM.sh M=3,title=Optimized Chi2dof of M with outlier removed,
 endif
+
+$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Post Optimization Outlier Removed M Plot,"
 
 #TODO It might not be possible to call everything below this point from within this script
 exit

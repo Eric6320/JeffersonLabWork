@@ -1,9 +1,9 @@
-set title 'Design Unit Circle'
-set xlabel 'X'
-set ylabel 'Y'
+set title 'Post Optimization Outlier Removed M Plot 3'
+set xlabel 'S Coordinate'
+set ylabel 'CHI2DOF'
 
-plot 'circle10.dat' using 1:2 title 'Design Unit Circle' with points
+plot 'plotM3.dat' using 1:2 title 'Post Optimization Outlier Removed M Plot 3' with points
 
-set table "circle10.png"
-plot 'circle10.dat' using 1:2 title 'Design Unit Circle' with points
+set table "plotM3.png"
+plot 'plotM3.dat' using 1:2 title 'Post Optimization Outlier Removed M Plot 3' with points
 unset table
