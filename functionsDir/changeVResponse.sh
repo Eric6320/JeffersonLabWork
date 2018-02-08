@@ -26,7 +26,7 @@ set DESIGNLATTICE = "$RDPATH/$DESIGNBEAMLINE.lte"
 set DESIGNTWISSFILE = "$RDPATH/$DESIGNBEAMLINE.twi"
 
 # Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
-$FPATH/cleanUp.sh "change"
+#$FPATH/cleanUp.sh "change" #TODO uncomment this
 
 # Determine the baseline CHI2DOF values against which to compare, then move and rename to standardComparisons.fin in the changeDir directory
 $JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1,"
@@ -38,6 +38,7 @@ echo "determineQStrengths.sh - Adding 1% of max quadrupole strength to all quadr
 set DELTAQ = `$FPATH/determineQStrengths.sh $DESIGNLATTICE $CHANGEPATH/"quadStrengths.dat"`
 echo "Delta Q: $DELTAQ"
 
+if (`echo $argv | grep -c generate` == 1) then
 # Determine how many quadrupoles exist on the given beamline
 @ THRESHOLD = `sdds2stream -col=ElementName $DESIGNTWISSFILE | grep -c "MQ"`
 
@@ -59,17 +60,18 @@ foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 	@ x += 1
 end
 
+endif # TODO REMOVE THIS AFTER THE FILE STUFF WORKS
 echo "Starting file recombining"
 @ x = 1
 foreach FILE (`ls $CHANGEPATH/MQ*comparison.dat`)
-	echo "Dividing $DELTAQ from $FILE"
-	awk -v deltaQ=$DELTAQ '{print ($1/deltaQ)}' $FILE >! "$CHANGEPATH/comparison$x.fin"
+	awk -v deltaQ=$DELTAQ '{print ($2/deltaQ)}' $FILE >! "$CHANGEPATH/comparison$x.fin"
 	@ x += 1
 end
 
-touch "$CHANGEPATH/matrixM.fin"
-foreach FILE (`ls comparison*.fin`)
-	paste -d " " $CHANGEPATH/matrixM.fin $FILE >! $CHANGEPATH/matrixM.fin
+rm "$CHANGEPATH/matrixM.fin" > /dev/null; touch "$CHANGEPATH/matrixM.fin" #TODO delete the file removal here
+foreach FILE (`ls $CHANGEPATH/comparison*.fin`)
+	paste -d " " $CHANGEPATH/matrixM.fin $FILE >! $CHANGEPATH/temp.dat
+	mv $CHANGEPATH/temp.dat $CHANGEPATH/matrixM.fin
 end
 
 gedit "$CHANGEPATH/matrixM.fin"
