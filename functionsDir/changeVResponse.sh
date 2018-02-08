@@ -41,18 +41,38 @@ echo "Delta Q: $DELTAQ"
 # Determine how many quadrupoles exist on the given beamline
 @ THRESHOLD = `sdds2stream -col=ElementName $DESIGNTWISSFILE | grep -c "MQ"`
 
-# TODO I'm apparently still not clear on the structure of this matrix
+# Determine the next BPM downstream of each Quadrupole
+touch $CHANGEPATH/nextBPM.dat
+foreach QUAD (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
+	$FPATH/findNextBPM.sh $QUAD $BPM1 $DESIGNLATTICE >> $CHANGEPATH/nextBPM.dat
+end
+
 # For each Quadrupole in the design twiss file, determine the chi2dof response from changing its design strength to the modified one in $CHANGEPATH/"quadStrengths.dat"
 @ x = 1
 foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 	
-	echo "********************************************Determining Sum CHI2DOF for $i********************************************"
+	echo "******************************************** $x) Determining Sum CHI2DOF for $i********************************************"
 
 	set STRENGTH = `cat $CHANGEPATH/"quadStrengths.dat" | head -$x | tail -1`
 	$JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1, changeQuad=$i, changeQuadStrength=$STRENGTH, changeM=$CHANGEM,"
 
 	@ x += 1
 end
+
+echo "Starting file recombining"
+@ x = 1
+foreach FILE (`ls $CHANGEPATH/MQ*comparison.dat`)
+	echo "Dividing $DELTAQ from $FILE"
+	awk -v deltaQ=$DELTAQ '{print ($1/deltaQ)}' $FILE >! "$CHANGEPATH/comparison$x.fin"
+	@ x += 1
+end
+
+touch "$CHANGEPATH/matrixM.fin"
+foreach FILE (`ls comparison*.fin`)
+	paste -d " " $CHANGEPATH/matrixM.fin $FILE >! $CHANGEPATH/matrixM.fin
+end
+
+gedit "$CHANGEPATH/matrixM.fin"
 
 #TODO put either a >> or paste based on what you find in Simulate.sh
 #TODO divide everyting in the response file by $DELTAQ

@@ -87,16 +87,24 @@ $FPATH/sanityCheck.sh $MODIFIEDBEAMLINE"EllipseOne.dat" $BPM1"CentroidValues.dat
 $FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 #$FPATH/catPPSSOutput.sh
 
+
+set M = $1
+set CHANGEQUAD = $2
+set NEXTBPMFILE = $3
+set STANDARDFILE = $4
+set COMPARISONFILE = $5
+
+
 # If the script is being called from within changeVResponse.sh, end the script here
 if ($CHANGE == 1) then
 	if ($CHANGEQUAD != "noDefault") then
 		echo "findChange.sh - Determining BPM change after each quadrupole"
-		$FPATH/findChange.sh $CHANGEM $CHANGEQUAD $BPM1 $DESIGNBEAMLINE "$CHANGEPATH/standardComparisons.fin" "$CHI2PATH/comparisons.fin"
+		$FPATH/findChange.sh $CHANGEM $CHANGEQUAD "$CHANGEPATH/nextBPM.dat" "$CHANGEPATH/standardComparisons.fin" "$CHI2PATH/comparisons.fin"
 	endif
 	exit
 endif
 
-$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Pre Optimization M Plot,"
+#$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Pre Optimization M Plot,"
 
 # TODO possibly add another sanity check here plotting the parabola and M values
 # TODO Modify this to include any other sources of error if applicable
@@ -120,14 +128,14 @@ if ($STRENGTHERROR != x) then
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,
 	$FPATH/runPPSSCompareM.sh $BPM1 $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
 
-	$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Post Optimization M Plot,"
+#	$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Post Optimization M Plot,"
 
 	echo "findOutlier.sh - Finding and removing outlier after optimization"
 	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
 #	./plotM.sh M=3,title=Optimized Chi2dof of M with outlier removed,
 endif
 
-$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Post Optimization Outlier Removed M Plot,"
+#$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Post Optimization Outlier Removed M Plot,"
 
 #TODO It might not be possible to call everything below this point from within this script
 exit

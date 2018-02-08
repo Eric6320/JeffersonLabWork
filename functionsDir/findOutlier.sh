@@ -1,6 +1,15 @@
 #!/bin/tcsh
 
-#TODO comment this
+#* Description:
+#* Argument: - 
+#* Argument: - 
+#* Argument: - 
+#* Argument: - 
+#* Argument: - 
+#* Example: 
+#* Further Comments: 
+#* Further Comments: 
+#* Main Output:
 
 # Set variables from command line arguments
 set M = $1

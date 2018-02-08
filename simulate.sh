@@ -91,7 +91,7 @@ $FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 if ($CHANGE == 1) then
 	if ($CHANGEQUAD != "noDefault") then
 		echo "findChange.sh - Determining BPM change after each quadrupole"
-		$FPATH/findChange.sh $CHANGEM $CHANGEQUAD $BPM1 $DESIGNBEAMLINE "$CHANGEPATH/standardComparisons.fin" "$CHI2PATH/comparisons.fin"
+		$FPATH/findChange.sh $CHANGEM $CHANGEQUAD "$CHANGEPATH/nextBPM.dat" "$CHANGEPATH/standardComparisons.fin" "$CHI2PATH/comparisons.fin"
 	endif
 	exit
 endif
