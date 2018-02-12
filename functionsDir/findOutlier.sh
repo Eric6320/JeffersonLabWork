@@ -1,15 +1,13 @@
 #!/bin/tcsh
 
-#* Description:
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Example: 
-#* Further Comments: 
-#* Further Comments: 
-#* Main Output:
+#* Description: Runs the findOutlier.java script which identifies the BPM which contains the highest CHI2DOF values (the 'outlier') and provides the option to
+#* Description: remove it from the given $FILE
+#* Argument: - $1 - M - Transportation Matrix element number whose chi2dof value will identify the outlier
+#* Argument: - $2 - FILE - Name of the data file containing Transportation Matrix element comparisons
+#* Argument: - compile - If the argument line contains the word 'compile' anywhere, the findOutlier.java file will be compiled
+#* Argument: - remove - If the argument line contains the word 'remove' anywhere, the BPM that is identified as the outlier will be removed from $FILE
+#* Example: ./findOutlier.sh 3 $CHI2PATH/comparisons.fin compile remove
+#* Main Output: Printed BPM containing the highest $M value, as well as $FILE with or without the outlier based on the 'remove' argument
 
 # Set variables from command line arguments
 set M = $1
