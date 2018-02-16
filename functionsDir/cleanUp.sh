@@ -8,12 +8,11 @@
 echo "cleanUp.sh - Removing excess files and resetting file structure"
 
 # Remove directory and all contents within
-rm -r ~/git/JeffersonLabWork/ppss_dir >& /dev/null
+rm -r $JPATH/ppss_dir >& /dev/null
 
 if (`echo $argv | grep -c "change"` == 1) then
 	rm $CHANGEPATH/* >& /dev/null
 endif
-
 
 # Remove contents of directory, but keep the directory itself
 rm $ELEGANTPATH/* $CENTROIDPATH/* $ELLIPSEPATH/* $CHI2PATH/* $OPTIMIZEPATH/* >& /dev/null
