@@ -35,4 +35,3 @@ foreach FILE (`ls $CHANGEPATH/comparison*.fin`)
 end
 
 gedit "$CHANGEPATH/matrixM.fin"
-

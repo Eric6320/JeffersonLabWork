@@ -9,7 +9,7 @@ import numpy as np, sys
 #* Further Comments: 
 #* Main Output:
 
-# MQ = X  where M is change vs response matrix, Q is resultant quad strengths, and X is chi2 values
+# Q = M^{-1}X  where M is change vs response matrix, Q is resultant quad strengths, and X is chi2 values
 
 matrixPath = sys.argv[1]+"/"
 

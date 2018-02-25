@@ -67,6 +67,5 @@ foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 	endif
 end
 
-exit
-
+# Output: 
 $FPATH/fileRecombine.sh $CHANGEPATH/nextQuadBPM.dat $DELTAQ
