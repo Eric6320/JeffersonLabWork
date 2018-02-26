@@ -21,3 +21,5 @@ set DESIGNVALUE = `grep $BPMTWO $DESIGNFILE | awk -v M=$M '{print $(2+M)}'`
 set MODIFIEDVALUE = `grep $BPMTWO $MODIFIEDFILE | awk -v M=$M '{print $(2+M)}'`
 
 echo "$DESIGNVALUE $MODIFIEDVALUE" | awk '{print ($1 - $2)^2}' >! "$CHI2PATH/parallel$M-$BPMTWO.dat"
+
+echo "$DESIGNVALUE $MODIFIEDVALUE" | awk '{print ($1 - $2)^2}' #TODO DELETE

@@ -38,9 +38,6 @@ echo "determineQStrengths.sh - Adding 1% of max quadrupole strength to all quadr
 set DELTAQ = `$FPATH/determineQStrengths.sh $DESIGNLATTICE $CHANGEPATH/"quadStrengths.dat"`
 echo "Delta Q: $DELTAQ"
 
-# Determine how many quadrupoles exist on the given beamline
-@ THRESHOLD = `sdds2stream -col=ElementName $DESIGNTWISSFILE | grep -c "MQ"`
-
 # Determine the next BPM downstream of each Quadrupole
 touch $CHANGEPATH/nextQuadBPM.dat
 foreach QUAD (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
@@ -53,12 +50,15 @@ sed -i '/OUTOFBOUNDS/d' $CHANGEPATH/nextQuadBPM.dat
 # Copy the nextQuadBPM.dat file to a file containing only the subsequent BPMs
 awk '{print $2}' $CHANGEPATH/nextQuadBPM.dat >! $CHANGEPATH/nextBPM.dat
 
+# Determine the number of quadrupoles being manipulated
+set THRESHOLD = `wc -l $CHANGEPATH/nextBPM.dat`
+
 # For each Quadrupole in the design twiss file, determine the chi2dof response from changing its design strength to the modified one in $CHANGEPATH/"quadStrengths.dat"
 @ x = 1
 foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 	if (`grep -c $i $CHANGEPATH/nextQuadBPM.dat` == 1) then
-		echo "******************************************** $x) Determining Sum CHI2DOF for $i********************************************"
-		set STRENGTH = `cat $CHANGEPATH/"quadStrengths.dat" | head -$x | tail -1`
+		echo "******************************************** $x/$THRESHOLD) Determining Sum CHI2DOF for $i********************************************"
+		set STRENGTH = `grep $i "quadStrengths.dat" | awk '{print $2}'`
 
 		# Output: $CHANGEPATH/$icomparison.dat
 		$JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1, changeQuad=$i, changeQuadStrength=$STRENGTH, changeM=$CHANGEM,"
@@ -67,5 +67,15 @@ foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 	endif
 end
 
+# Recombine the files generated throughout the script into the proper formats in preparation for svd pseudoinverse
 # Output: "$CHANGEPATH/matrixM.fin"
 $FPATH/fileRecombine.sh $CHANGEPATH/nextQuadBPM.dat $DELTAQ
+
+exit
+
+# Determine the necessary quad changes, the perform the opposite on the modified beamline
+$FPATH/calculateQuadChanges.sh #TODO add arguments
+
+# Determine the error point, and chi2dof value from the correction
+#TODO finish this
+

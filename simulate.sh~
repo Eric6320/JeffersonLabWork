@@ -128,16 +128,3 @@ if ($STRENGTHERROR != x) then
 endif
 
 #$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Post Optimization Outlier Removed M Plot,"
-
-#TODO It might not be possible to call everything below this point from within this script
-exit
-
-
-
-#TODO MAKE SURE THIS CALL IS CORRECT
-#$FPATH/changeVResponse.sh $DESIGNBEAMLINE
-
-#TODO comment determineQuadStrength.sh
-#$FPATH/determineQuadStrengths.sh #TODO add proper arguments
-
-#$FPATH/plot.sh #TODO add proper arguments $BETATRONFILE title=Initial Betatron Ellipse, xAxisLabel=X, yAxisLabel=xPrime,

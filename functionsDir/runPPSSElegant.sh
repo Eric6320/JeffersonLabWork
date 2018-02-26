@@ -37,7 +37,7 @@ end
 
 # Run Elegant $N number of times in parallel using ppss
 # Output: $ELEGANTPATH/centroidValues$TRIAL.dat
-$FPATH/ppss -f 'elegantFile.ppss' -c "$FPATH/elegantFunction.sh " > /dev/null
+$FPATH/ppss -f 'elegantFile.ppss' -c "$FPATH/parallelElegant.sh " > /dev/null
 
 # Recompile all of the centroidValue$TRIAL.dat files into one comprehensive list
 # Output: $CENTROIDPATH/$BPM-centroidValues.dat
