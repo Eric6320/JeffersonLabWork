@@ -67,7 +67,7 @@ endif
 
 # If the script is being called from within changeVResponse.sh, change $CORR to $CORRSTRENGTH in the $MODIFIEDLATTICE
 # Output: $MODIFIEDBEAMLINE.lte
-if ($CHANGE == 1) then
+if ($CHANGE == 1 && $CHANGEQUAD != "noDefault") then
 	perl $FPATH/modifyQuad.pl "$MODIFIEDBEAMLINE.lte" "temp.lte" $CHANGEQUAD $CHANGEQUADSTRENGTH > /dev/null
 	mv "temp.lte" "$MODIFIEDBEAMLINE.lte"
 endif
@@ -84,7 +84,7 @@ $FPATH/runPPSSPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 $FPATH/sanityCheck.sh $MODIFIEDBEAMLINE"EllipseOne.dat" $BPM1"CentroidValues.dat" $BPM1 $N $VERTICLE #"plot"
 
 # Output: $CHI2PATH/comparisons.fin
-time $FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
+$FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 #$FPATH/catPPSSOutput.sh
 
 # If the script is being called from within changeVResponse.sh, end the script here

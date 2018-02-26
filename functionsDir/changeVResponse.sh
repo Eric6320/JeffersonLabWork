@@ -36,9 +36,9 @@ mv "$CHI2PATH/comparisons.fin" "$CHANGEPATH/standardComparisons.fin"
 # Output: $CHANGEPATH/"quadStrengths.dat"
 echo "determineQStrengths.sh - Adding 1% of max quadrupole strength to all quadrupoles"
 set DELTAQ = `$FPATH/determineQStrengths.sh $DESIGNLATTICE $CHANGEPATH/"quadStrengths.dat"`
-echo "Delta Q: $DELTAQ"
 
 # Determine the next BPM downstream of each Quadrupole
+echo "findNextBPM.sh - Determining succeeding BPMs"
 touch $CHANGEPATH/nextQuadBPM.dat
 foreach QUAD (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 	$FPATH/findNextBPM.sh $QUAD $BPM1 $DESIGNLATTICE >> $CHANGEPATH/nextQuadBPM.dat
@@ -51,17 +51,19 @@ sed -i '/OUTOFBOUNDS/d' $CHANGEPATH/nextQuadBPM.dat
 awk '{print $2}' $CHANGEPATH/nextQuadBPM.dat >! $CHANGEPATH/nextBPM.dat
 
 # Determine the number of quadrupoles being manipulated
-set THRESHOLD = `wc -l $CHANGEPATH/nextBPM.dat`
+set THRESHOLD = `wc -l $CHANGEPATH/nextBPM.dat | awk '{print $1}'`
 
 # For each Quadrupole in the design twiss file, determine the chi2dof response from changing its design strength to the modified one in $CHANGEPATH/"quadStrengths.dat"
 @ x = 1
 foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 	if (`grep -c $i $CHANGEPATH/nextQuadBPM.dat` == 1) then
 		echo "******************************************** $x/$THRESHOLD) Determining Sum CHI2DOF for $i********************************************"
-		set STRENGTH = `grep $i "quadStrengths.dat" | awk '{print $2}'`
+		set STRENGTH = `grep $i "$CHANGEPATH/quadStrengths.dat" | awk '{print $2}'`
 
 		# Output: $CHANGEPATH/$icomparison.dat
 		$JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1, changeQuad=$i, changeQuadStrength=$STRENGTH, changeM=$CHANGEM,"
+
+		exit
 
 		@ x += 1
 	endif

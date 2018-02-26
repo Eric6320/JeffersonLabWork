@@ -67,7 +67,7 @@ endif
 
 # If the script is being called from within changeVResponse.sh, change $CORR to $CORRSTRENGTH in the $MODIFIEDLATTICE
 # Output: $MODIFIEDBEAMLINE.lte
-if ($CHANGE == 1) then
+if ($CHANGE == 1 && $CHANGEQUAD != "noDefault") then
 	perl $FPATH/modifyQuad.pl "$MODIFIEDBEAMLINE.lte" "temp.lte" $CHANGEQUAD $CHANGEQUADSTRENGTH > /dev/null
 	mv "temp.lte" "$MODIFIEDBEAMLINE.lte"
 endif

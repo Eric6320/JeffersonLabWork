@@ -18,7 +18,7 @@ set VERTICLE = $4
 set MODIFIEDBEAMLINE = $5
 
 # Name Relevant Files
-set INFORMATIONFILE = $RDPATH/information.twiasc
+set INFORMATIONFILE = "$RDPATH/information.twiasc"
 set OUTPUTFILE = $MODIFIEDBEAMLINE"Strengths.dat"
 set INPUTELLIPSE = $MODIFIEDBEAMLINE"EllipseOne.dat"
 
