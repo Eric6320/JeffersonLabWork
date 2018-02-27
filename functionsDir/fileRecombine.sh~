@@ -38,5 +38,3 @@ foreach x (`seq $THRESHOLD`)
 		mv $CHANGEPATH/temp.dat $CHANGEPATH/matrixM.fin		
 	endif
 end
-
-gedit "$CHANGEPATH/matrixM.fin"

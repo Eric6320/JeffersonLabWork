@@ -24,7 +24,11 @@ set STRINGPLACEHOLDER = "comparison.dat"
 
 foreach x (`seq $THRESHOLD`)
 	set TEMPQUAD = `cat $QUADFILE | head -$x | tail -1 | awk '{print $1}'`
-	awk -v deltaQ=$DELTAQ '{print ($2/deltaQ)}' "$CHANGEPATH/$TEMPQUAD-comparison.dat" >! "$CHANGEPATH/comparison$x.fin"
+	if ($x == $THRESHOLD) then
+		awk -v deltaQ=$DELTAQ '{print ($2/deltaQ)}' "$CHANGEPATH/$TEMPQUAD-comparison.dat" >! "$CHANGEPATH/comparison$x.fin"
+	else
+		awk -v deltaQ=$DELTAQ '{print ($2/deltaQ)","}' "$CHANGEPATH/$TEMPQUAD-comparison.dat" >! "$CHANGEPATH/comparison$x.fin"
+	endif
 end
 
 printf "%-40s -%s\n" "fileRecombine.sh" "Recombining changeVResponse files"

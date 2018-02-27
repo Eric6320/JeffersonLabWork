@@ -19,6 +19,8 @@ unset noclobber
 # Output: $CHANGEPATH/matrixQ.fin
 $FPATH/svdPseudoinverse.py "$CHANGEPATH/matrixX.fin" "$CHANGEPATH/matrixM.fin" "$CHANGEPATH/matrixQ.fin"
 
+gedit "$CHANGEPATH/matrixQ.fin"
+
 #TODO plot singular values from S plot
 
 # Apply the opposite changes of what is in matrixQ.fin

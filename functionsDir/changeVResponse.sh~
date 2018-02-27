@@ -21,12 +21,15 @@ set BPM1 = `$FPATH/setArg.sh bpm1 IPM1S03 $argv`
 set DESIGNBEAMLINE = `$FPATH/setArg.sh designBeamline unkicked $argv`
 set MODIFIEDBEAMLINE = `$FPATH/setArg.sh modifiedBeamline modified $argv`
 set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
+set GENERATE = `$FPATH/setArg.sh generate 0 $argv`
 
 set DESIGNLATTICE = "$RDPATH/$DESIGNBEAMLINE.lte"
 set DESIGNTWISSFILE = "$RDPATH/$DESIGNBEAMLINE.twi"
 
-# Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
-$FPATH/cleanUp.sh "change" 
+if ($GENERATE == 1) then
+	# Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
+	$FPATH/cleanUp.sh "change" 
+endif
 
 # Determine the baseline CHI2DOF values against which to compare, then move and rename to standardComparisons.fin in the changeDir directory
 $JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1,"
@@ -53,24 +56,13 @@ awk '{print $2}' "$CHANGEPATH/nextQuadBPM.dat" >! "$CHANGEPATH/nextBPM.dat"
 
 # Generate 'baseline' chi matrix
 # Output: $CHANGEPATH/matrixX.fin
-grep -F -f "$CHANGEPATH/nextBPM.dat" "$CHI2PATH/comparisons.fin" | awk -v M=$CHANGEM '{print $(2+M)}'
+grep -F -f "$CHANGEPATH/nextBPM.dat" "$CHANGEPATH/standardComparisons.fin" | awk -v M=$CHANGEM '{print $(2+M)}' >! "$CHANGEPATH/matrixX.fin"
 
-# Determine the number of quadrupoles being manipulated
-set THRESHOLD = `wc -l $CHANGEPATH/nextBPM.dat | awk '{print $1}'`
-
-# For each Quadrupole in the design twiss file, determine the chi2dof response from changing its design strength to the modified one in $CHANGEPATH/"quadStrengths.dat"
-@ x = 1
-foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
-	if (`grep -c $i $CHANGEPATH/nextQuadBPM.dat` == 1) then
-		echo "******************************************** $x/$THRESHOLD) Determining CHI2DOF Change for $i********************************************"
-		set STRENGTH = `grep $i "$CHANGEPATH/quadStrengths.dat" | awk '{print $2}'`
-
-		# Output: $CHANGEPATH/$icomparison.dat
-		time $JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1, changeQuad=$i, changeQuadStrength=$STRENGTH, changeM=$CHANGEM,"
-
-		@ x += 1
-	endif
-end
+if ($GENERATE == 1) then
+	# Generate the changeVResponse Matrix M
+	# Output: $CHANGEPATH/$QUADNAMEcomparison.dat
+	$FPATH/generateCVR.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $CHANGEM
+endif
 
 # Recombine the files generated throughout the script into the proper formats in preparation for svd pseudoinverse
 # Output: "$CHANGEPATH/matrixM.fin"

@@ -17,7 +17,7 @@ unset noclobber
 
 # Perform singular value decomposition
 # Output: $CHANGEPATH/matrixQ.fin
-$FPATH/svdPseudoinverse.py "$CHANGEPATH/matrixX.fin" "$CHANGEPATH/matrixM.fin" "$CHANGEPATH/matrixQ.fin"
+python $FPATH/svdPseudoinverse.py "$CHANGEPATH/matrixX.fin" "$CHANGEPATH/matrixM.fin" "$CHANGEPATH/matrixQ.fin"
 
 gedit "$CHANGEPATH/matrixQ.fin"
 
