@@ -18,7 +18,7 @@ unset noclobber
 set QUADFILE = $1
 set DELTAQ = $2
 
-echo "fileRecombine.sh - Dividing by change"
+printf "%-40s -%s\n" "fileRecombine.sh" "Dividing by change"
 set THRESHOLD = `ls $CHANGEPATH/MQ*comparison.dat | wc -l`
 set STRINGPLACEHOLDER = "comparison.dat"
 
@@ -27,11 +27,14 @@ foreach x (`seq $THRESHOLD`)
 	awk -v deltaQ=$DELTAQ '{print ($2/deltaQ)}' "$CHANGEPATH/$TEMPQUAD-comparison.dat" >! "$CHANGEPATH/comparison$x.fin"
 end
 
-echo "fileRecombine.sh - Recombining changeVResponse files"
-rm "$CHANGEPATH/matrixM.fin" > /dev/null; touch "$CHANGEPATH/matrixM.fin" #TODO delete the file removal here
-foreach FILE (`ls $CHANGEPATH/comparison*.fin`)
-	paste -d " " $CHANGEPATH/matrixM.fin $FILE >! $CHANGEPATH/temp.dat
-	mv $CHANGEPATH/temp.dat $CHANGEPATH/matrixM.fin
+printf "%-40s -%s\n" "fileRecombine.sh" "Recombining changeVResponse files"
+foreach x (`seq $THRESHOLD`)
+	set FILE = "$CHANGEPATH/comparison$x.fin"
+	
+	if ($x == 1) then
+		cp $FILE "$CHANGEPATH/matrixM.fin"
+	else
+		paste -d " " $CHANGEPATH/matrixM.fin $FILE >! $CHANGEPATH/temp.dat
+		mv $CHANGEPATH/temp.dat $CHANGEPATH/matrixM.fin		
+	endif
 end
-
-gedit "$CHANGEPATH/matrixM.fin"

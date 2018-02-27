@@ -23,7 +23,7 @@ set FUNCTIONNAME = $6
 
 # Compile the script if the argument line contains the word 'compile'
 if (`echo $argv | grep -c "compile"` == 1) then
-	echo "optimize.sh - Compiling optimizeQuad.java"
+	printf "%-40s -%s\n" "optimize.sh" "Compiling optimizeQuad.java"
 	javac $JAVAPATH/optimizeQuad.java
 endif
 

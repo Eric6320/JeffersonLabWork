@@ -11,7 +11,7 @@ unset noclobber
 #* Further Comments: All of the data from the elegant calls are stored in the elegantPPSSDir folder, but all centroidValue data files are stored in the centroidValuesDir folder
 #* Main Output: *BPM*CentroidValues.dat
 
-echo "runPPSSElegant.sh - Running Elegant to generate centroidValue data files"
+printf "%-40s -%s\n" "runPPSSElegant.sh" "Running Elegant to generate centroidValue data files"
 
 # Store arguments as variables
 set N = $1

@@ -34,11 +34,11 @@ mv "$CHI2PATH/comparisons.fin" "$CHANGEPATH/standardComparisons.fin"
 
 # Searches through the given lattice file for the quadrupole with the largest absolute strength, and adds one percent of that strength to all other quadrupoles on the same beamline
 # Output: $CHANGEPATH/"quadStrengths.dat"
-echo "determineQStrengths.sh - Adding 1% of max quadrupole strength to all quadrupoles"
+printf "%-40s -%s\n" "determineQStrengths.sh" "Adding 1% of max quadrupole strength to all quadrupoles"
 set DELTAQ = `$FPATH/determineQStrengths.sh $DESIGNLATTICE $CHANGEPATH/"quadStrengths.dat"`
 
 # Determine the next BPM downstream of each Quadrupole
-echo "findNextBPM.sh - Determining succeeding BPMs"
+printf "%-40s -%s\n" "findNextBPM.sh" "Determining succeeding BPMs"
 touch $CHANGEPATH/nextQuadBPM.dat
 foreach QUAD (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 	$FPATH/findNextBPM.sh $QUAD $BPM1 $DESIGNLATTICE >> $CHANGEPATH/nextQuadBPM.dat
@@ -47,8 +47,13 @@ end
 # Remove any Quadrupoles that are out of bounds from the list
 sed -i '/OUTOFBOUNDS/d' $CHANGEPATH/nextQuadBPM.dat
 
+
 # Copy the nextQuadBPM.dat file to a file containing only the subsequent BPMs
-awk '{print $2}' $CHANGEPATH/nextQuadBPM.dat >! $CHANGEPATH/nextBPM.dat
+awk '{print $2}' "$CHANGEPATH/nextQuadBPM.dat" >! "$CHANGEPATH/nextBPM.dat"
+
+# Generate 'baseline' chi matrix
+# Output: $CHANGEPATH/matrixX.fin
+grep -F -f "$CHANGEPATH/nextBPM.dat" "$CHI2PATH/comparisons.fin" | awk -v M=$CHANGEM '{print $(2+M)}'
 
 # Determine the number of quadrupoles being manipulated
 set THRESHOLD = `wc -l $CHANGEPATH/nextBPM.dat | awk '{print $1}'`
@@ -57,13 +62,11 @@ set THRESHOLD = `wc -l $CHANGEPATH/nextBPM.dat | awk '{print $1}'`
 @ x = 1
 foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 	if (`grep -c $i $CHANGEPATH/nextQuadBPM.dat` == 1) then
-		echo "******************************************** $x/$THRESHOLD) Determining Sum CHI2DOF for $i********************************************"
-		set STRENGTH = `grep $i "quadStrengths.dat" | awk '{print $2}'`
+		echo "******************************************** $x/$THRESHOLD) Determining CHI2DOF Change for $i********************************************"
+		set STRENGTH = `grep $i "$CHANGEPATH/quadStrengths.dat" | awk '{print $2}'`
 
 		# Output: $CHANGEPATH/$icomparison.dat
-		$JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1, changeQuad=$i, changeQuadStrength=$STRENGTH, changeM=$CHANGEM,"
-
-		exit
+		time $JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1, changeQuad=$i, changeQuadStrength=$STRENGTH, changeM=$CHANGEM,"
 
 		@ x += 1
 	endif
@@ -72,8 +75,6 @@ end
 # Recombine the files generated throughout the script into the proper formats in preparation for svd pseudoinverse
 # Output: "$CHANGEPATH/matrixM.fin"
 $FPATH/fileRecombine.sh $CHANGEPATH/nextQuadBPM.dat $DELTAQ
-
-exit
 
 # Determine the necessary quad changes, the perform the opposite on the modified beamline
 $FPATH/calculateQuadChanges.sh #TODO add arguments

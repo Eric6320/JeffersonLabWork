@@ -5,7 +5,7 @@
 #* Example: $FPATH/cleanUp.sh
 #* Main Output: No output file
 
-echo "cleanUp.sh - Removing excess files and resetting file structure"
+printf "%-40s -%s\n" "cleanUp.sh" "Removing excess files and resetting file structure"
 
 # Remove directory and all contents within
 rm -r $JPATH/ppss_dir >& /dev/null

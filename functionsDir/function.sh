@@ -19,7 +19,7 @@ set VERTICLE = $6
 
 # Compile the changeQuadStrength.java file if the command line arguments contain the word 'compile' anywhere
 if (`echo $argv | grep -c 'compile'` == 1) then
-	echo "function.sh - Compiling changeQuadStrength.java"
+	printf "%-40s -%s\n" "function.sh" "Compiling changeQuadStrength.java"
 	javac $JAVAPATH/changeQuadStrength.java
 endif
 

@@ -25,10 +25,10 @@ grep 'IPM' $RDPATH/information.twiasc | awk -v S=$S '{if ($1 >= S) print $2" "$1
 
 # Generate a unit circle with N evenly spaced data points
 # Output: circle$N.dat
-echo "setup.sh - Generating unit circle";
+printf "%-40s -%s\n" "setup.sh" "Generating unit circle"
 $FPATH/unitCircle.sh $N
 
 # Transform the points on the unit circle to a betatron ellipse at the specified BPM using the modified lattice
 # Output: $MODIFIEDBEAMLINE"EllipseOne.dat"
-echo "setup.sh - Performing inverse floquet transformation on modified beamline"
+printf "%-40s -%s\n" "setup.sh" "Performing inverse floquet transformation on modified beamline"
 $FPATH/floquet.sh "circle$N.dat" $MODIFIEDBEAMLINE"EllipseOne.dat" $BPMONE $VERTICLE "inverse"

@@ -1,7 +1,10 @@
 #!/bin/tcsh
 unset noclobber
 
-set BPM1 = "IPM1S05"
-set BPM2 = "IPM1S07"
+# Generate 'baseline' chi matrix
+# Output: $CHANGEPATH/matrixX.fin
+time `grep -F -f $CHANGEPATH/nextBPM.dat $CHI2PATH/comparisons.fin | awk -v M=3 '{print $(2+M)}'`
 
-printf "%-40s %s" "This is a test-" "this is a second test"
+# Generate 'baseline' chi matrix
+# Output: $CHANGEPATH/matrixX.fin
+time `grep -f $CHANGEPATH/nextBPM.dat $CHI2PATH/comparisons.fin | awk -v M=3 '{print $(2+M)}'`

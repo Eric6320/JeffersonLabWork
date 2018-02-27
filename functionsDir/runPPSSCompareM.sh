@@ -19,7 +19,7 @@ set DESIGNFILE = $2
 set MODIFIEDFILE = $3
 set S = `$FPATH/pullS.sh $BPMONE`
 
-echo "runPPSSCompareM.sh - Comparing Transportation Matrix Values"
+printf "%-40s -%s\n" "runPPSSCompareM.sh" "Comparing Transportation Matrix Values"
 
 # Generate ppss file containing each BPM downstream, each possible M number (1-4), and the names of the files containing Transportation Matrix values
 rm compareM.ppss >& /dev/null; touch compareM.ppss

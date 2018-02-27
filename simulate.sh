@@ -59,7 +59,7 @@ $FPATH/determineStrengths.sh $BPM1 $CORR1 $CORR2 $VERTICLE $MODIFIEDBEAMLINE
 
 # Add scalar error to Quadrupole Strengths if applicable
 if ($STRENGTHERROR != x) then
-	echo "addStrengthError.sh - Adding strength error"
+	printf "%-40s -%s\n" "addStrengthError.sh" "Adding strength error"
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh $TESTQUAD $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
 else
 	cp "$RDPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
@@ -80,9 +80,6 @@ $FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE
 # Output: $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 $FPATH/runPPSSPseudoinverse.sh $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 
-# Non-essential sanity check to ensure that modified values do not vary wildly from the design
-$FPATH/sanityCheck.sh $MODIFIEDBEAMLINE"EllipseOne.dat" $BPM1"CentroidValues.dat" $BPM1 $N $VERTICLE #"plot"
-
 # Output: $CHI2PATH/comparisons.fin
 $FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 #$FPATH/catPPSSOutput.sh
@@ -90,7 +87,7 @@ $FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 # If the script is being called from within changeVResponse.sh, end the script here
 if ($CHANGE == 1) then
 	if ($CHANGEQUAD != "noDefault") then
-		echo "findChange.sh - Determining BPM change after each quadrupole"
+		printf "%-40s -%s\n" "findChange.sh" "Determining BPM change after each quadrupole"
 		$FPATH/findChange.sh $CHANGEM $CHANGEQUAD "$CHANGEPATH/nextBPM.dat" "$CHANGEPATH/standardComparisons.fin" "$CHI2PATH/comparisons.fin"
 	endif
 	exit
@@ -106,15 +103,14 @@ if ($STRENGTHERROR != x) then
 	cp $RDPATH/$DESIGNBEAMLINE.ele $OPTIMIZEPATH/$DESIGNBEAMLINE.ele
 	mv $MODIFIEDBEAMLINE.mat $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
 
-	echo "Target strength = $NEWQUADSTRENGTH"
-	echo "function.sh - Setting $TESTQUAD to $NEWQUADSTRENGTH to determine ideal chi2dof"
-	$FPATH/function.sh $TESTQUAD $NEWQUADSTRENGTH $REFERENCEBPM $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+#	printf "%-40s -%s\n" "function.sh" "Setting $TESTQUAD to $NEWQUADSTRENGTH to determine ideal chi2dof"
+#	$FPATH/function.sh $TESTQUAD $NEWQUADSTRENGTH $REFERENCEBPM $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 
 	#Re-calculating Transportation matrix comparisons
 	# Output: $CHI2PATH/comparisons.fin
 	$FPATH/runPPSSCompareM.sh $BPM1 $OPTIMIZEPATH/$DESIGNBEAMLINE.matasc $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
 
-	echo "optimize.sh - Optimizing Beamline"
+	printf "%-40s -%s\n" "optimize.sh" "Optimizing Beamline"
 	$FPATH/optimize.sh $TESTQUAD $REFERENCEBPM $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE "$FPATH/function.sh"
 
 #	./plotM.sh M=3,title=Fixed Chi2dof of M with outlier removed,
@@ -122,7 +118,7 @@ if ($STRENGTHERROR != x) then
 
 #	$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Post Optimization M Plot,"
 
-	echo "findOutlier.sh - Finding and removing outlier after optimization"
+	printf "%-40s -%s\n" "findOutlier.sh" "Finding and removing outlier after optimization"
 	$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
 #	./plotM.sh M=3,title=Optimized Chi2dof of M with outlier removed,
 endif

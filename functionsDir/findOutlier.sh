@@ -15,7 +15,7 @@ set FILE = $2
 
 # Compile the script if the argument line contains the word 'compile' anywhere
 if (`echo $argv | grep -c compile` == 1) then
-	echo "findOutlier.sh - Compiling findOutlier.java"
+	printf "%-40s -%s\n" "findOutlier.sh" "Compiling findOutlier.java"
 	javac $JAVAPATH/findOutlier.java
 endif
 
@@ -28,5 +28,5 @@ if (`echo $argv | grep -c remove` == 1) then
 	set INDEX = `grep -m 1 -n -w $NAME $FILE | cut -f1 -d:`
 	# Remove the BPM from the given $FILE
 	sed -i $INDEX'd' $FILE
-	echo "findOutlier.sh - Removing: $NAME at `$FPATH/pullS.sh $NAME`"
+	printf "%-40s -%s\n" "findOutlier.sh" "Removing: $NAME at `$FPATH/pullS.sh $NAME`"
 endif

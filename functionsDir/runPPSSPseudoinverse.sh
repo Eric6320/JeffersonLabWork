@@ -16,7 +16,7 @@ set DESIGNBEAMLINE = $2
 set MODIFIEDBEAMLINE = $3
 set VERTICLE = $4
 
-echo "runPPSSPseudoinverse.sh - Generating Transportation Matrices"
+printf "%-40s -%s\n" "runPPSSPseudoinverse.sh" "Generating Transportation Matrices"
 
 # Generate ppss file containing each BPM combination, S coordinate, and Trial number
 # Output: pseudoinverse.ppss
