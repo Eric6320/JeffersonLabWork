@@ -45,6 +45,8 @@ set CHANGEQUADSTRENGTH = `$FPATH/setArg.sh changeQuadStrength noDefault $argv`
 set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
 set DELTAQUAD = `$FPATH/setArg.sh deltaQuad noDefault $argv`
 
+set TESTVARIABLE = `$FPATH/setArg.sh testVariable 0 $argv`
+
 # Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
 $FPATH/cleanUp.sh
 set S = `$FPATH/pullS.sh $BPM1 $DESIGNBEAMLINE`
@@ -62,7 +64,9 @@ if ($STRENGTHERROR != x) then
 	printf "%-40s -%s\n" "addStrengthError.sh" "Adding strength error"
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh $TESTQUAD $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
 else
-	cp "$RDPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
+	if ($TESTVARIABLE == 0) then
+		cp "$RDPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
+	endif
 endif
 
 # If the script is being called from within changeVResponse.sh, change $CORR to $CORRSTRENGTH in the $MODIFIEDLATTICE

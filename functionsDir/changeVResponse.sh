@@ -85,8 +85,11 @@ endif
 # Determine the necessary quad changes, the perform the opposite on the modified beamline, determine chi2dof improvement
 $FPATH/calculateQuadChanges.sh $MODIFIEDBEAMLINE $DELTAQ #TODO add arguments
 
-$JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, strengthError=$STRENGTHERROR, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1,"
-mv "$CHI2PATH/comparisons.fin" "$CHANGEPATH/finalComparisons.fin"
+#**************************
+
+set VERTICLE = `echo $CORR1 | grep -c "V"`
+
+$JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, strengthError=$STRENGTHERROR, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1, testVariable=1,"
 
 # Determine quality of fix, and error point
 set CURRENTSUM = `$FPATH/sumM.sh $CHANGEM "$CHANGEPATH/finalComparisons.fin"`

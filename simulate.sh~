@@ -45,6 +45,8 @@ set CHANGEQUADSTRENGTH = `$FPATH/setArg.sh changeQuadStrength noDefault $argv`
 set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
 set DELTAQUAD = `$FPATH/setArg.sh deltaQuad noDefault $argv`
 
+set TESTVARIABLE = `$FPATH/setArg.sh testVariable 0 $argv`
+
 # Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
 $FPATH/cleanUp.sh
 set S = `$FPATH/pullS.sh $BPM1 $DESIGNBEAMLINE`
@@ -103,8 +105,8 @@ if ($STRENGTHERROR != x) then
 	cp $RDPATH/$DESIGNBEAMLINE.ele $OPTIMIZEPATH/$DESIGNBEAMLINE.ele
 	mv $MODIFIEDBEAMLINE.mat $OPTIMIZEPATH/$MODIFIEDBEAMLINE.mat
 
-	printf "%-40s -%s\n" "function.sh" "Setting $TESTQUAD to $NEWQUADSTRENGTH to determine ideal chi2dof"
-	$FPATH/function.sh $TESTQUAD $NEWQUADSTRENGTH $REFERENCEBPM $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
+#	printf "%-40s -%s\n" "function.sh" "Setting $TESTQUAD to $NEWQUADSTRENGTH to determine ideal chi2dof"
+#	$FPATH/function.sh $TESTQUAD $NEWQUADSTRENGTH $REFERENCEBPM $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE
 
 	#Re-calculating Transportation matrix comparisons
 	# Output: $CHI2PATH/comparisons.fin
