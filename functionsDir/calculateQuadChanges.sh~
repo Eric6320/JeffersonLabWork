@@ -17,7 +17,7 @@ unset noclobber
 
 # Perform singular value decomposition
 # Output: $CHANGEPATH/matrixQ.fin
-$FPATH/svdPseudoinverse.py "$CHANGEPATH/matrixX.fin" "$CHANGEPATH/matrixM.fin" "$CHANGEPATH/matrixQ.fin"
+python $FPATH/svdPseudoinverse.py "$CHANGEPATH/matrixX.fin" "$CHANGEPATH/matrixM.fin" "$CHANGEPATH/matrixQ.fin"
 
 gedit "$CHANGEPATH/matrixQ.fin"
 
@@ -28,9 +28,3 @@ gedit "$CHANGEPATH/matrixQ.fin"
 
 # Determine quality of fix, and error point
 #TODO
-
-# Re-run until within converged
-
-# TODO do without error
-# TODO Add quad error
-# TODO add multiple quad error

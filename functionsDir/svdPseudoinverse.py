@@ -12,6 +12,10 @@ import numpy as np, sys
 
 # A = B * C
 
+# Find C
+
+# C = B^{-1} * A
+
 # Store command line arguments as variables
 aFile = sys.argv[1]
 bFile = sys.argv[2]

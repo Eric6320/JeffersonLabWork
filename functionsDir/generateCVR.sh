@@ -22,7 +22,7 @@ set DESIGNBEAMLINE = $6
 set MODIFIEDBEAMLINE = $7
 set CHANGEM = $8
 
-set DESIGNTWISSFILE = "$DESIGNBEAMLINE.twi"
+set DESIGNTWISSFILE = "$RDPATH/$DESIGNBEAMLINE.twi"
 
 
 # Determine the number of quadrupoles being manipulated

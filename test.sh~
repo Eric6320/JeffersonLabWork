@@ -1,10 +1,13 @@
 #!/bin/tcsh
 unset noclobber
 
-# Generate 'baseline' chi matrix
-# Output: $CHANGEPATH/matrixX.fin
-time `grep -F -f $CHANGEPATH/nextBPM.dat $CHI2PATH/comparisons.fin | awk -v M=3 '{print $(2+M)}'`
+let TOLERANCE = `$FPATH/setArg.sh tolerance 1 $argv`
+set CHANGEM = 3
 
-# Generate 'baseline' chi matrix
-# Output: $CHANGEPATH/matrixX.fin
-time `grep -f $CHANGEPATH/nextBPM.dat $CHI2PATH/comparisons.fin | awk -v M=3 '{print $(2+M)}'`
+# Determine quality of fix, and error point
+let CURRENTSUM = `$FPATH/sumM.sh $CHANGEM "$CHANGEPATH/standardComparisons.fin"`
+echo "Current CHI2DOF total: $CURRENTSUM - Tolerance: $TOLERANCE"
+if ($CURRENTSUM < $TOLERANCE) then
+	echo "this worked"
+	exit
+end

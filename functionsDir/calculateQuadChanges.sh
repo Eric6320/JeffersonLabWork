@@ -25,12 +25,3 @@ gedit "$CHANGEPATH/matrixQ.fin"
 
 # Apply the opposite changes of what is in matrixQ.fin
 #TODO
-
-# Determine quality of fix, and error point
-#TODO
-
-# Re-run until within converged
-
-# TODO do without error
-# TODO Add quad error
-# TODO add multiple quad error

@@ -35,7 +35,6 @@ foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 		echo "******************************************** $x/$THRESHOLD) Determining CHI2DOF Change for $i********************************************"
 		set STRENGTH = `grep $i "$CHANGEPATH/quadStrengths.dat" | awk '{print $2}'`
 
-		# Output: $CHANGEPATH/$icomparison.dat
 		time $JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1, changeQuad=$i, changeQuadStrength=$STRENGTH, changeM=$CHANGEM,"
 
 		@ x += 1

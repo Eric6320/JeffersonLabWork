@@ -16,11 +16,10 @@ import numpy as np, sys
 aFile = sys.argv[1]
 bFile = sys.argv[2]
 cFile = sys.argv[3]
-filePath = sys.argv[4]+"/"
 
 # Load in comma separated text files A and B
-A = np.loadtxt(filePath+aFile, delimiter=',')
-B = np.loadtxt(filePath+bFile, delimiter=',')
+A = np.loadtxt(aFile, delimiter=',')
+B = np.loadtxt(bFile, delimiter=',')
 
 # Use Singular Value Decomposition to calculate the U matrix, Eigenvalues, and Eigenvectors
 
@@ -40,7 +39,7 @@ Vtranspose = np.transpose(V)
 # Re-construct the pseudo inverted C matrix and write to file
 C = Vtranspose.dot(Sinverse.dot(Utranspose.dot(A)))
 
-outfile = open(filePath+cFile,"w")
+outfile = open(cFile,"w")
 for n in range(0,C.shape[0]):
     outfile.write(str(C[n])+"\n")
 
