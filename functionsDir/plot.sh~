@@ -19,7 +19,7 @@ set YAXISLABEL = \'`$FPATH/setArg.sh yAxisLabel yAxis $argv`\'
 set RANGE = `$FPATH/setArg.sh range 1:2 $argv`
 
 # If specified by the $PRINT variable, print variables to terminal to varify their accuracy
-printf "%-40s -%s\n" "plot.sh" "Plotting $TITLE"
+echo "plot.sh - Plotting $TITLE"
 
 # Replace the title, x, and y axis labels with those given from arguments
 sed -i "s/set title.*/set title $TITLE/" $FPATH/plot.gnuplot

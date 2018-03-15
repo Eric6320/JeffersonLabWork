@@ -65,7 +65,6 @@ if ($STRENGTHERROR != x) then
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh $TESTQUAD $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
 
 	if ($TESTVARIABLE == 1) then
-		echo "This is being called"
 		cp "$CHANGEPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
 	endif
 else
@@ -100,6 +99,8 @@ if ($CHANGE == 1) then
 	exit
 endif
 
+$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
+$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Strength Error Example, xAxisLabel=S Coordinate, yAxisLabel=chi2dof,"
 #$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Pre Optimization M Plot,"
 
 # TODO possibly add another sanity check here plotting the parabola and M values
