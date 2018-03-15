@@ -63,10 +63,12 @@ $FPATH/determineStrengths.sh $BPM1 $CORR1 $CORR2 $VERTICLE $MODIFIEDBEAMLINE
 if ($STRENGTHERROR != x) then
 	printf "%-40s -%s\n" "addStrengthError.sh" "Adding strength error"
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh $TESTQUAD $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
-else
-	if ($TESTVARIABLE == 0) then
-		cp "$RDPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
+
+	if ($TESTVARIABLE == 1) then
+		cp "$CHANGEPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
 	endif
+else
+	cp "$RDPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
 endif
 
 # If the script is being called from within changeVResponse.sh, change $CORR to $CORRSTRENGTH in the $MODIFIEDLATTICE

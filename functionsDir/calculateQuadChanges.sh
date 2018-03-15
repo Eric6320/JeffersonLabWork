@@ -29,3 +29,5 @@ set DELTAQ = $2
 awk -v deltaQ=$DELTAQ '{print $1" "($2-deltaQ)}' "$CHANGEPATH/quadStrengths.dat" >! "$CHANGEPATH/negQuadStrengths.dat"
 
 awk -v fpath=$FPATH -v modifiedBeamline=$MODIFIEDBEAMLINE '{ system("perl "fpath"/modifyQuad.pl "modifiedBeamline".lte temp.lte "$1" "$2" > /dev/null; mv temp.lte "modifiedBeamline".lte")}' "$CHANGEPATH/negQuadStrengths.dat" > /dev/null
+
+mv $MODIFIEDBEAMLINE.lte $CHANGEPATH/$MODIFIEDBEAMLINE.lte
