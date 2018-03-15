@@ -1,13 +1,9 @@
 #!/bin/tcsh
 unset noclobber
 
-let TOLERANCE = `$FPATH/setArg.sh tolerance 1 $argv`
-set CHANGEM = 3
+set A = 1
+set MAXTRIALS = 10
 
-# Determine quality of fix, and error point
-let CURRENTSUM = `$FPATH/sumM.sh $CHANGEM "$CHANGEPATH/standardComparisons.fin"`
-echo "Current CHI2DOF total: $CURRENTSUM - Tolerance: $TOLERANCE"
-if ($CURRENTSUM < $TOLERANCE) then
-	echo "this worked"
-	exit
+while (`echo "$A $MAXTRIALS" | awk '{if ($1 < $2) print 1; else print 0;}'` == 1)
+	echo $A
 end

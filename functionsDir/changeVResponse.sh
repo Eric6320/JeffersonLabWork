@@ -13,17 +13,17 @@ unset noclobber
 #* Main Output:
 
 # Set variables from command line arguments
-set N = `$FPATH/setArg.sh N 10 $argv`
-set SEED = `$FPATH/setArg.sh seed 5 $argv`
-set CORR1 = `$FPATH/setArg.sh corr1 MBT1S01V $argv`
-set CORR2 = `$FPATH/setArg.sh corr2 MBT1S02V $argv`
-set BPM1 = `$FPATH/setArg.sh bpm1 IPM1S03 $argv`
-set STRENGTHERROR = `$FPATH/setArg.sh strengthError x $argv`
-set DESIGNBEAMLINE = `$FPATH/setArg.sh designBeamline unkicked $argv`
-set MODIFIEDBEAMLINE = `$FPATH/setArg.sh modifiedBeamline modified $argv`
-set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
-set GENERATE = `$FPATH/setArg.sh generate 0 $argv`
-set TOLERANCE = `$FPATH/setArg.sh tolerance 1 $argv`
+set N = $1
+set SEED = $2
+set CORR1 = $3
+set CORR2 = $4
+set BPM1 = $5
+set STRENGTHERROR = $6
+set DESIGNBEAMLINE = $7
+set MODIFIEDBEAMLINE = $8
+set CHANGEM = $9
+set GENERATE = $10
+set TOLERANCE = $11
 
 set DESIGNLATTICE = "$RDPATH/$DESIGNBEAMLINE.lte"
 set DESIGNTWISSFILE = "$RDPATH/$DESIGNBEAMLINE.twi"
@@ -74,15 +74,23 @@ end
 if ($GENERATE == 1) then
 	# Generate the changeVResponse Matrix M
 	# Output: $CHANGEPATH/$QUADNAMEcomparison.dat
-	$FPATH/generateCVR.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $CHANGEM
+	$FPATH/generateCVR.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $STRENGTHERROR $CHANGEM $DELTAQ
+	
+	# Recombine the files generated throughout the script into the proper formats in preparation for svd pseudoinverse
+	# Output: "$CHANGEPATH/matrixM.fin"
+	$FPATH/fileRecombine.sh $CHANGEPATH/nextQuadBPM.dat $DELTAQ
 endif
 
-# Recombine the files generated throughout the script into the proper formats in preparation for svd pseudoinverse
-# Output: "$CHANGEPATH/matrixM.fin"
-$FPATH/fileRecombine.sh $CHANGEPATH/nextQuadBPM.dat $DELTAQ
 
 # Determine the necessary quad changes, the perform the opposite on the modified beamline, determine chi2dof improvement
-$FPATH/calculateQuadChanges.sh #TODO add arguments
+$FPATH/calculateQuadChanges.sh $MODIFIEDBEAMLINE $DELTAQ #TODO add arguments
+
+$JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, strengthError=$STRENGTHERROR, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1,"
+mv "$CHI2PATH/comparisons.fin" "$CHANGEPATH/finalComparisons.fin"
+
+# Determine quality of fix, and error point
+set CURRENTSUM = `$FPATH/sumM.sh $CHANGEM "$CHANGEPATH/finalComparisons.fin"`
+echo "Current CHI2DOF total: $CURRENTSUM - Tolerance: $TOLERANCE"
 
 # , and chi2dof value from the correction
 
