@@ -1,7 +1,7 @@
 #!/bin/tcsh
 unset noclobber
 
-#* Description: Main file used to perform all control optimization funcntions. Generates a Unit Circle, transforms to a betatron ellipse,calculates the strengths necessary to trace the points on the ellipse,
+#* Description: Main file used to perform all control optimization functions. Generates a Unit Circle, transforms to a betatron ellipse,calculates the strengths necessary to trace the points on the ellipse,
 #* Description: Adds strenght error if necessary, traces the betatron ellipse given the calculated strengths, performs SVD pseudoinverse to determine transformation matrices,
 #* Description: Calculates CHI2DOF for those transformation matrices, identifies problematic quadrupole, then optimizes the quadrupole strength to correct the beams orbit
 #* Argument: N - Number of orbits to include in the simulation
