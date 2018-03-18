@@ -45,7 +45,7 @@ set CHANGEQUADSTRENGTH = `$FPATH/setArg.sh changeQuadStrength noDefault $argv`
 set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
 set DELTAQUAD = `$FPATH/setArg.sh deltaQuad noDefault $argv`
 
-set TESTVARIABLE = `$FPATH/setArg.sh testVariable 0 $argv`
+set CORRECTED = `$FPATH/setArg.sh corrected 0 $argv`
 
 # Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
 $FPATH/cleanUp.sh
@@ -64,7 +64,7 @@ if ($STRENGTHERROR != x) then
 	printf "%-40s -%s\n" "addStrengthError.sh" "Adding strength error"
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh $TESTQUAD $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
 
-	if ($TESTVARIABLE == 1) then
+	if ($CORRECTED == 1) then
 		cp "$CHANGEPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
 	endif
 else

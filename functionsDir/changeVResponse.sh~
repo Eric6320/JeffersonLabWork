@@ -24,26 +24,19 @@ set MODIFIEDBEAMLINE = $8
 set CHANGEM = $9
 set GENERATE = $10
 set TOLERANCE = $11
+set CORRECTED = $12
 
-set DESIGNLATTICE = "$RDPATH/$DESIGNBEAMLINE.lte"
+if ($CORRECTED == 1) then
+	set DESIGNLATTICE = "$RDPATH/$DESIGNBEAMLINE.lte"
+else
+	set DESIGNLATTICE = "$RDPATH/$DESIGNBEAMLINE.lte"
+endif
+
 set DESIGNTWISSFILE = "$RDPATH/$DESIGNBEAMLINE.twi"
 
 if ($GENERATE == 1) then
 	# Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
 	$FPATH/cleanUp.sh "change" 
-endif
-
-# Determine the baseline CHI2DOF values against which to compare, then move and rename to standardComparisons.fin in the changeDir directory
-$JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, strengthError=$STRENGTHERROR, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1,"
-mv "$CHI2PATH/comparisons.fin" "$CHANGEPATH/standardComparisons.fin"
-
-# Determine quality of fix, and error point
-set CURRENTSUM = `$FPATH/sumM.sh $CHANGEM "$CHANGEPATH/standardComparisons.fin"`
-echo "Current CHI2DOF total: $CURRENTSUM - Tolerance: $TOLERANCE"
-# If the current CHI2DOF sum is within accepted tolerances, then print the sum and exit
-if (`echo "$CURRENTSUM $TOLERANCE" | awk '{if ($1 < $2) print 1}'` == 1) then
-	echo "Final CHI2DOF sum: $CURRENTSUM"
-	exit
 endif
 
 # Searches through the given lattice file for the quadrupole with the largest absolute strength, and adds one percent of that strength to all other quadrupoles on the same beamline
@@ -84,20 +77,6 @@ endif
 
 # Determine the necessary quad changes, the perform the opposite on the modified beamline, determine chi2dof improvement
 $FPATH/calculateQuadChanges.sh $MODIFIEDBEAMLINE $DELTAQ #TODO add arguments
-
-#**************************
-
-set VERTICLE = `echo $CORR1 | grep -c "V"`
-
-$JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, strengthError=$STRENGTHERROR, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, change=1, testVariable=1,"
-
-# Determine quality of fix, and error point
-set CURRENTSUM = `$FPATH/sumM.sh $CHANGEM "$CHANGEPATH/finalComparisons.fin"`
-echo "Current CHI2DOF total: $CURRENTSUM - Tolerance: $TOLERANCE"
-
-# , and chi2dof value from the correction
-
-# Re-run until within converged
 
 # TODO do without error
 # TODO Add quad error
