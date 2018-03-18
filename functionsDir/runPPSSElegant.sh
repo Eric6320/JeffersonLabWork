@@ -1,7 +1,7 @@
 #!/bin/tcsh
 unset noclobber
 
-#* Description: Script used to run Elegant $N number of times in parallel using ppss
+#* Description: Used to run Elegant $N number of times in parallel using ppss, tracing the measured ellipses.
 #* Argument: $1 - N - Number of orbits, and number of times to run Elegant
 #* Argument: $2 - MODIFIEDBEAMLINE - Name of the beamline whose elegant and lattice files are used to run Elegant
 #* Argument: $3 - CORRONE - Name of the first quadrupole which is manipulated to trace out each orbit

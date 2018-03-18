@@ -1,7 +1,7 @@
 #!/bin/tcsh
 unset noclobber
 
-#* Description: Generates beamline Twiss information, downstream bpm information, the base unit circle for transformations, and then transforms that unit circle.
+#* Description: Generates beamline Twiss information, downstream bpm information, the base unit circle for transformations, and then transforms that unit circle to a betatron ellipse.
 #* Argument: $1 - BPMONE - BPM whose Twiss information is used to transform the unit circle to the betatron ellipse.
 #* Argument: $2 - N - Number of orbits to include in the Unit Circle generation.
 #* Argument: $3 - DESIGNBEAMLINE - Name of the unmodified beamline.
