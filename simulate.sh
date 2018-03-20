@@ -43,7 +43,6 @@ set CHANGE = `$FPATH/setArg.sh change 0 $argv`
 set CHANGEQUAD = `$FPATH/setArg.sh changeQuad noDefault $argv`
 set CHANGEQUADSTRENGTH = `$FPATH/setArg.sh changeQuadStrength noDefault $argv`
 set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
-set DELTAQUAD = `$FPATH/setArg.sh deltaQuad noDefault $argv`
 
 set TESTVARIABLE = `$FPATH/setArg.sh testVariable 0 $argv`
 
