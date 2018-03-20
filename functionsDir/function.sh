@@ -1,12 +1,12 @@
 #!/bin/tcsh
 
 #* Description: Changes a quadrupole strength on the given beamline, and prints the new chi2dof value for the beamline
-#* Argument: $1 - QUAD
-#* Argument: $2 - STRENGTH
-#* Argument: $3 - BPM
-#* Argument: $4 - DESIGNBEAMLINE
-#* Argument: $5 - MODIFIEDBEAMLINE
-#* Argument: $6 - VERTICLE
+#* Argument: $1 - QUAD - Quadrupole whose strength will be changed
+#* Argument: $2 - STRENGTH - Strength to which $QUAD will be set
+#* Argument: $3 - BPM - Reference BPM used to determine new CHI2DOF value for the beamline
+#* Argument: $4 - DESIGNBEAMLINE - Design beamline used to run elegant
+#* Argument: $5 - MODIFIEDBEAMLINE - Modified beamline used in chi2dof comparison
+#* Argument: $6 - VERTICLE - Boolean 1 or 0 which represents whether the transformation is verticle or horizontal
 #* Example: ./function.sh MQB1A29 0.05 IPM1R02 unkicked modified 1
 #* Further Comments: This script is not really intended to be run by itself, other than to test changing a single quadrupole. It was written to be run from inside optimize.sh
 #* Main Output: CHI2DOF value printed to console
