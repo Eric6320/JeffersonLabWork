@@ -34,11 +34,6 @@ endif
 
 set DESIGNTWISSFILE = "$RDPATH/$DESIGNBEAMLINE.twi"
 
-if ($GENERATE == 1) then
-	# Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
-	$FPATH/cleanUp.sh "change" 
-endif
-
 # Searches through the given lattice file for the quadrupole with the largest absolute strength, and adds one percent of that strength to all other quadrupoles on the same beamline
 # Output: $CHANGEPATH/"quadStrengths.dat"
 printf "%-40s -%s\n" "determineQStrengths.sh" "Adding 1% of max quadrupole strength to all quadrupoles"
@@ -46,22 +41,23 @@ set DELTAQ = `$FPATH/determineQStrengths.sh $DESIGNLATTICE $CHANGEPATH/"quadStre
 
 # Determine the next BPM downstream of each Quadrupole
 printf "%-40s -%s\n" "findNextBPM.sh" "Determining succeeding BPMs"
-touch $CHANGEPATH/nextQuadBPM.dat
+rm $CHANGEPATH/nextQuadBPM.dat >& /dev/null; touch $CHANGEPATH/nextQuadBPM.dat
 
 foreach QUAD (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 	$FPATH/findNextBPM.sh $QUAD $BPM1 $DESIGNLATTICE >> $CHANGEPATH/nextQuadBPM.dat
 end
 
 # Remove any Quadrupoles that are out of bounds from the list
-sed -i '/OUTOFBOUNDS/d' $CHANGEPATH/nextQuadBPM.dat
+sed -i '/OUTOFBOUNDS/d' "$CHANGEPATH/nextQuadBPM.dat"
 
 # Copy the nextQuadBPM.dat file to a file containing only the subsequent BPMs
 awk '{print $2}' "$CHANGEPATH/nextQuadBPM.dat" >! "$CHANGEPATH/nextBPM.dat"
 
 # Generate 'baseline' chi matrix
 # Output: $CHANGEPATH/matrixX.fin
+rm "$CHANGEPATH/matrixX.fin" >& /dev/null; touch "$CHANGEPATH/matrixX.fin"
 foreach NEXTBPM (`cat $CHANGEPATH/nextBPM.dat`)
-	grep $NEXTBPM $CHANGEPATH/standardComparisons.fin | awk -v M=$CHANGEM '{print $(2+M)}' >! "$CHANGEPATH/matrixX.fin"
+	grep -w $NEXTBPM $CHANGEPATH/standardComparisons.fin | awk -v M=$CHANGEM '{print $(2+M)}' >> "$CHANGEPATH/matrixX.fin"
 end
 
 if ($GENERATE == 1) then
@@ -76,7 +72,7 @@ endif
 
 
 # Determine the necessary quad changes, the perform the opposite on the modified beamline, determine chi2dof improvement
-$FPATH/calculateQuadChanges.sh $MODIFIEDBEAMLINE $DELTAQ #TODO add arguments
+$FPATH/calculateQuadChanges.sh $MODIFIEDBEAMLINE
 
 # TODO do without error
 # TODO Add quad error

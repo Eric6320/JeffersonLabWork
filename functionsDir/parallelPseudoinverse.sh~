@@ -23,7 +23,7 @@ $FPATH/formatEllipses.sh $BPMONE $BPMTWO $TRIAL
 
 # Perform SVD and pseduo inverse on the matrixes
 # Output: ellipseA2$TRIAL.fin
-python $FPATH/svdPseudoinverse.py "ellipseA$TRIAL.fin" "ellipseB$TRIAL.fin" "ellipseC$TRIAL.fin" $ELLIPSEPATH
+python $FPATH/svdPseudoinverse.py "$ELLIPSEPATH/ellipseA$TRIAL.fin" "$ELLIPSEPATH/ellipseB$TRIAL.fin" "$ELLIPSEPATH/ellipseC$TRIAL.fin"
 
 # Calculate determinant to make sure the calculation was performed correctly, should be ~1
 echo `cat $ELLIPSEPATH/ellipseC$TRIAL.fin` >! $ELLIPSEPATH/temp$TRIAL.dat
