@@ -1,19 +1,11 @@
 #!/bin/tcsh
 unset noclobber
 
-#* Description:
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Example: 
-#* Further Comments: 
-#* Further Comments: 
-#* Main Output:
-
-#$CHANGEPATH/$icomparison.dat
-#$CHANGEPATH/nextQuadBPM.dat
+#* Description: Recombines all changeVResponse M matrix elements into one data file
+#* Argument: $1 - QUADFILE - Data file containing the names of the quadrupoles used in the M matrix
+#* Argument: $2 - DELTAQ - Value that all quadrupoles strengths are modified by
+#* Example: ./fileRecombine.sh nextQuadBPM.dat 0.05
+#* Main Output: $CHANGEPATH/matrixM.fin
 
 set QUADFILE = $1
 set DELTAQ = $2
