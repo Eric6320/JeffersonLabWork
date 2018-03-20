@@ -18,4 +18,6 @@ set TITLE = `$FPATH/setArg.sh title M $argv`
 awk -v M=$M '{print $2" "$(2+M)}' $FILE >! plotM$M.dat
 
 # Plot the CHI2DOF values against S Coordinate values with the given labels
-$FPATH/plot.sh plotM$M.dat title=$TITLE $M, xAxisLabel=S Coordinate, yAxisLabel=CHI2DOF,
+$FPATH/plot.sh plotM$M.dat title=$TITLE, xAxisLabel=S Coordinate, yAxisLabel=CHI2DOF,
+
+# $M

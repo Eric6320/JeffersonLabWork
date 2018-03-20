@@ -44,7 +44,7 @@ set CHANGEQUAD = `$FPATH/setArg.sh changeQuad noDefault $argv`
 set CHANGEQUADSTRENGTH = `$FPATH/setArg.sh changeQuadStrength noDefault $argv`
 set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
 
-set TESTVARIABLE = `$FPATH/setArg.sh testVariable 0 $argv`
+set CORRECTED = `$FPATH/setArg.sh corrected 0 $argv`
 
 # Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
 $FPATH/cleanUp.sh
@@ -63,7 +63,7 @@ if ($STRENGTHERROR != x) then
 	printf "%-40s -%s\n" "addStrengthError.sh" "Adding strength error"
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh $TESTQUAD $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
 
-	if ($TESTVARIABLE == 1) then
+	if ($CORRECTED == 1) then
 		cp "$CHANGEPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
 	endif
 else
@@ -99,8 +99,8 @@ if ($CHANGE == 1) then
 endif
 
 #TODO probably delete this if no more plots are needed
-#$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
-#$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Strength Error Example, xAxisLabel=S Coordinate, yAxisLabel=chi2dof,"
+$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
+$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Downstream Error Example, xAxisLabel=S Coordinate, yAxisLabel=chi2dof,"
 #$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Pre Optimization M Plot,"
 
 if ($STRENGTHERROR != x) then

@@ -1,9 +1,4 @@
 #!/bin/tcsh
 unset noclobber
 
-set A = 1
-set MAXTRIALS = 10
-
-while (`echo "$A $MAXTRIALS" | awk '{if ($1 < $2) print 1; else print 0;}'` == 1)
-	echo $A
-end
+tee ./test2.sh >! testOutput.dat
