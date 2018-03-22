@@ -1,6 +1,6 @@
-set title 'S Plot'
-set xlabel 'xAxis'
-set ylabel 'yAxis'
+set title 'Downstream Error Example'
+set xlabel 'S Coordinate'
+set ylabel 'CHI2DOF'
 
 plot 'plotM3.dat' using 1:2 title 'Downstream Error Example' with points
 

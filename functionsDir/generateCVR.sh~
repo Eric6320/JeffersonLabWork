@@ -22,8 +22,9 @@ set BPM1 = $5
 set DESIGNBEAMLINE = $6
 set MODIFIEDBEAMLINE = $7
 set STRENGTHERROR = $8
-set CHANGEM = $9
-set DELTAQ = $10
+set TESTQUAD $9
+set CHANGEM = $10
+set DELTAQ = $11
 
 set DESIGNTWISSFILE = "$RDPATH/$DESIGNBEAMLINE.twi"
 
@@ -38,7 +39,7 @@ foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
 		echo "******************************************** $x/$THRESHOLD) Determining CHI2DOF Change for $i********************************************"
 		set STRENGTH = `grep $i "$CHANGEPATH/quadStrengths.dat" | awk '{print $2}'`
 
-		time $JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, strengthError=$STRENGTHERROR, change=1, changeQuad=$i, changeQuadStrength=$STRENGTH, changeM=$CHANGEM, deltaQuad=$DELTAQ,"
+		time $JPATH/simulate.sh "N=$N, seed=$SEED, corr1=$CORR1, corr2=$CORR2, bpm1=$BPM1, designBeamline=$DESIGNBEAMLINE, modifiedBeamline=$MODIFIEDBEAMLINE, strengthError=$STRENGTHERROR, testQuad=$TESTQUAD, change=1, changeQuad=$i, changeQuadStrength=$STRENGTH, changeM=$CHANGEM, deltaQuad=$DELTAQ,"
 
 		@ x += 1
 	endif
