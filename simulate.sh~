@@ -43,12 +43,11 @@ set CHANGE = `$FPATH/setArg.sh change 0 $argv`
 set CHANGEQUAD = `$FPATH/setArg.sh changeQuad noDefault $argv`
 set CHANGEQUADSTRENGTH = `$FPATH/setArg.sh changeQuadStrength noDefault $argv`
 set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
-set DELTAQUAD = `$FPATH/setArg.sh deltaQuad noDefault $argv`
 
 set CORRECTED = `$FPATH/setArg.sh corrected 0 $argv`
 
 # Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
-$FPATH/cleanUp.sh $CHANGE
+$FPATH/cleanUp.sh
 set S = `$FPATH/pullS.sh $BPM1 $DESIGNBEAMLINE`
 
 # Generate a unit circle and perform a floquet transformation at the specified bpm
