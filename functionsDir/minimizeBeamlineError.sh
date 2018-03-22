@@ -24,6 +24,7 @@ set VERTICLE = `echo $CORR1 | grep -c "V"`
 
 # These variables are only referenced if there is optimization needed
 set STRENGTHERROR = `$FPATH/setArg.sh strengthError x $argv`
+set TESTQUAD = `$FPATH/setArg.sh testQuad MQB1A29 $argv`
 
 # Set variables controlling changeVResponse.sh script behavior
 set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
@@ -36,13 +37,20 @@ set MONTECARLO = `$FPATH/setArg.sh monteCarlo x $argv`
 #TODO POSSIBLY GET RID OF THE GENERATE VARIABLE COMPLETELY ONCE EVERYTHING IS FUNCTIONAL
 
 if ($MONTECARLO != x) then
-	#TODO generate seeds here
-	
-	echo "Monte carlo is being called"
-	exit
-	foreach TEMPSEED (`cat "seedFile.dat"`)
-		$FPATH/correct.sh $N $TEMPSEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $STRENGTHERROR $CHANGEM $GENERATE $TOLERANCE $MAXTRIALS
+
+	while (`wc -l "$RDPATH/monteCarloSeeds.dat" | awk '{print $1}'` > 0)
+		set TESTQUAD = `cat "$RDPATH/monteCarloSeeds.dat" | head -1 | tail -1 | awk '{print $1}'`
+		set SEED = `cat "$RDPATH/monteCarloSeeds.dat" | head -1 | tail -1 | awk '{print $2}'`
+
+		echo "$TESTQUAD $SEED"
+		$FPATH/correct.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $STRENGTHERROR $TESTQUAD $CHANGEM $GENERATE $TOLERANCE $MAXTRIALS | tee -a "$RDPATH/finalResults.fin"
+		echo "******************************************" >> "$RDPATH/finalResults.fin"
+
+		#Remove the minimization attempt that just finished
+		cutLineOffTopOrBottom.sh top 1 "$RDPATH/monteCarloSeeds.dat"
 	end	
 else
-	$FPATH/correct.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $STRENGTHERROR $CHANGEM $GENERATE $TOLERANCE $MAXTRIALS
+	$FPATH/correct.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $STRENGTHERROR $TESTQUAD $CHANGEM $GENERATE $TOLERANCE $MAXTRIALS
 endif
+
+gedit "$RDPATH/monteCarloSeeds.dat"

@@ -24,12 +24,13 @@ set VERTICLE = $8
 
 # These variables are only referenced if there is optimization needed
 set STRENGTHERROR = $9
+set TESTQUAD $10
 
 # Set variables controlling changeVResponse.sh script behavior
-set CHANGEM = $10
-set GENERATE = $11
-set TOLERANCE = $12
-set MAXTRIALS = $13
+set CHANGEM = $11
+set GENERATE = $12
+set TOLERANCE = $13
+set MAXTRIALS = $14
 set CORRECTED = 0
 
 if ($GENERATE == 1) then

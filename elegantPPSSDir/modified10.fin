@@ -117,9 +117,5 @@ SDDS1
 &parameter name=Steps, type=long, &end
 &parameter name=Particles, description="Number of particles", type=long, &end
 &data mode=binary, &end
-    *…²_Ï%??)GÀ±éÚ>ëý÷ÐgD?	¨H˜/ë ? ™gðç>ƒiú/9?/8•¬Nr%=úÀyî‹Ÿ>çž
-LW_]¾ré³‡ÂT¿àáÉ©Y0?ÄÖÓ’y@\Âõ(`™<x1ïîbå¶>¿©ndg>>Dþ®	¾qxà›Ô=Ãì®)/A>h9Ju¡.H¾A)mä´½>ÈsáSx=Ì•ÑùYÉ=dÓëÃÌÕ½¤ïß+’U¾zq>ÐÕÔ¾‘šüWvƒû=r®“Gb:Ñ=?°$ã9Í½—‰l@N¾      ð?œ ð@Ý¡@ œ ð@Ý¡@$8
-'Ð?’@        sEÎ‘‘‘>K| R²’ >õ¾r}=+÷=aóR1¤þ=#[ëw¿OF</Úgin»>RB³ù
-²>ÄŸTÞ©>{9OLÎ°>¼8O¢YAA?­0MÂ¢ô>(ô-nI8k?|yy!´&?–è£ïz&?fˆâhºD?  €­9aN=0aëµD?   ì©”-=   ”•Ü2=   ç6=   ý'<=  €þ=­A=   ó´gD=2¯!~ŸÇ!?^g_‘&?H_ì´Éa+?ëÛs’1?Ÿ[>‚Ç¨5?þ]ÍŽ~:?   †æ„/=   Ý˜•4=   Ñg·8=   õˆ0;=   ó8ÿ==  €"fW@=  €{÷üA=  €8¹C=    ÆôE=Ï%h
-´ÀšØ°9¾ë @BY8 $W<?q
-ÿjØ^¿        ,ÑOò¿Èb˜àÈÀ¿‰Ž)2Ú¥¥?øIûÕõü>UÑ’¦&¥¿        h«-¨Û·¿²Á„òâ¿\+p$7?‘ä­1€!ÀSE¾\¦7B@        À˜÷û4P?À±šqÈÛ>NXýÑ÷¿×i<ù`Ý?:qÂ»Ö} À        &½R^Pi¿´@7¬®lÀ¿(„ß’¿j3úpØš?$@½ñUÅ»¿      ð?·»Vü·¿                                              ð?ÔVþÿÿï?®Gáz@™            è  
+    T¸»…jm3?"ñgd½Þ>aNýìT?¸åêkÄÝ?Ñ¶ª[øù>“Œ&K<?AD1Jóu6=c(„¬>/m¦*á^k¾0kºwÄ b¿ÑTjì#Q?BüšÖ’y@…ëQ¸êŽ¼Šöiñbå¶>s0YJ>i­àT.¾“”½aìÚó=nñÖƒ([<>ÐS=+YX¾ˆ‹MñNÑ½$§å²‘=OFëTâá=…Y¼ÕÎ2è½¥ö,7Õt¾‰~LFyø@¾¿B4Zé©>dÉ(é‚ú=S¥ýz½NÜ½Â6ð, ¾      ð?'³ýï@Ý¡@(³ýï@Ý¡@E>'Ð?’@        ¦ûó*¿">k½ûËÚ>ËjBÞn÷=ÙW—Ï	>=”Ÿ©ºV<C'ôØÔÉ>ÕvýD‹ÑÂ>c8]fÖ)ª>èÊ Dþ
+¼>™2¨AL?$·ü·T÷>¹Ø'¬{?d…|KPš4?ÌÐ(ãô3?ló¨“mU?  àî(a=Þ…Î‘8D?   q¯==  €QŒ”C=   ÈÀ H=   ð[wM=   ‹†9R=  @ÿµŸU=ô—§Ô!?ž¨I™&?V(pô_Z+?QsßG#1?Ïg^IÍª5?jBHël:?  €ªb‰A=   œ•F=   ÅöJ=  €ä«M=  ÀW£hP=  @Y¯Q=  €ÅÞGS=  ÀvÐU=  @M_€W=€7è]è5À?@4û' @´R§âä[?Ò,Þ™Z¿        ,M´9aNÀ%`L€§Â¿äîúûQb¦?·û§¦Ù6!?(Î{ƒrE¿        Ì¡e]P‘¿?+–YÌú$¿WÅ3¯&E?™Å)B-Ê2À¶x—ä’W@        8efPW¦?xJû$Hí÷>¬²hæ¿&u{®èì?†ú9åúXÀ        —&0SL™|¿,~gÜ±ôÐ¿o¢®Ô¶¢¿´od {·?€X2ÕÑÜ¿      ð?‡íÑKÖÔÈ¿                                              ð?ÞÄzýÿÿï?R¸…ëQ@š            è  
