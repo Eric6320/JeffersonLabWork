@@ -49,7 +49,7 @@ if ($MONTECARLO != x) then
 		$FPATH/correct.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $STRENGTHERROR $TESTQUAD $CHANGEM $GENERATE $TOLERANCE $MAXTRIALS | tee -a "$RDPATH/testLog.fin"
 
 		#Remove the minimization attempt that just finished
-		cutLineOffTopOrBottom.sh top 1 "$RDPATH/monteCarloSeeds.dat"
+		$FPATH/cutLineOffTopOrBottom.sh top 1 "$RDPATH/monteCarloSeeds.dat"
 	end	
 else
 	$FPATH/correct.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $STRENGTHERROR $TESTQUAD $CHANGEM $GENERATE $TOLERANCE $MAXTRIALS
