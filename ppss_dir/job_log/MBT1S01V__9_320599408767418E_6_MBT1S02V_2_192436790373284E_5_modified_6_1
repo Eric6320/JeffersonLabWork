@@ -1,0 +1,14 @@
+===== PPSS Item Log File =====
+Host:		opsl00
+Process:	26155
+Item:		MBT1S01V -9.320599408767418E-6 MBT1S02V 2.192436790373284E-5 modified 6 1
+Start date:	Mar 23 10:09:48
+
+found corr: MBT1S01V: VKICK, ORDER=0, TILT=0, CALIBRATION=1, STEERING=1,  &
+set kick: 	B2=0, L=0, KICK=-9.320599408767418E-6, EDGE_EFFECTS=0
+found corr: MBT1S02V: VKICK, ORDER=0, TILT=0, CALIBRATION=1, STEERING=1,  &
+set kick: 	B2=0, L=0, KICK=2.192436790373284E-5, EDGE_EFFECTS=0
+
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:06:18
+

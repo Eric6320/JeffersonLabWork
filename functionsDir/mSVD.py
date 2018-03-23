@@ -3,12 +3,11 @@ import numpy as np, sys
 #* Description: Performs a Singular Value Decomposition on a given changeVResponse matrix, to find the final quadrupole strength change matrix Q
 #* Argument: $1 - xFile - Comma separated data file containing X matrix values, representing initial CHI2DOF comparisons before any quadrupole strengths have been changed
 #* Argument: $2 - mFile - Comma separated data file containing changeVResponse matrix values to be used in the SVD Pseudoinverse
-#* Argument: $3 - qFile - Comma separated 
-#* Argument: $4 - sFile - 
-#* Example: 
-#* Further Comments: 
-#* Further Comments: 
-#* Main Output:
+#* Argument: $3 - qFile - Name of the output file where the Q matrix elements will be written to as a single column
+#* Argument: $4 - sFile - Name of the output file where the S Matrix elements will be written to as a signle column
+#* Example: python mSVD.py matrixX.fin matrixM.fin matrixQ.dat matrixS.fin
+#* Further Comments: This script is functionally similar to transportSVD.py, but has be separated into two scripts for readability
+#* Main Output: $CHANGEPATH/matrixQ.dat
 
 # Inputs are of the form
 # X = M * Q

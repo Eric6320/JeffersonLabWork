@@ -1,13 +1,12 @@
 import numpy as np, sys
 
-#* Description:
-#* Argument: $1 - 
-#* Argument: $2 - 
-#* Argument: $3+ - 
-#* Example: 
-#* Further Comments: 
-#* Further Comments: 
-#* Main Output:
+#* Description: Performs a Singular Value Decomposition on a specially formatted input matrix, to find the transport matrix M
+#* Argument: $1 - aFile - Specially formatted data file containing the output coordinates of the target BPM
+#* Argument: $2 - bFile - Specially formatted data file containing the input coordinates of the starting BPM
+#* Argument: $3 - cFile - Name of the output destination file where the final transport matrix will be written out to
+#* Example: python transportSVD.py ellipseA.fin ellipseB.fin ellipseC.fin
+#* Further Comments: This script is functionally similar to mSVD.py, but has be separated into two scripts for readability
+#* Main Output: ellipseC$TRIAL.fin
 
 # Inputs are of the form
 # A = B * C

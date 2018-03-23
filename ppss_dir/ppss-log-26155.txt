@@ -1,0 +1,46 @@
+Mar 23 10:09:47: DSPLY 
+Mar 23 10:09:47: DSPLY =========================================================
+Mar 23 10:09:47: DSPLY                        |P|P|S|S|                         
+Mar 23 10:09:47: DSPLY Distributed Parallel Processing Shell Script vers. 2.98
+Mar 23 10:09:47: DSPLY =========================================================
+Mar 23 10:09:47: DSPLY Hostname:		opsl00
+Mar 23 10:09:47: DSPLY ---------------------------------------------------------
+Mar 23 10:09:47: DSPLY CPU: Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+Mar 23 10:09:47: DSPLY Found 8 logic processors.
+Mar 23 10:09:47: DSPLY Starting 8 parallel workers.
+Mar 23 10:09:47: DSPLY ---------------------------------------------------------
+Mar 23 10:09:47: INFO  Current active workers is 8
+Mar 23 10:09:47: INFO  Now processing MBT1S01V 9.320599408767418E-6 MBT1S02V -2.192436790373284E-5 modified 1 1
+Mar 23 10:09:47: INFO  Current active workers is 8
+Mar 23 10:09:47: INFO  Now processing MBT1S01V 2.4032814002561036E-6 MBT1S02V 3.294951020876998E-6 modified 2 1
+Mar 23 10:09:47: INFO  Current active workers is 8
+Mar 23 10:09:47: INFO  Now processing MBT1S01V -5.43199947341099E-6 MBT1S02V 2.7255694499329915E-5 modified 3 1
+Mar 23 10:09:47: INFO  Current active workers is 8
+Mar 23 10:09:48: INFO  Now processing MBT1S01V -1.1192455471988663E-5 MBT1S02V 4.080575919571058E-5 modified 4 1
+Mar 23 10:09:48: INFO  Current active workers is 8
+Mar 23 10:09:48: INFO  Now processing MBT1S01V -1.2677758439829314E-5 MBT1S02V 3.876932955293278E-5 modified 5 1
+Mar 23 10:09:48: INFO  Current active workers is 8
+Mar 23 10:09:48: INFO  Now processing MBT1S01V -9.320599408767418E-6 MBT1S02V 2.192436790373284E-5 modified 6 1
+Mar 23 10:09:48: INFO  Current active workers is 8
+Mar 23 10:09:48: INFO  Now processing MBT1S01V -2.4032814002561036E-6 MBT1S02V -3.294951020876998E-6 modified 7 1
+Mar 23 10:09:48: INFO  Current active workers is 8
+Mar 23 10:09:49: INFO  Now processing MBT1S01V 5.43199947341099E-6 MBT1S02V -2.7255694499329915E-5 modified 8 1
+Mar 23 10:11:26: INFO  Current active workers is 8
+Mar 23 10:11:26: INFO  Current active workers is 8
+Mar 23 10:11:27: INFO  Now processing MBT1S01V 1.1192455471988663E-5 MBT1S02V -4.080575919571058E-5 modified 9 1
+Mar 23 10:11:39: INFO  Current active workers is 8
+Mar 23 10:11:40: INFO  Current active workers is 8
+Mar 23 10:11:41: INFO  Now processing MBT1S01V 1.2677758439829314E-5 MBT1S02V -3.876932955293278E-5 modified 10 1
+Mar 23 10:11:55: INFO  Current active workers is 8
+Mar 23 10:11:56: INFO  Current active workers is 8
+Mar 23 10:12:49: INFO  Current active workers is 7
+Mar 23 10:12:49: INFO  Current active workers is 7
+Mar 23 10:13:06: INFO  Current active workers is 6
+Mar 23 10:13:06: INFO  Current active workers is 6
+Mar 23 10:14:32: INFO  Current active workers is 5
+Mar 23 10:16:06: INFO  Current active workers is 4
+Mar 23 10:16:06: INFO  Current active workers is 3
+Mar 23 10:16:06: INFO  Current active workers is 2
+Mar 23 10:16:07: INFO  Current active workers is 1
+Mar 23 10:16:07: DSPLY Total processing time (hh:mm:ss): 00:06:20
+Mar 23 10:16:07: DSPLY Finished. Consult ppss_dir/job_log for job output.

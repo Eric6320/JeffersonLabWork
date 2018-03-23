@@ -9,7 +9,7 @@ set xrange [-1:1]
 set yrange [-1:1]
 set zeroaxis
 set parametric
-set samples unkicked+1
+set samples 10+1
 
 x(t) = a + r*cos(t)
 y(t) = b + r*sin(t)

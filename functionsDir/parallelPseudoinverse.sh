@@ -22,7 +22,7 @@ set TRIAL = `echo $1 | awk '{print $4}'`
 $FPATH/formatEllipses.sh $BPMONE $BPMTWO $TRIAL
 
 # Perform SVD and pseduo inverse on the matrixes
-# Output: ellipseA2$TRIAL.fin
+# Output: ellipseC$TRIAL.fin
 python $FPATH/transportSVD.py "$ELLIPSEPATH/ellipseA$TRIAL.fin" "$ELLIPSEPATH/ellipseB$TRIAL.fin" "$ELLIPSEPATH/ellipseC$TRIAL.fin"
 
 # Calculate determinant to make sure the calculation was performed correctly, should be ~1

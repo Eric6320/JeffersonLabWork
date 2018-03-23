@@ -1,0 +1,18 @@
+===== PPSS Item Log File =====
+Host:		opsl00
+Process:	26155
+Item:		MBT1S01V -1.1192455471988663E-5 MBT1S02V 4.080575919571058E-5 modified 4 1
+Start date:	Mar 23 10:09:48
+
+found corr: MBT1S01V: VKICK, ORDER=0, TILT=0, CALIBRATION=1, STEERING=1,  &
+set kick: 	B2=0, L=0, KICK=-1.1192455471988663E-5, EDGE_EFFECTS=0
+found corr: MBT1S02V: VKICK, ORDER=0, TILT=0, CALIBRATION=1, STEERING=1,  &
+set kick: 	B2=0, L=0, KICK=4.080575919571058E-5, EDGE_EFFECTS=0
+Killed
+unable to open modified4.ele in mode r: No such file or directory
+Error for sdds2stream:
+Unable to open file "/usr/devuser/erict/git/JeffersonLabWork/elegantPPSSDir/modified4.cen" for reading (SDDS_InitializeInput)
+
+Status:		FAILURE
+Total processing time (hh:mm:ss): 00:03:01
+
