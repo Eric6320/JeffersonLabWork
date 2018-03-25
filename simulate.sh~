@@ -68,7 +68,6 @@ if ($STRENGTHERROR != x) then
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh $TESTQUAD $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
 
 	if ($CORRECTED == 1) then
-		echo "Corrected is being called"
 		cp "$CHANGEPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
 	endif
 else
@@ -108,6 +107,7 @@ endif
 $FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
 $FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Downstream Error Example, xAxisLabel=S Coordinate, yAxisLabel=chi2dof,"
 #$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Pre Optimization M Plot,"
+
 
 # Anything beyond here isn't needed for minimizeBeamline.sh
 exit

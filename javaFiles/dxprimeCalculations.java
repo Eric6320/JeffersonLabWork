@@ -6,9 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
-* Determines the quadrupole strength settings necessary to trace out an ellipse at a given BPM
-*/
 public class dxprimeCalculations {
 
 	public double Xbpm;
@@ -31,7 +28,6 @@ public class dxprimeCalculations {
 	public double P2bpm;
 	
 	public dxprimeCalculations(String[] args) {
-		// Read in each command line argument, and parse it into the correct Twiss parameter variable
 		Xbpm = Double.parseDouble(args[0]);
 		Xprimebpm = Double.parseDouble(args[1]);
 		Abpm = Double.parseDouble(args[2]);
@@ -42,18 +38,15 @@ public class dxprimeCalculations {
 		P2 = Double.parseDouble(args[7]);
 		Pbpm = Double.parseDouble(args[8]);
 		
-		// Define some commonly repeated Beta terms for the sake of readability
 		B1bpm = Math.sqrt(B1 * Bbpm);
 		B2bpm = Math.sqrt(B2 * Bbpm);
 		B1Dbpm = Math.sqrt(B1 / Bbpm);
 		B2Dbpm = Math.sqrt(B2 / Bbpm);
-
-		// Define some commonly repeated Psi terms for the sake of readability
+		
 		P1bpm = P1 - Pbpm;
 		P2bpm = P2 - Pbpm;
 	}
 
-	// Use the global Twiss parameters to calculate kicker strength one
 	public double calculateKickerStrengthOne() {
 		double numeratorOne = Xprimebpm*B2bpm*Math.sin(P2bpm);
 		double numeratorTwo = Xbpm*B2Dbpm*(Math.cos(P2bpm)+Abpm*Math.sin(P2bpm));
@@ -64,7 +57,6 @@ public class dxprimeCalculations {
 		return answer;
 	}
 
-	// Use the global Twiss parameters to calculate kicker strength two
 	public double calculateKickerStrengthTwo() {
 		double numeratorOne = -Xprimebpm*B1bpm*Math.sin(P1bpm);
 		double numeratorTwo = -Xbpm*B1Dbpm*(Math.cos(P1bpm)+Abpm*Math.sin(P1bpm));

@@ -104,9 +104,10 @@ if ($CHANGE == 1) then
 endif
 
 #TODO probably delete this if no more plots are needed
-$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
-$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Downstream Error Example, xAxisLabel=S Coordinate, yAxisLabel=chi2dof,"
+#$FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
+#$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Downstream Error Example, xAxisLabel=S Coordinate, yAxisLabel=chi2dof,"
 #$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Pre Optimization M Plot,"
+
 
 # Anything beyond here isn't needed for minimizeBeamline.sh
 exit
