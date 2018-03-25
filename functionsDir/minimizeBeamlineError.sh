@@ -1,5 +1,6 @@
 #!/bin/tcsh
 unset noclobber
+unset COLORS
 
 #* Description:
 #* Argument: - 
@@ -34,25 +35,17 @@ set MAXTRIALS = `$FPATH/setArg.sh maxTrials 5 $argv`
 
 set MONTECARLO = `$FPATH/setArg.sh monteCarlo x $argv`
 
-#TODO POSSIBLY GET RID OF THE GENERATE VARIABLE COMPLETELY ONCE EVERYTHING IS FUNCTIONAL
-
 if ($MONTECARLO != x) then
-
-	@ x = 1
 	while (`wc -l "$RDPATH/monteCarloSeeds.dat" | awk '{print $1}'` > 0)
 		set TESTQUAD = `cat "$RDPATH/monteCarloSeeds.dat" | head -1 | tail -1 | awk '{print $1}'`
 		set SEED = `cat "$RDPATH/monteCarloSeeds.dat" | head -1 | tail -1 | awk '{print $2}'`
-
-		echo "$TESTQUAD $SEED"
-		$FPATH/correct.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $STRENGTHERROR $TESTQUAD $CHANGEM $GENERATE $TOLERANCE $MAXTRIALS | tee -a "$RDPATH/finalResults.fin"
-		echo "*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/$x*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/" >> "$RDPATH/finalResults.fin"
+		
+		echo "*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/$TESTQUAD-$SEED*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/" | tee -a "$RDPATH/testLog.fin"
+		$FPATH/correct.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $STRENGTHERROR $TESTQUAD $CHANGEM $GENERATE $TOLERANCE $MAXTRIALS | tee -a "$RDPATH/testLog.fin"
 
 		#Remove the minimization attempt that just finished
 		cutLineOffTopOrBottom.sh top 1 "$RDPATH/monteCarloSeeds.dat"
-		@ x += 1
 	end	
 else
 	$FPATH/correct.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $STRENGTHERROR $TESTQUAD $CHANGEM $GENERATE $TOLERANCE $MAXTRIALS
 endif
-
-gedit "$RDPATH/monteCarloSeeds.dat"

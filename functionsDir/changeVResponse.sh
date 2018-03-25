@@ -1,5 +1,6 @@
 #!/bin/tcsh
 unset noclobber
+unset COLORS
 
 #* Description:
 #* Argument: - 
@@ -64,7 +65,7 @@ end
 if ($GENERATE == 1) then
 	# Generate the changeVResponse Matrix M
 	# Output: $CHANGEPATH/$QUADNAMEcomparison.dat
-	$FPATH/generateCVR.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $STRENGTHERROR $CHANGEM $DELTAQ
+	$FPATH/generateCVR.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $STRENGTHERROR $TESTQUAD $CHANGEM $DELTAQ
 	
 	# Recombine the files generated throughout the script into the proper formats in preparation for svd pseudoinverse
 	# Output: "$CHANGEPATH/matrixM.fin"

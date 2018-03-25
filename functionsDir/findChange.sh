@@ -10,7 +10,7 @@ unset noclobber
 #* Example: 
 #* Further Comments: 
 #* Further Comments: 
-#* Main Output:
+#* Main Output: "$CHANGEPATH/$CHANGEQUAD-comparison.dat"
 
 # Set variables from command line arguments
 set M = $1
@@ -20,7 +20,9 @@ set STANDARDFILE = $4
 set COMPARISONFILE = $5
 
 # For every immediate BPM, determine the CHI2DOF change as a result of the $CHANGEQUAD strength change
+rm "$CHANGEPATH/$CHANGEQUAD-comparison.dat" >& /dev/null
 foreach CURRENTBPM (`cat $NEXTBPMFILE`)
+
 	# Determine the CHI2DOF values of both the standard, and new comparison
 	set STANDARDCHI = `grep $CURRENTBPM $STANDARDFILE | awk -v M=$M '{print $(2 + M)}'`
 	set COMPARISONCHI = `grep $CURRENTBPM $COMPARISONFILE | awk -v M=$M '{print $(2 + M)}'`

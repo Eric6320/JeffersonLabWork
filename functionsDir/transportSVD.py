@@ -36,7 +36,7 @@ U, S, V = np.linalg.svd(B, full_matrices=False)
 Sdiag = np.diag(S)
 Sinverse = Sdiag
 
-# Flip any values that are too small
+# Flip any values that are too large
 for n in range(0,Sdiag.shape[0]):
     if (abs(Sdiag[n,n])>1e-10):
         Sdiag[n,n]=1./Sdiag[n,n]

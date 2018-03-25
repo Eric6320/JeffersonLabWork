@@ -1,7 +1,4 @@
 #!/bin/tcsh
 unset noclobber
 
-foreach i (`seq 1000`)
-	sleep 10
-	echo "$i"
-end
+grep -E 'Starting|\/\*|Current CHI2DOF total' "$RDPATH/testLog.fin"

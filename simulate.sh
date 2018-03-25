@@ -1,5 +1,6 @@
 #!/bin/tcsh
 unset noclobber
+unset COLORS
 
 #* Description: Main file used to perform all control optimization functions. Generates a Unit Circle, transforms to a betatron ellipse,calculates the strengths necessary to trace the points on the ellipse,
 #* Description: Adds strenght error if necessary, traces the betatron ellipse given the calculated strengths, performs SVD pseudoinverse to determine transformation matrices,
@@ -45,6 +46,9 @@ set CHANGEQUADSTRENGTH = `$FPATH/setArg.sh changeQuadStrength noDefault $argv`
 set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
 
 set CORRECTED = `$FPATH/setArg.sh corrected 0 $argv`
+
+# Print the currently set variables
+#set | sed '/_/q'
 
 # Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
 $FPATH/cleanUp.sh
@@ -93,6 +97,7 @@ $FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 if ($CHANGE == 1) then
 	if ($CHANGEQUAD != "noDefault") then
 		printf "%-40s -%s\n" "findChange.sh" "Determining BPM change after each quadrupole"
+		# Output: "$CHANGEPATH/$CHANGEQUAD-comparison.dat"
 		$FPATH/findChange.sh $CHANGEM $CHANGEQUAD "$CHANGEPATH/nextBPM.dat" "$CHANGEPATH/standardComparisons.fin" "$CHI2PATH/comparisons.fin"
 	endif
 	exit

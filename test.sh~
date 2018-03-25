@@ -1,7 +1,4 @@
 #!/bin/tcsh
 unset noclobber
 
-foreach i (`seq 100`)
-	sleep 10
-	echo "$i" >> "test.dat"
-end
+grep -E 'Starting|\/\*|Current CHI2DOF total' "$RDPATH/finalResults.fin"

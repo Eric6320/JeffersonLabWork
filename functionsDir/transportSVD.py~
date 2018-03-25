@@ -6,7 +6,7 @@ import numpy as np, sys
 #* Argument: $3 - cFile - Name of the output destination file where the final transport matrix will be written out to
 #* Example: python transportSVD.py ellipseA.fin ellipseB.fin ellipseC.fin
 #* Further Comments: This script is functionally similar to mSVD.py, but has be separated into two scripts for readability
-#* Main Output: 
+#* Main Output: ellipseC$TRIAL.fin
 
 # Inputs are of the form
 # A = B * C

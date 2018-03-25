@@ -1,5 +1,6 @@
 #!/bin/tcsh
 unset noclobber
+unset COLORS
 
 #* Description:
 #* Argument: - 
@@ -19,12 +20,13 @@ set CORR1 = $3
 set CORR2 = $4
 set BPM1 = $5
 set STRENGTHERROR = $6
-set DESIGNBEAMLINE = $7
-set MODIFIEDBEAMLINE = $8
-set CHANGEM = $9
-set GENERATE = $10
-set TOLERANCE = $11
-set CORRECTED = $12
+set TESTQUAD = $7
+set DESIGNBEAMLINE = $8
+set MODIFIEDBEAMLINE = $9
+set CHANGEM = $10
+set GENERATE = $11
+set TOLERANCE = $12
+set CORRECTED = $13
 
 if ($CORRECTED == 1) then
 	set DESIGNLATTICE = $CHANGEPATH/$MODIFIEDBEAMLINE.lte
@@ -63,7 +65,7 @@ end
 if ($GENERATE == 1) then
 	# Generate the changeVResponse Matrix M
 	# Output: $CHANGEPATH/$QUADNAMEcomparison.dat
-	$FPATH/generateCVR.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $STRENGTHERROR $CHANGEM $DELTAQ
+	$FPATH/generateCVR.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $STRENGTHERROR $TESTQUAD $CHANGEM $DELTAQ
 	
 	# Recombine the files generated throughout the script into the proper formats in preparation for svd pseudoinverse
 	# Output: "$CHANGEPATH/matrixM.fin"

@@ -1,5 +1,6 @@
 #!/bin/tcsh
 unset noclobber
+unset COLORS
 
 #* Description: Main file used to perform all control optimization functions. Generates a Unit Circle, transforms to a betatron ellipse,calculates the strengths necessary to trace the points on the ellipse,
 #* Description: Adds strenght error if necessary, traces the betatron ellipse given the calculated strengths, performs SVD pseudoinverse to determine transformation matrices,
@@ -46,6 +47,9 @@ set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
 
 set CORRECTED = `$FPATH/setArg.sh corrected 0 $argv`
 
+# Print the currently set variables
+#set | sed '/_/q'
+
 # Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
 $FPATH/cleanUp.sh
 set S = `$FPATH/pullS.sh $BPM1 $DESIGNBEAMLINE`
@@ -64,6 +68,7 @@ if ($STRENGTHERROR != x) then
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh $TESTQUAD $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
 
 	if ($CORRECTED == 1) then
+		echo "Corrected is being called"
 		cp "$CHANGEPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
 	endif
 else
@@ -93,6 +98,7 @@ $FPATH/runPPSSCompareM.sh $BPM1 $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
 if ($CHANGE == 1) then
 	if ($CHANGEQUAD != "noDefault") then
 		printf "%-40s -%s\n" "findChange.sh" "Determining BPM change after each quadrupole"
+		# Output: "$CHANGEPATH/$CHANGEQUAD-comparison.dat"
 		$FPATH/findChange.sh $CHANGEM $CHANGEQUAD "$CHANGEPATH/nextBPM.dat" "$CHANGEPATH/standardComparisons.fin" "$CHI2PATH/comparisons.fin"
 	endif
 	exit
@@ -102,6 +108,9 @@ endif
 $FPATH/findOutlier.sh 3 $CHI2PATH/comparisons.fin remove
 $FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Downstream Error Example, xAxisLabel=S Coordinate, yAxisLabel=chi2dof,"
 #$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Pre Optimization M Plot,"
+
+# Anything beyond here isn't needed for minimizeBeamline.sh
+exit
 
 if ($STRENGTHERROR != x) then
 
