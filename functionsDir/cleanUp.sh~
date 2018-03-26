@@ -5,7 +5,7 @@
 #* Example: $FPATH/cleanUp.sh
 #* Main Output: No output file
 
-echo "cleanUp.sh - Removing excess files and resetting file structure"
+printf "%-40s -%s\n" "cleanUp.sh" "Removing excess files and resetting file structure"
 
 # Remove directory and all contents within
 rm -r $JPATH/ppss_dir >& /dev/null
@@ -16,6 +16,12 @@ endif
 
 # Remove contents of directory, but keep the directory itself
 rm $ELEGANTPATH/* $CENTROIDPATH/* $ELLIPSEPATH/* $CHI2PATH/* $OPTIMIZEPATH/* >& /dev/null
+
+$FPATH/addGitIgnore.sh $ELEGANTPATH;
+$FPATH/addGitIgnore.sh $CENTROIDPATH;
+$FPATH/addGitIgnore.sh $ELLIPSEPATH;
+$FPATH/addGitIgnore.sh $CHI2PATH;
+$FPATH/addGitIgnore.sh $OPTIMIZEPATH;
 
 # Remove all files with the following extensions
 rm *.fin *.dat *.ppss *.mat* >& /dev/null
