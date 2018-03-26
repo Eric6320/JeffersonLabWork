@@ -1,6 +1,20 @@
 #!/bin/tcsh
 unset noclobber
 
+#* Description:
+#* Argument: - 
+#* Argument: - 
+#* Argument: - 
+#* Argument: - 
+#* Argument: - 
+#* Example: 
+#* Further Comments: 
+#* Further Comments: 
+#* Main Output:
+
+# Store base variables as command input or defaults
+set NUMBEROFSEEDS = $1
+
 set QUAD1 = `$FPATH/setArg.sh quad1 MQL1S07 $argv`
 set QUAD2 = `$FPATH/setArg.sh quad2 MQB1A06 $argv`
 set QUAD3 = `$FPATH/setArg.sh quad3 MQB1R01 $argv`

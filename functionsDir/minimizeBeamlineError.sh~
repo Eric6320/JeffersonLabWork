@@ -1,6 +1,5 @@
 #!/bin/tcsh
 unset noclobber
-unset COLORS
 
 #* Description:
 #* Argument: - 
@@ -32,14 +31,16 @@ set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
 set GENERATE = `$FPATH/setArg.sh generate 0 $argv`
 set TOLERANCE = `$FPATH/setArg.sh tolerance 1 $argv`
 set MAXTRIALS = `$FPATH/setArg.sh maxTrials 5 $argv`
+set NUMBEROFSEEDS = `$FPATH/setArg.sh numberOfSeeds 1 $argv`
 
 set MONTECARLO = `$FPATH/setArg.sh monteCarlo x $argv`
 
 if ($MONTECARLO != x) then
 
 	# Generate seeds for the Monte Carlo simulation
-	$FPATH/generateMonteCarloSeeds.sh
+	$FPATH/generateMonteCarloSeeds.sh $NUMBEROFSEEDS
 
+	
 	while (`wc -l "$RDPATH/monteCarloSeeds.dat" | awk '{print $1}'` > 0)
 		set TESTQUAD = `cat "$RDPATH/monteCarloSeeds.dat" | head -1 | tail -1 | awk '{print $1}'`
 		set SEED = `cat "$RDPATH/monteCarloSeeds.dat" | head -1 | tail -1 | awk '{print $2}'`

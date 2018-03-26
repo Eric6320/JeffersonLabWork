@@ -39,20 +39,32 @@ changeDir - Contains all the changeVResponse matrix information, such as M and X
 
 /*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/* READ FROM HERE DOWN TODD /*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*
 
-# Instructions for running the code / Testing
+# Testing Instructions
 
-There are two "main" scripts used in this work, 'simulate.sh' and 'functionsDir/minimizeBeamlineError.sh'
+The first thing you should do is: `cat functionsDir/setEnv.sh` then copy paste all of those setenv commands. If those $PATH variables are not set, nothing will run correctly.
 
-simulate.sh contains around 90% of the project's important code, which generates ellipses, calculates transport matrices, and determines chi2dof comparisons. If there is some kind of memory or CPU usage problem, it is most likely contained somewhere in simulate.sh within:
+Debug Test 1)
+
+run `./simulate.sh strengthError=-1,`
+
+Be sure to include the comma after any tag/value arguments, or else the arguments will not be set properly and the script will freeze / hang indefinitely. strengthError=-1, flips the quad strength of a pre-set quadrupole. This script contains 90% of the project's important code, generating ellipses, calculating transport matrices, determining chi2dof comparisons, etc. If there is some kind of memory or CPU usage problem, it is most likely contained somewhere in simulate.sh within:
 
 runPPSSElegant.sh
 runPPSSPseudoinverse.sh
 runPPSSCompare.sh
 
-or any of their nested scripts, since these are the three scripts that make elegant calls / perform parallel functions. I have the script set up so most of the important arguments are already set to defaults, so for the sake of debugging, running:
+I've found that this script typically takes anywhere from 11 seconds, to 1-2 minutes to run fully. If it takes much longer I usually assume something is wrong.
 
-./simulate.sh strengthError=-1,
+Debug Test 2)
 
-is the same as running "1 trial". This will apply a -1 percent strength error to a preset quadrupole, and measure the chi squared results at a preset downstream BPM.
+run `functionsDir/minimizeBeamlineError.sh strengthError=-1, generate=1,`
 
-functionsDir/minimizeBeamlineError.sh is my testing framework which allows me to test one or more minimization attempts based on the arguments I give the script.
+generate=1, means calculate new changeVResponse matrices between each iteration. This script uses changeVResponse matrix calculation to minimize the beamline, attempting 5 iterations before giving up. There are 55 elements in the beamline, meaning that ./simulate.sh is run 55 times. 1 iteration can take anywhere between 15 minutes to 1 hour depending on how fast ./simulate.sh is running. The time of each ./simulate.sh call should print to the console.
+
+Debug Test 3)
+
+run `functionsDir/minimizeBeamlineError.sh strengthError=-1, generate=1, monteCarlo=1,`
+
+monteCarlo=1, means generate a list of 3 different quadrupoles with a pre-set number of seeds each, serving as 3 * X beamlines to attempt to minimize. 1 is the default number of seeds, meaning 3 different beamlines would be optimized. However, if you wanted to increase this number all you have to do is add 'numberOfSeeds=x,' to the argument line (without the single quotes, replacing x with whatever number you wanted). This command attempts to minimize multiple different beamlines sequentially, printing to both the console, and a the rawDataDir/testLog.fin file.
+
+Usually it is while running Debug Test 2 or 3 that things start to slow down, and I can never figure out why. Hopefully you are able to figure out more than I can
