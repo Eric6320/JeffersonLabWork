@@ -36,6 +36,10 @@ set MAXTRIALS = `$FPATH/setArg.sh maxTrials 5 $argv`
 set MONTECARLO = `$FPATH/setArg.sh monteCarlo x $argv`
 
 if ($MONTECARLO != x) then
+
+	# Generate seeds for the Monte Carlo simulation
+	$FPATH/generateMonteCarloSeeds.sh
+
 	while (`wc -l "$RDPATH/monteCarloSeeds.dat" | awk '{print $1}'` > 0)
 		set TESTQUAD = `cat "$RDPATH/monteCarloSeeds.dat" | head -1 | tail -1 | awk '{print $1}'`
 		set SEED = `cat "$RDPATH/monteCarloSeeds.dat" | head -1 | tail -1 | awk '{print $2}'`

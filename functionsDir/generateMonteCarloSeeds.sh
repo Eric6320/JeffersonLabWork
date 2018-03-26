@@ -10,4 +10,4 @@ foreach i (`seq 10`)
 	echo "$QUAD1 $i\n$QUAD2 $i\n$QUAD3 $i" >> "$RDPATH/monteCarloSeeds.dat"
 end
 
-gedit "$RDPATH/monteCarloSeeds.dat"
+#gedit "$RDPATH/monteCarloSeeds.dat"
