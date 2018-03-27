@@ -17,11 +17,12 @@ endif
 # Remove contents of directory, but keep the directory itself
 rm $ELEGANTPATH/* $CENTROIDPATH/* $ELLIPSEPATH/* $CHI2PATH/* $OPTIMIZEPATH/* >& /dev/null
 
-$FPATH/addDummy.sh $ELEGANTPATH;
-$FPATH/addDummy.sh $CENTROIDPATH;
-$FPATH/addDummy.sh $ELLIPSEPATH;
-$FPATH/addDummy.sh $CHI2PATH;
-$FPATH/addDummy.sh $OPTIMIZEPATH;
+$FPATH/addDummy.sh $ELEGANTPATH
+$FPATH/addDummy.sh $CENTROIDPATH
+$FPATH/addDummy.sh $ELLIPSEPATH
+$FPATH/addDummy.sh $CHI2PATH
+$FPATH/addDummy.sh $OPTIMIZEPATH
+$FPATH/addDummy.sh $CHANGEPATH
 
 # Remove all files with the following extensions
 rm *.fin *.dat *.ppss *.mat* >& /dev/null
