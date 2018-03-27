@@ -1,14 +1,12 @@
 #!/bin/tcsh
 unset noclobber
 
-#* Description:
-#* Argument: $1 - 
-#* Argument: $2 - 
-#* Argument: $3+ - 
-#* Example: 
-#* Further Comments: 
-#* Further Comments: 
-#* Main Output:
+#* Description: Generates chi squared per degree of freedom comparisons between the design and modified ellipses at each BPM along the beamline, for each transport matrix element.
+#* Argument: $1 - BPMONE - Reference BPM, only BPM downstream of this one are used in the comparisons.
+#* Argument: $2 - DESIGNFILE - File containing all design transport matrix elements to be used in the comparisons
+#* Argument: $3 - MODIFIEDFILE - File containing all modified transport matrix elements to be used in the comparisons
+#* Example: ./runPPSSCompareM.sh IPM1S03 unkicked.matasc modified.mat
+#* Main Output: $CHI2PATH/comparisons.fin
 
 # Clear the chi2Dir 
 rm -r $CHI2PATH/* >& /dev/null
@@ -20,7 +18,6 @@ set MODIFIEDFILE = $3
 set S = `$FPATH/pullS.sh $BPMONE`
 
 printf "%-40s -%s\n" "runPPSSCompareM.sh" "Comparing Transportation Matrix Values"
-echo "runPPSSCompareM.sh - Comparing Transportation Matrix Values"
 
 # Generate ppss file containing each BPM downstream, each possible M number (1-4), and the names of the files containing Transportation Matrix values
 rm compareM.ppss >& /dev/null; touch compareM.ppss
