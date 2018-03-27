@@ -21,6 +21,8 @@ import numpy as np, sys
 
 # C = B^{-1} * A
 
+print "This is being called without issues!************************************************************************"
+
 # Store command line arguments as variables
 aFile = sys.argv[1]
 bFile = sys.argv[2]
@@ -36,7 +38,7 @@ U, S, V = np.linalg.svd(B, full_matrices=False)
 Sdiag = np.diag(S)
 Sinverse = Sdiag
 
-# Flip any values that are too small
+# Flip any values that are too large
 for n in range(0,Sdiag.shape[0]):
     if (abs(Sdiag[n,n])>1e-10):
         Sdiag[n,n]=1./Sdiag[n,n]

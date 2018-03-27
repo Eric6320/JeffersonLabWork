@@ -34,7 +34,7 @@ set THRESHOLD = `wc -l $CHANGEPATH/nextBPM.dat | awk '{print $1}'`
 
 # For each Quadrupole in the design twiss file, determine the chi2dof response from changing its design strength to the modified one in $CHANGEPATH/"quadStrengths.dat"
 @ x = 1
-foreach i (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
+foreach i (`grep MQ $RDPATH/information.twiasc | awk '{print $2}'`)
 	if (`grep -c $i $CHANGEPATH/nextQuadBPM.dat` == 1) then
 		echo "******************************************** $x/$THRESHOLD) Determining CHI2DOF Change for $i********************************************"
 		set STRENGTH = `grep $i "$CHANGEPATH/quadStrengths.dat" | awk '{print $2}'`

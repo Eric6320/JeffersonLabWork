@@ -45,7 +45,7 @@ set DELTAQ = `$FPATH/determineQStrengths.sh $DESIGNLATTICE $CHANGEPATH/"quadStre
 printf "%-40s -%s\n" "findNextBPM.sh" "Determining succeeding BPMs"
 rm $CHANGEPATH/nextQuadBPM.dat >& /dev/null; touch $CHANGEPATH/nextQuadBPM.dat
 
-foreach QUAD (`sdds2stream -col=ElementName $DESIGNTWISSFILE | grep "MQ"`)
+foreach QUAD (`grep MQ $RDPATH/information.twiasc | awk '{print $2}'`)
 	$FPATH/findNextBPM.sh $QUAD $BPM1 $DESIGNLATTICE >> $CHANGEPATH/nextQuadBPM.dat
 end
 
