@@ -31,7 +31,7 @@ $FPATH/ppss -f 'compareM.ppss' -c "$FPATH/parallelCompareM.sh " -p 4 > /dev/null
 paste -d " " downstreamBPM.dat $CHI2PATH/newComparison1.dat $CHI2PATH/newComparison2.dat $CHI2PATH/newComparison3.dat $CHI2PATH/newComparison4.dat >! $CHI2PATH/comparisons.fin
 
 #Remove the line comparing the BPM to itself
-cutLineOffTopOrBottom.sh top 1 $CHI2PATH/comparisons.fin
+$FPATH/cutLineOffTopOrBottom.sh top 1 $CHI2PATH/comparisons.fin
 
 # Clear the job log
 $FPATH/clearPPSSOutput.sh
