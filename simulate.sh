@@ -108,7 +108,7 @@ endif
 #$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Downstream Error Example, xAxisLabel=S Coordinate, yAxisLabel=chi2dof,"
 #$FPATH/plotM.sh "$CHI2PATH/comparisons.fin" 3 "title=Pre Optimization M Plot,"
 
-
+$FPATH/sumM.sh 3 $CHI2PATH/comparisons.fin
 # Anything beyond here isn't needed for minimizeBeamline.sh
 exit
 

@@ -29,6 +29,7 @@ end
 # Run each transformation matrix calculation in parallel ussing ppss
 # Output: mValues$TRIAL.dat
 $FPATH/ppss -f 'pseudoinverse.ppss' -c "$FPATH/parallelPseudoinverse.sh " > /dev/null
+$FPATH/catPPSSOutput.sh
 
 # Recompile the M values into one data file
 # Output: MODIFIEDBEAMLINE.mat

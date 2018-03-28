@@ -13,3 +13,5 @@ setenv OPTIMIZEPATH ~/git/JeffersonLabWork/optimizeDir
 setenv CHANGEPATH ~/git/JeffersonLabWork/changeDir
 setenv http_proxy "http_proxy http://jprox.jlab.org:8081"
 setenv https_proxy "https_proxy https://jprox.jlab.org:8081"
+setenv LD_LIBRARY_PATH /apps/python/lib
+
