@@ -1,15 +1,13 @@
 #!/bin/tcsh
 unset noclobber
 
-#* Description:
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Example: 
-#* Further Comments: 
-#* Further Comments: 
+#* Description: Determines the CHI2DOF change at each BPM that results from changing the strength of the given quadrupole
+#* Argument: - M - Transport Matrix element comparison column used to determine the CHI2DOF change
+#* Argument: - CHANGEQUAD - Quadrupole whose strength was changed to generate a response
+#* Argument: - NEXTBPMFILE - Data file containing a list of BPM that immediate succeed their corresponding quadrupole
+#* Argument: - STANDARDFILE - Data file containing the CHI2DOF comparisons between the transport elements of the beamline without any quadrupole strength changes
+#* Argument: - COMPARISONFILE - Data file containing the CHI2DOF comparisons between the transport elements of the beamline with some quadrupole strength change
+#* Example: ./findChange.sh 3 MQB1A29 nextBPM.dat standardComparisons.fin comparisons.fin
 #* Main Output: "$CHANGEPATH/$CHANGEQUAD-comparison.dat"
 
 # Set variables from command line arguments
