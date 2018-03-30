@@ -66,7 +66,6 @@ $FPATH/determineStrengths.sh $BPM1 $CORR1 $CORR2 $VERTICLE $MODIFIEDBEAMLINE
 if ($STRENGTHERROR != x) then
 	printf "%-40s -%s\n" "addStrengthError.sh" "Adding strength error"
 	set NEWQUADSTRENGTH = `$FPATH/addStrengthError.sh $TESTQUAD $STRENGTHERROR $MODIFIEDBEAMLINE $SEED`
-	echo $NEWQUADSTRENGTH
 
 	if ($CORRECTED == 1) then
 		cp "$CHANGEPATH/$MODIFIEDBEAMLINE.lte" "$MODIFIEDBEAMLINE.lte"
@@ -85,6 +84,8 @@ endif
 # Using the design strengths, trace the ellipse and determine the centroid values
 # Output: centroidValuesDir/*BPM*CentroidValues.dat
 $FPATH/runPPSSElegant.sh $N $MODIFIEDBEAMLINE $CORR1 $CORR2 $VERTICLE
+
+exit
 
 # Use a Singular Value Decomposition Pseudoinverse to generate the two sets of transportation matrices
 # Output: $DESIGNBEAMLINE.matasc $MODIFIEDBEAMLINE.mat
