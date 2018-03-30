@@ -1,19 +1,12 @@
 #!/bin/tcsh
 unset noclobber
 
-#* Description:
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Example: 
-#* Further Comments: 
-#* Further Comments: 
-#* Main Output:
+#* Description: Used to calculate a Q matrix, whose opposite values are applied to the modified beamline in order to minimize errors
+#* Argument: $1 - MODIFIEDBEAMLINE - Name of the 'measured' beamline. Only really used for its name to reference the correct lattice files for the corrections
+#* Example: ./calculateQuadChanges.sh modified
+#* Main Output: $CHANGEPATH/$MODIFIEDBEAMLINE.lte with new strength values
 
 # Set variables from command line arguments
-
 set MODIFIEDBEAMLINE = $1
 
 # Perform singular value decomposition
@@ -21,6 +14,7 @@ printf "%-40s -%s\n" "mSVD.sh" "Applying Opposite Q Matrix Values"
 # Output: $CHANGEPATH/matrixQ.fin
 python $FPATH/mSVD.py "$CHANGEPATH/matrixX.fin" "$CHANGEPATH/matrixM.fin" "$CHANGEPATH/matrixQ.dat" "$CHANGEPATH/matrixS.fin"
 
+# Add the quadrupole names in front of the Q values
 paste -d " " "$CHANGEPATH/nextQuadBPM.dat" "$CHANGEPATH/matrixQ.dat" | awk '{print $1" "$3}' >! "$CHANGEPATH/matrixQ.fin"
 
 # Apply the opposite changes of what is in matrixQ.fin

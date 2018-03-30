@@ -2,16 +2,24 @@
 unset noclobber
 unset COLORS
 
-#* Description:
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
-#* Argument: - 
+#* Description: Runs the changeVResponse.sh script some $MAXTRIALS number of times, or until the beamlines chi2dof value is below the given $TOLERANCE
+#* Argument: $1 - N - Number of orbits to include in the ellipse generation
+#* Argument: $2 - SEED - Seed used for any random number generation throughout the scripts
+#* Argument: $3 - CORR1 - The first corrector used to trace out ellipses at BPM1
+#* Argument: $4 - CORR2 - The second corrector used to trace out ellipses at BPM2
+#* Argument: $5 - BPM1 - The bpm used as a reference point for tracing out the beamline's ellipses
+#* Argument: $6 - DESIGNBEAMLINE - Name of the 'perfect' beamline used in chi2dof comparisons
+#* Argument: $7 - MODIFIEDBEAMLINE - Name of the 'measured' beamline that contains any errors, used in chi2dof comparisons
+#* Argument: $8 - VERTICLE - 0 or 1 boolean value indicating whether the reference for the beamline is vertical or horizontal
+#* Argument: $9 - STRENGTHERROR - Percentage strength value change to be applied to the given $TESTQUAD
+#* Argument: $10 - TESTQUAD - Quadrupole whos strength will be changed, and the response will be measured
+#* Argument: $11 - CHANGEM - Transport matrix element whose chi2dof comparisons will observed
+#* Argument: $12 - GENERATE - 0 or 1 boolean value indicating whether or not to generate a new changeVResponse matrix between each trial
+#* Argument: $13 - TOLERANCE - CHI2DOF tolerance at which testing stops
+#* Argument: $14 - MAXTRIALS - Max number of changeVResponse matrices that will be generated before the minimization is stopped
 #* Example: 
-#* Further Comments: 
-#* Further Comments: 
-#* Main Output:
+#* Further Comments: $GENERATE should almost always be 1, it is usully only 0 for testing 
+#* Main Output: CHI2DOF value printed to console indicating whether or not the minimization was sucessful, or reached the maximum number of trials before stopping
 
 # Store base variables as command input or defaults
 set N = $1
@@ -34,10 +42,12 @@ set TOLERANCE = $13
 set MAXTRIALS = $14
 set CORRECTED = 0
 
+# If the $GENERATE variable is set, reset the changeDir/ folder
 if ($GENERATE == 1) then
 	$FPATH/cleanUp.sh "change"
 endif
 
+# Repeatedly generate changeVResponse Matrices and apply their -Q changes until the max trials have been reached, or the CHI2DOF value is below the threshold
 @ x = 1
 while (`echo "$x $MAXTRIALS" | awk '{if ($1 <= $2) print 1; else print 0;}'` == 1)
 	echo "******************************************Starting Trial $x******************************************"
