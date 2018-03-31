@@ -15,3 +15,7 @@ setenv http_proxy "http_proxy http://jprox.jlab.org:8081"
 setenv https_proxy "https_proxy https://jprox.jlab.org:8081"
 setenv LD_LIBRARY_PATH /apps/python/lib:/home/satogata/UsrLocal/lib
 setenv path /home/satogata/UsrLocal/bin:$path
+
+setenv FINALPATH ~/git/JeffersonLabWork/finalResultsDir
+
+stty -tostop

@@ -23,15 +23,15 @@ set MODIFIEDBEAMLINE = `$FPATH/setArg.sh modifiedBeamline modified $argv`
 set VERTICLE = `echo $CORR1 | grep -c "V"`
 
 # These variables are only referenced if there is optimization needed
-set STRENGTHERROR = `$FPATH/setArg.sh strengthError x $argv`
+set STRENGTHERROR = `$FPATH/setArg.sh strengthError -1 $argv`
 set TESTQUAD = `$FPATH/setArg.sh testQuad MQB1A29 $argv`
 
 # Set variables controlling changeVResponse.sh script behavior
 set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
 set GENERATE = `$FPATH/setArg.sh generate 0 $argv`
-set TOLERANCE = `$FPATH/setArg.sh tolerance 3 $argv`
+set TOLERANCE = `$FPATH/setArg.sh tolerance 3.5 $argv`
 set MAXTRIALS = `$FPATH/setArg.sh maxTrials 5 $argv`
-set NUMBEROFSEEDS = `$FPATH/setArg.sh numberOfSeeds 1 $argv`
+set NUMBEROFSEEDS = `$FPATH/setArg.sh numberOfSeeds 3 $argv`
 
 set MONTECARLO = `$FPATH/setArg.sh monteCarlo x $argv`
 
@@ -40,13 +40,18 @@ if ($MONTECARLO != x) then
 	# Generate seeds for the Monte Carlo simulation
 	$FPATH/generateMonteCarloSeeds.sh $NUMBEROFSEEDS
 
-	rm "$RDPATH/testLog.fin" >& /dev/null; touch "$RDPATH/testLog.fin"
 	while (`wc -l "$RDPATH/monteCarloSeeds.dat" | awk '{print $1}'` > 0)
+		
 		set TESTQUAD = `cat "$RDPATH/monteCarloSeeds.dat" | head -1 | tail -1 | awk '{print $1}'`
 		set SEED = `cat "$RDPATH/monteCarloSeeds.dat" | head -1 | tail -1 | awk '{print $2}'`
 		
-		echo "*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/$TESTQUAD-$SEED*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/" | tee -a "$RDPATH/testLog.fin"
-		$FPATH/correct.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $STRENGTHERROR $TESTQUAD $CHANGEM $GENERATE $TOLERANCE $MAXTRIALS | tee -a "$RDPATH/testLog.fin"
+		if (`grep -c "Trials required:" "$FINALPATH/$TESTQUAD-$SEED.dat"` != 1) then
+			rm "$FINALPATH/$TESTQUAD-$SEED.dat" > /dev/null; touch "$FINALPATH/$TESTQUAD-$SEED.dat"
+			echo "*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/$TESTQUAD-$SEED*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/" | tee -a "$FINALPATH/$TESTQUAD-$SEED.dat"
+			$FPATH/correct.sh $N $SEED $CORR1 $CORR2 $BPM1 $DESIGNBEAMLINE $MODIFIEDBEAMLINE $VERTICLE $STRENGTHERROR $TESTQUAD $CHANGEM $GENERATE $TOLERANCE $MAXTRIALS | tee -a "$FINALPATH/$TESTQUAD-$SEED.dat"
+		else
+			echo "$FINALPATH/$TESTQUAD-$SEED.dat already exists, moving to next file"
+		endif
 
 		#Remove the minimization attempt that just finished
 		$FPATH/cutLineOffTopOrBottom.sh top 1 "$RDPATH/monteCarloSeeds.dat"

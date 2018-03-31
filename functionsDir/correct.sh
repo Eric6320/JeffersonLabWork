@@ -48,7 +48,7 @@ if ($GENERATE == 1) then
 endif
 
 # Repeatedly generate changeVResponse Matrices and apply their -Q changes until the max trials have been reached, or the CHI2DOF value is below the threshold
-@ x = 1
+@ x = 0
 while (`echo "$x $MAXTRIALS" | awk '{if ($1 <= $2) print 1; else print 0;}'` == 1)
 	echo "******************************************Starting Trial $x******************************************"
 	if ($x != 1) then
