@@ -31,14 +31,14 @@ set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
 set GENERATE = `$FPATH/setArg.sh generate 0 $argv`
 set TOLERANCE = `$FPATH/setArg.sh tolerance 3.5 $argv`
 set MAXTRIALS = `$FPATH/setArg.sh maxTrials 5 $argv`
-set NUMBEROFSEEDS = `$FPATH/setArg.sh numberOfSeeds 3 $argv`
+set NUMBEROFSEEDS = `$FPATH/setArg.sh numberOfSeeds 50 $argv`
 
 set MONTECARLO = `$FPATH/setArg.sh monteCarlo x $argv`
 
 if ($MONTECARLO != x) then
 
 	# Generate seeds for the Monte Carlo simulation
-	$FPATH/generateMonteCarloSeeds.sh $NUMBEROFSEEDS
+	$FPATH/generateMonteCarloSeeds.sh $NUMBEROFSEEDS $BPM1
 
 	while (`wc -l "$RDPATH/monteCarloSeeds.dat" | awk '{print $1}'` > 0)
 		

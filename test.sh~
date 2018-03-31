@@ -1,4 +1,4 @@
 #!/bin/tcsh
 unset noclobber
 
-grep -E 'Starting|\/\*|Current CHI2DOF total' "$RDPATH/finalResults.fin"
+head -c 1 /dev/urandom | od -t u1 | cut -c9-

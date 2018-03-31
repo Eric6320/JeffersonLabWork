@@ -51,7 +51,7 @@ endif
 @ x = 0
 while (`echo "$x $MAXTRIALS" | awk '{if ($1 <= $2) print 1; else print 0;}'` == 1)
 	echo "******************************************Starting Trial $x******************************************"
-	if ($x != 1) then
+	if ($x != 0) then
 		set CORRECTED = 1
 	endif
 

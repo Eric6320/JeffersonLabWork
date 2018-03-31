@@ -14,14 +14,19 @@ unset noclobber
 
 # Store base variables as command input or defaults
 set NUMBEROFSEEDS = $1
+set REFERENCEBPM = $2
 
-set QUAD1 = `$FPATH/setArg.sh quad1 MQL1S07 $argv`
-set QUAD2 = `$FPATH/setArg.sh quad2 MQB1A06 $argv`
-set QUAD3 = `$FPATH/setArg.sh quad3 MQB1R01 $argv`
+set FIRSTQUAD = `sed -n -e '/'$REFERENCEBPM'/,$p' $RDPATH/sInformation.dat | grep -m 1 "MQ" | awk '{print $2}'`
+set LASTQUAD = `cat $RDPATH/quadList.dat | tail -1`
+
+set FIRSTQUADLINENUMBER = `grep -n $FIRSTQUAD $RDPATH/quadList.dat | cut -f1 -d:`
+set LASTQUADLINENUMBER = `grep -n $LASTQUAD $RDPATH/quadList.dat | cut -f1 -d:`
 
 rm "$RDPATH/monteCarloSeeds.dat" >& /dev/null; touch "$RDPATH/monteCarloSeeds.dat"
 foreach i (`seq $NUMBEROFSEEDS`)
-	echo "$QUAD1 $i\n$QUAD2 $i\n$QUAD3 $i" >> "$RDPATH/monteCarloSeeds.dat"
+	set RANDOMNUMBER = `shuf -i $FIRSTQUADLINENUMBER-$LASTQUADLINENUMBER -n 1`
+	set RANDOMQUAD = `cat $RDPATH/quadList.dat | head -$RANDOMNUMBER | tail -1`
+	echo "$RANDOMQUAD $i" >> "$RDPATH/monteCarloSeeds.dat"
 end
 
 gedit "$RDPATH/monteCarloSeeds.dat"

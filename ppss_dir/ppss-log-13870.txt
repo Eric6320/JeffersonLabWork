@@ -1,0 +1,89 @@
+Mar 31 09:18:13: DSPLY 
+Mar 31 09:18:13: DSPLY =========================================================
+Mar 31 09:18:13: DSPLY                        |P|P|S|S|                         
+Mar 31 09:18:13: DSPLY Distributed Parallel Processing Shell Script vers. 2.98
+Mar 31 09:18:13: DSPLY =========================================================
+Mar 31 09:18:13: DSPLY Hostname:		satogata.jlab.org
+Mar 31 09:18:13: DSPLY ---------------------------------------------------------
+Mar 31 09:18:13: DSPLY CPU: Intel(R) Xeon(R) CPU           W3550  @ 3.07GHz
+Mar 31 09:18:13: DSPLY Found 4 logic processors.
+Mar 31 09:18:13: DSPLY Starting 4 parallel workers.
+Mar 31 09:18:13: DSPLY ---------------------------------------------------------
+Mar 31 09:18:13: INFO  Current active workers is 4
+Mar 31 09:18:13: INFO  Now processing IPM1S03 IPM1S03 1.442995085970000e+01 1
+Mar 31 09:18:13: INFO  Current active workers is 4
+Mar 31 09:18:13: INFO  Now processing IPM1S03 IPM1S05 2.038040024890011e+01 2
+Mar 31 09:18:13: INFO  Current active workers is 4
+Mar 31 09:18:13: INFO  Now processing IPM1S03 IPM1S07 2.638040024890011e+01 3
+Mar 31 09:18:13: INFO  Current active workers is 4
+Mar 31 09:18:13: INFO  Now processing IPM1S03 IPM1S08 3.238040024890012e+01 4
+Mar 31 09:18:13: INFO  Current active workers is 4
+Mar 31 09:18:13: INFO  Now processing IPM1S03 IPM1S09 3.838040024890012e+01 5
+Mar 31 09:18:13: INFO  Current active workers is 4
+Mar 31 09:18:13: INFO  Now processing IPM1S03 IPM1S10 4.438040024890012e+01 6
+Mar 31 09:18:13: INFO  Current active workers is 4
+Mar 31 09:18:13: INFO  Now processing IPM1S03 IPM1E01 6.093046624890007e+01 7
+Mar 31 09:18:13: INFO  Current active workers is 4
+Mar 31 09:18:13: INFO  Now processing IPM1S03 IPM1E02 7.748540525776389e+01 8
+Mar 31 09:18:14: INFO  Current active workers is 4
+Mar 31 09:18:14: INFO  Now processing IPM1S03 IPM1E03 9.403540125776399e+01 9
+Mar 31 09:18:14: DSPLY ETA: Sat Mar 31 09:18:13 EDT 2018
+Mar 31 09:18:14: INFO  Current active workers is 4
+Mar 31 09:18:14: INFO  Now processing IPM1S03 IPM1A01 1.105854012577640e+02 10
+Mar 31 09:18:14: INFO  Current active workers is 4
+Mar 31 09:18:14: INFO  Now processing IPM1S03 IPM1A03 1.227691914477640e+02 11
+Mar 31 09:18:14: INFO  Current active workers is 4
+Mar 31 09:18:14: INFO  Now processing IPM1S03 IPM1A04 1.264260014477640e+02 12
+Mar 31 09:18:14: INFO  Current active workers is 4
+Mar 31 09:18:14: INFO  Now processing IPM1S03 IPM1A05 1.300828204477639e+02 13
+Mar 31 09:18:14: INFO  Current active workers is 4
+Mar 31 09:18:15: INFO  Now processing IPM1S03 IPM1A06 1.422641104377639e+02 14
+Mar 31 09:18:15: DSPLY ETA: Sat Mar 31 09:18:13 EDT 2018
+Mar 31 09:18:15: INFO  Current active workers is 4
+Mar 31 09:18:15: INFO  Now processing IPM1S03 IPM1A07 1.544454116277639e+02 15
+Mar 31 09:18:15: INFO  Current active workers is 4
+Mar 31 09:18:15: INFO  Now processing IPM1S03 IPM1A08 1.581022196277639e+02 16
+Mar 31 09:18:15: INFO  Current active workers is 4
+Mar 31 09:18:15: INFO  Now processing IPM1S03 IPM1A09 1.617590383277638e+02 17
+Mar 31 09:18:15: INFO  Current active workers is 4
+Mar 31 09:18:15: INFO  Now processing IPM1S03 IPM1A10 1.711079245177638e+02 18
+Mar 31 09:18:15: INFO  Current active workers is 4
+Mar 31 09:18:15: INFO  Now processing IPM1S03 IPM1A11 1.739403445177638e+02 19
+Mar 31 09:18:15: DSPLY ETA: Sat Mar 31 09:18:13 EDT 2018
+Mar 31 09:18:15: INFO  Current active workers is 4
+Mar 31 09:18:15: INFO  Now processing IPM1S03 IPM1A13 1.861216407077637e+02 20
+Mar 31 09:18:16: INFO  Current active workers is 4
+Mar 31 09:18:16: INFO  Now processing IPM1S03 IPM1A14 1.897784507077638e+02 21
+Mar 31 09:18:16: INFO  Current active workers is 4
+Mar 31 09:18:16: INFO  Now processing IPM1S03 IPM1A16 2.056165488977638e+02 22
+Mar 31 09:18:16: INFO  Current active workers is 4
+Mar 31 09:18:16: INFO  Now processing IPM1S03 IPM1A18 2.214546790877638e+02 23
+Mar 31 09:18:16: INFO  Current active workers is 4
+Mar 31 09:18:16: INFO  Now processing IPM1S03 IPM1A19 2.251114839877638e+02 24
+Mar 31 09:18:16: DSPLY ETA: Sat Mar 31 09:18:13 EDT 2018
+Mar 31 09:18:16: INFO  Current active workers is 4
+Mar 31 09:18:16: INFO  Now processing IPM1S03 IPM1A21 2.372927639777638e+02 25
+Mar 31 09:18:16: INFO  Current active workers is 4
+Mar 31 09:18:16: INFO  Now processing IPM1S03 IPM1A23 2.494740741677638e+02 26
+Mar 31 09:18:16: INFO  Current active workers is 4
+Mar 31 09:18:16: INFO  Now processing IPM1S03 IPM1A24 2.531308841677638e+02 27
+Mar 31 09:18:16: INFO  Current active workers is 4
+Mar 31 09:18:16: INFO  Now processing IPM1S03 IPM1A26 2.689689999577638e+02 28
+Mar 31 09:18:17: INFO  Current active workers is 4
+Mar 31 09:18:17: INFO  Now processing IPM1S03 IPM1A28 2.848071199477638e+02 29
+Mar 31 09:18:17: DSPLY ETA: Sat Mar 31 09:18:13 EDT 2018
+Mar 31 09:18:17: INFO  Current active workers is 4
+Mar 31 09:18:17: INFO  Now processing IPM1S03 IPM1A29 2.884639279777639e+02 30
+Mar 31 09:18:17: INFO  Current active workers is 4
+Mar 31 09:18:17: INFO  Now processing IPM1S03 IPM1A31 3.006452181677639e+02 31
+Mar 31 09:18:17: INFO  Current active workers is 4
+Mar 31 09:18:17: INFO  Now processing IPM1S03 IPM1A33 3.128265263577638e+02 32
+Mar 31 09:18:17: INFO  Current active workers is 4
+Mar 31 09:18:17: INFO  Now processing IPM1S03 IPM1A34 3.164833483577638e+02 33
+Mar 31 09:18:17: INFO  Current active workers is 4
+Mar 31 09:18:17: INFO  Now processing IPM1S03 IPM1A36 3.323214572477638e+02 34
+Mar 31 09:18:17: DSPLY ETA: Sat Mar 31 09:18:13 EDT 2018
+Mar 31 09:18:18: INFO  Current active workers is 4
+Mar 31 09:18:18: INFO  Now processing IPM1S03 IPM1A38 3.481595719377636e+02 35
+Mar 31 09:18:18: INFO  Current active workers is 4
+Mar 31 09:18:18: INFO  Now processing IPM1S03 IPM1A39 3.518163801377636e+02 36
