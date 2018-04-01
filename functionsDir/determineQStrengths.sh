@@ -15,4 +15,5 @@ if (`echo $argv | grep -c "compile"` == 1) then
 	javac $JAVAPATH/determineQStrengths.java
 endif
 
+# Run the determineQStrengths.java java file
 java -cp $JAVAPATH determineQStrengths $DESIGNLATTICE $OUTPUTFILE
