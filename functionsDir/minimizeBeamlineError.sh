@@ -28,12 +28,12 @@ set TESTQUAD = `$FPATH/setArg.sh testQuad MQB1A29 $argv`
 
 # Set variables controlling changeVResponse.sh script behavior
 set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
-set GENERATE = `$FPATH/setArg.sh generate 0 $argv`
+set GENERATE = `$FPATH/setArg.sh generate 1 $argv`
 set TOLERANCE = `$FPATH/setArg.sh tolerance 3.5 $argv`
 set MAXTRIALS = `$FPATH/setArg.sh maxTrials 5 $argv`
 set NUMBEROFSEEDS = `$FPATH/setArg.sh numberOfSeeds 50 $argv`
 
-set MONTECARLO = `$FPATH/setArg.sh monteCarlo x $argv`
+set MONTECARLO = `$FPATH/setArg.sh monteCarlo 1 $argv`
 
 if ($MONTECARLO != x) then
 
