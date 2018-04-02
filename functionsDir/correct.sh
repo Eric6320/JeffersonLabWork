@@ -75,6 +75,8 @@ while (`echo "$x $MAXTRIALS" | awk '{if ($1 <= $2) print 1; else print 0;}'` == 
 	@ x += 1
 end
 
+@ x -= 1
+
 # If the current CHI2DOF sum is within accepted tolerances, then print the sum, otherwise report that the minimization was unsucessful
 if (`echo "$CURRENTSUM $TOLERANCE" | awk '{if ($1 > $2) print 1}'` == 1) then
 	echo "Did not reach Tolerance goal, Current CHI2DOF total: $CURRENTSUM - Tolerance: $TOLERANCE, Trials required: $x"

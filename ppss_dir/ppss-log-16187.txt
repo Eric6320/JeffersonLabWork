@@ -1,0 +1,24 @@
+Apr 02 13:29:40: DSPLY 
+Apr 02 13:29:40: DSPLY =========================================================
+Apr 02 13:29:40: DSPLY                        |P|P|S|S|                         
+Apr 02 13:29:40: DSPLY Distributed Parallel Processing Shell Script vers. 2.98
+Apr 02 13:29:40: DSPLY =========================================================
+Apr 02 13:29:40: DSPLY Hostname:		satogata.jlab.org
+Apr 02 13:29:40: DSPLY ---------------------------------------------------------
+Apr 02 13:29:40: DSPLY CPU: Intel(R) Xeon(R) CPU           W3550  @ 3.07GHz
+Apr 02 13:29:40: DSPLY Starting 4 parallel workers.
+Apr 02 13:29:40: DSPLY ---------------------------------------------------------
+Apr 02 13:29:40: INFO  Current active workers is 4
+Apr 02 13:29:40: INFO  Now processing 1 unkicked.matasc modified.mat
+Apr 02 13:29:40: INFO  Current active workers is 4
+Apr 02 13:29:40: INFO  Now processing 2 unkicked.matasc modified.mat
+Apr 02 13:29:40: INFO  Current active workers is 4
+Apr 02 13:29:41: INFO  Now processing 3 unkicked.matasc modified.mat
+Apr 02 13:29:41: INFO  Current active workers is 4
+Apr 02 13:29:41: INFO  Now processing 4 unkicked.matasc modified.mat
+Apr 02 13:29:41: INFO  Current active workers is 4
+Apr 02 13:29:41: INFO  Current active workers is 3
+Apr 02 13:29:41: INFO  Current active workers is 2
+Apr 02 13:29:41: INFO  Current active workers is 1
+Apr 02 13:29:41: DSPLY Total processing time (hh:mm:ss): 00:00:01
+Apr 02 13:29:41: DSPLY Finished. Consult ppss_dir/job_log for job output.
