@@ -17,7 +17,7 @@ unset COLORS
 #* Argument: $12 - GENERATE - 0 or 1 boolean value indicating whether or not to generate a new changeVResponse matrix between each trial
 #* Argument: $13 - TOLERANCE - CHI2DOF tolerance at which testing stops
 #* Argument: $14 - MAXTRIALS - Max number of changeVResponse matrices that will be generated before the minimization is stopped
-#* Example: 
+#* Example: ./correct.sh 8 5 MBT1S01V MBT1S02V IPM1S03 unkicked modified 1 -1 MQB1A29 3 1 3.5 5
 #* Further Comments: $GENERATE should almost always be 1, it is usully only 0 for testing 
 #* Main Output: CHI2DOF value printed to console indicating whether or not the minimization was sucessful, or reached the maximum number of trials before stopping
 
