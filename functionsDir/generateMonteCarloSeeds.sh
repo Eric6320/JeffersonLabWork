@@ -21,6 +21,15 @@ set LASTQUADLINENUMBER = `grep -n $LASTQUAD $RDPATH/quadList.dat | cut -f1 -d:`
 
 # For as many seeds as specified in $NUMBEROFSEEDS, generate a random quadrupole-seed pair and add it to the data file
 rm "$RDPATH/monteCarloSeeds.dat" >& /dev/null; touch "$RDPATH/monteCarloSeeds.dat"
+
+foreach i (`seq $NUMBEROFSEEDS`)
+	awk -v I=$i -v first=$FIRSTQUADLINENUMBER -v last=$LASTQUADLINENUMBER '{if (NR > first && NR < last) print $1" "I}' "$RDPATH/quadList.dat" >> "$RDPATH/monteCarloSeeds.dat"
+end
+
+# Varify that the seeds are appropriately generated before continuing
+gedit "$RDPATH/monteCarloSeeds.dat"
+
+exit
 foreach i (`seq $NUMBEROFSEEDS`)
 	# Get a random number between $FIRSTQUADLINENUMBER and $LASTQUADLINENUMBER
 	set RANDOMNUMBER = `shuf -i $FIRSTQUADLINENUMBER-$LASTQUADLINENUMBER -n 1`
@@ -30,5 +39,4 @@ foreach i (`seq $NUMBEROFSEEDS`)
 	echo "$RANDOMQUAD $i" >> "$RDPATH/monteCarloSeeds.dat"
 end
 
-# Varify that the seeds are appropriately generated before continuing
-gedit "$RDPATH/monteCarloSeeds.dat"
+

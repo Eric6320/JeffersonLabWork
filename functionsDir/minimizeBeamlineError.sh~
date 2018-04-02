@@ -47,12 +47,7 @@ set GENERATE = `$FPATH/setArg.sh generate 1 $argv`
 set TOLERANCE = `$FPATH/setArg.sh tolerance 3.5 $argv`
 set MAXTRIALS = `$FPATH/setArg.sh maxTrials 5 $argv`
 set NUMBEROFSEEDS = `$FPATH/setArg.sh numberOfSeeds 50 $argv`
-<<<<<<< HEAD
-
 set MONTECARLO = `$FPATH/setArg.sh monteCarlo 1 $argv`
-=======
-set MONTECARLO = `$FPATH/setArg.sh monteCarlo x $argv`
->>>>>>> 38ae68c9cd4b6278bdbab707ee3bdbcac561f433
 
 # If the $MONTECARLO boolean is set
 if ($MONTECARLO != x) then

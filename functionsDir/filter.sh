@@ -1,4 +1,6 @@
 #!/bin/tcsh
 unset noclobber
 
-grep -E 'Starting|\/\*|Current CHI2DOF total' "$RDPATH/testLog.fin"
+grep -hE 'Final|\/\*|Current CHI2DOF total' $FINALPATH/* >! finalData.dat
+
+gedit finalData.dat
