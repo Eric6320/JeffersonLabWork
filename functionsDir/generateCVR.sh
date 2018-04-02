@@ -12,14 +12,11 @@ unset noclobber
 #* Argument: $8 - DESIGNBEAMLINE - Name of the 'perfect' beamline used in chi2dof comparisons
 #* Argument: $9 - MODIFIEDBEAMLINE - Name of the 'measured' beamline that contains any errors, used in chi2dof comparisons
 #* Argument: $10 - CHANGEM - Transport matrix element whose chi2dof comparisons will observed
-#* Argument: $11 - DELTAQ - 
-#* Example: 
-#* Further Comments: 
-#* Further Comments: 
-#* Main Output:
+#* Argument: $11 - DELTAQ - The change in quadrupole strength that is applied to each quadrupole, and divided out in the M matrix
+#* Example: ./generateCVR.sh 8 5 MBT1S01V MBT1S02V IPM1S03 -1 MQB1A29 unkicked modified 3 0.5
+#* Main Output: "$CHANGEPATH/matrixM.fin"
 
 # Set variables from command line arguments
-
 set N = $1
 set SEED = $2
 set CORR1 = $3
