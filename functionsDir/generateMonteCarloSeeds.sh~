@@ -23,7 +23,7 @@ set LASTQUADLINENUMBER = `grep -n $LASTQUAD $RDPATH/quadList.dat | cut -f1 -d:`
 rm "$RDPATH/monteCarloSeeds.dat" >& /dev/null; touch "$RDPATH/monteCarloSeeds.dat"
 
 foreach i (`seq $NUMBEROFSEEDS`)
-	awk -v I=$i -v first=$FIRSTQUADLINENUMBER -v last=$LASTQUADLINENUMBER '{if (NR > first && NR < last) print $1" "I}' "$RDPATH/quadList.dat"
+	awk -v I=$i -v first=$FIRSTQUADLINENUMBER -v last=$LASTQUADLINENUMBER '{if (NR > first && NR < last) print $1" "I}' "$RDPATH/quadList.dat" >> "$RDPATH/monteCarloSeeds.dat"
 end
 
 # Varify that the seeds are appropriately generated before continuing
