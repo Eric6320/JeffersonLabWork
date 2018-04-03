@@ -1,0 +1,20 @@
+#!/bin/tcsh
+unset noclobber
+
+awk 
+
+foreach i (`ls $FINALPATH`)
+	set QUADNAME = `echo $i | awk -F"-" '{print $1}'`
+	set SEED = `echo $i | awk -F"-" '{print $2}' | awk -F"." '{print $1}'`
+	
+	echo "$QUADNAME $SEED"
+#	grep -hE 'Final|\/\*|Current CHI2DOF total' $i >! finalData.dat	
+end
+
+exit
+
+grep -hE 'Final|\/\*|Current CHI2DOF total' $FINALPATH/* >! finalData.dat
+
+set NEXTBPM = `sed -n -e '/'$QUAD'/,$p' $DESIGNLATTICE | grep -m 1 "IPM" | awk '{print $1}' | sed "s/://g"`
+
+gedit finalData.dat
