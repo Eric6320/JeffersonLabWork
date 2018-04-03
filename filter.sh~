@@ -13,10 +13,10 @@ foreach i (`ls $FINALPATH/*.dat`)
 	set CURRENT = `grep -m 1 'Current' $i | awk '{print $4}' | sed 's/,//g'`
 	set FINAL = `grep 'Final' $i | awk '{print $4}' | sed 's/,//g'`
 
-	echo "$S $QUADNAME $CURRENT $FINAL $SEED" | tee -a $FINALPATH/finalData.fin
+	echo "$S $QUADNAME $CURRENT $FINAL $SEED" | tee -a "$FINALPATH/finalData.fin"
 end
 
-gedit $FINALPATH/finalData.fin
+gedit "$FINALPATH/finalData.fin"
 exit
 
 foreach i (`ls $FINALPATH/*.fin`)

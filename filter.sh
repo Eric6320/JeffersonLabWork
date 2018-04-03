@@ -16,6 +16,8 @@ foreach i (`ls $FINALPATH/*.dat`)
 	echo "$S $QUADNAME $CURRENT $FINAL $SEED" | tee -a "$FINALPATH/finalData.fin"
 end
 
+gnuplot -p "plot" 
+
 gedit "$FINALPATH/finalData.fin"
 exit
 

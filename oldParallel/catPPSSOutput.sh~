@@ -1,4 +1,0 @@
-#!/bin/tcsh
-unset noclobber
-
-cd ppss_dir/log
