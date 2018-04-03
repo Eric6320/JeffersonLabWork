@@ -46,7 +46,7 @@ set CHANGEM = `$FPATH/setArg.sh changeM 3 $argv`
 set GENERATE = `$FPATH/setArg.sh generate 1 $argv`
 set TOLERANCE = `$FPATH/setArg.sh tolerance 3.5 $argv`
 set MAXTRIALS = `$FPATH/setArg.sh maxTrials 5 $argv`
-set NUMBEROFSEEDS = `$FPATH/setArg.sh numberOfSeeds 10 $argv`
+set NUMBEROFSEEDS = `$FPATH/setArg.sh numberOfSeeds 5 $argv`
 set MONTECARLO = `$FPATH/setArg.sh monteCarlo 1 $argv`
 
 # If the $MONTECARLO boolean is set

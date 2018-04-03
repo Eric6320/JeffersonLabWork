@@ -1,0 +1,633 @@
+*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/MQB1A13-1*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/
+cleanUp.sh                               -Removing excess files and resetting file structure
+******************************************Starting Trial 0******************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+Current CHI2DOF total: 115.592 - Tolerance: 3.5
+determineQStrengths.sh                   -Adding 1% of max quadrupole strength to all quadrupoles
+findNextBPM.sh                           -Determining succeeding BPMs
+******************************************** 1/55) Determining CHI2DOF Change for MQN1S03********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.465u 9.795s 0:35.31 82.8%	0+0k 216+37200io 45pf+0w
+******************************************** 2/55) Determining CHI2DOF Change for MQN1S04********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.406u 9.535s 0:25.00 115.7%	0+0k 216+37200io 45pf+0w
+******************************************** 3/55) Determining CHI2DOF Change for MQL1S05********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.404u 9.558s 0:23.39 123.7%	0+0k 216+37200io 45pf+0w
+******************************************** 4/55) Determining CHI2DOF Change for MQB1S06********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.318u 9.831s 0:26.77 108.8%	0+0k 216+37200io 45pf+0w
+******************************************** 5/55) Determining CHI2DOF Change for MQL1S07********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.277u 9.635s 0:24.86 116.2%	0+0k 216+37200io 45pf+0w
+******************************************** 6/55) Determining CHI2DOF Change for MQL1S08********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.345u 9.766s 0:27.01 107.7%	0+0k 216+37200io 45pf+0w
+******************************************** 7/55) Determining CHI2DOF Change for MQL1S09********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.481u 9.417s 0:19.82 145.7%	0+0k 216+37200io 45pf+0w
+******************************************** 8/55) Determining CHI2DOF Change for MQB1S10********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.372u 9.677s 0:30.89 94.0%	0+0k 216+37200io 45pf+0w
+******************************************** 9/55) Determining CHI2DOF Change for MQB1E01********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.201u 9.879s 0:20.04 145.0%	0+0k 216+37200io 45pf+0w
+******************************************** 10/55) Determining CHI2DOF Change for MQB1E02********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.365u 9.695s 0:34.65 83.8%	0+0k 216+37200io 45pf+0w
+******************************************** 11/55) Determining CHI2DOF Change for MQB1E03********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.279u 9.946s 0:20.41 143.1%	0+0k 216+37200io 45pf+0w
+******************************************** 12/55) Determining CHI2DOF Change for MQB1A01********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.364u 9.581s 0:21.04 137.5%	0+0k 216+37216io 45pf+0w
+******************************************** 13/55) Determining CHI2DOF Change for MQB1A02********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.334u 9.648s 0:30.05 96.4%	0+0k 216+37200io 45pf+0w
+******************************************** 14/55) Determining CHI2DOF Change for MQB1A03********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.402u 9.653s 0:31.46 92.3%	0+0k 216+37200io 45pf+0w
+******************************************** 15/55) Determining CHI2DOF Change for MQL1A04********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.433u 9.462s 0:19.99 144.5%	0+0k 216+37200io 45pf+0w
+******************************************** 16/55) Determining CHI2DOF Change for MQB1A05********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.416u 9.821s 0:32.61 89.6%	0+0k 216+37200io 45pf+0w
+******************************************** 17/55) Determining CHI2DOF Change for MQB1A06********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.405u 9.705s 0:20.11 144.7%	0+0k 216+37200io 45pf+0w
+******************************************** 18/55) Determining CHI2DOF Change for MQB1A07********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.357u 9.502s 0:29.11 99.1%	0+0k 216+37200io 45pf+0w
+******************************************** 19/55) Determining CHI2DOF Change for MQB1A08********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.280u 9.916s 0:30.40 96.0%	0+0k 216+37200io 45pf+0w
+******************************************** 20/55) Determining CHI2DOF Change for MQB1A09********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.283u 9.789s 0:20.06 144.8%	0+0k 216+37200io 45pf+0w
+******************************************** 21/55) Determining CHI2DOF Change for MQB1A11********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.336u 9.530s 0:23.39 123.3%	0+0k 216+37200io 45pf+0w
+******************************************** 22/55) Determining CHI2DOF Change for MQB1A13********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.338u 9.769s 0:25.30 114.9%	0+0k 216+37200io 45pf+0w
+******************************************** 23/55) Determining CHI2DOF Change for MQB1A14********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.420u 9.490s 0:25.01 115.5%	0+0k 216+37192io 45pf+0w
+******************************************** 24/55) Determining CHI2DOF Change for MQB1A15********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.302u 9.872s 0:27.68 105.3%	0+0k 216+37200io 45pf+0w
+******************************************** 25/55) Determining CHI2DOF Change for MQB1A16********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.319u 9.877s 0:29.81 97.8%	0+0k 216+37200io 45pf+0w
+******************************************** 26/55) Determining CHI2DOF Change for MQB1A17********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.291u 9.682s 0:27.46 105.4%	0+0k 216+37200io 45pf+0w
+******************************************** 27/55) Determining CHI2DOF Change for MQB1A18********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.365u 9.746s 0:20.57 141.4%	0+0k 216+37200io 45pf+0w
+******************************************** 28/55) Determining CHI2DOF Change for MQB1A19********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.329u 9.543s 0:46.99 61.4%	0+0k 216+37200io 45pf+0w
+******************************************** 29/55) Determining CHI2DOF Change for MQB1A21********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.389u 9.746s 0:20.10 144.8%	0+0k 216+37200io 45pf+0w
+******************************************** 30/55) Determining CHI2DOF Change for MQB1A23********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.379u 9.658s 0:25.04 115.8%	0+0k 216+37200io 45pf+0w
+******************************************** 31/55) Determining CHI2DOF Change for MQB1A24********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.311u 9.592s 0:30.18 95.7%	0+0k 216+37200io 45pf+0w
+******************************************** 32/55) Determining CHI2DOF Change for MQB1A25********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.330u 9.737s 0:24.77 117.3%	0+0k 216+37200io 45pf+0w
+******************************************** 33/55) Determining CHI2DOF Change for MQB1A26********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.270u 9.799s 0:20.82 139.5%	0+0k 216+37200io 45pf+0w
+******************************************** 34/55) Determining CHI2DOF Change for MQB1A27********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.313u 9.825s 0:20.13 144.7%	0+0k 216+37200io 45pf+0w
+******************************************** 35/55) Determining CHI2DOF Change for MQB1A28********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.352u 9.671s 0:34.78 83.4%	0+0k 216+37200io 45pf+0w
+******************************************** 36/55) Determining CHI2DOF Change for MQB1A29********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.283u 9.842s 0:22.51 129.3%	0+0k 216+37200io 45pf+0w
+******************************************** 37/55) Determining CHI2DOF Change for MQB1A31********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.441u 9.545s 0:27.31 106.1%	0+0k 216+37200io 45pf+0w
+******************************************** 38/55) Determining CHI2DOF Change for MQB1A33********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.311u 9.849s 0:33.49 87.0%	0+0k 216+37200io 45pf+0w
+******************************************** 39/55) Determining CHI2DOF Change for MQB1A34********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.314u 9.625s 0:19.93 145.1%	0+0k 216+37200io 45pf+0w
+******************************************** 40/55) Determining CHI2DOF Change for MQB1A35********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.167u 9.815s 0:19.79 146.3%	0+0k 216+37200io 45pf+0w
+******************************************** 41/55) Determining CHI2DOF Change for MQB1A36********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.410u 9.473s 0:21.04 137.2%	0+0k 216+37200io 45pf+0w
+******************************************** 42/55) Determining CHI2DOF Change for MQB1A37********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.445u 9.491s 0:29.80 97.0%	0+0k 216+37200io 45pf+0w
+******************************************** 43/55) Determining CHI2DOF Change for MQL1A38********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.338u 9.503s 0:19.71 146.2%	0+0k 216+37200io 45pf+0w
+******************************************** 44/55) Determining CHI2DOF Change for MQB1A39********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.363u 9.840s 0:32.53 89.7%	0+0k 216+37200io 45pf+0w
+******************************************** 45/55) Determining CHI2DOF Change for MQB1A40********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.257u 9.709s 0:20.31 142.5%	0+0k 216+37200io 45pf+0w
+******************************************** 46/55) Determining CHI2DOF Change for MQB1R01********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.298u 9.640s 0:24.78 116.7%	0+0k 216+37200io 45pf+0w
+******************************************** 47/55) Determining CHI2DOF Change for MQL1R02********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.232u 9.904s 0:29.50 98.7%	0+0k 216+37200io 45pf+0w
+******************************************** 48/55) Determining CHI2DOF Change for MQL1R03********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.443u 9.421s 0:24.19 119.3%	0+0k 216+37200io 45pf+0w
+******************************************** 49/55) Determining CHI2DOF Change for MQL1R04********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.334u 9.449s 0:28.20 102.0%	0+0k 216+37200io 45pf+0w
+******************************************** 50/55) Determining CHI2DOF Change for MQB1R05********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.386u 9.792s 0:21.31 136.8%	0+0k 216+37200io 45pf+0w
+******************************************** 51/55) Determining CHI2DOF Change for MQL1R06********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.353u 9.685s 0:20.08 144.5%	0+0k 216+37200io 45pf+0w
+******************************************** 52/55) Determining CHI2DOF Change for MQL1R07********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.327u 9.872s 0:25.33 115.2%	0+0k 216+37200io 45pf+0w
+******************************************** 53/55) Determining CHI2DOF Change for MQN1R08********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.299u 9.770s 0:20.18 144.0%	0+0k 216+37200io 45pf+0w
+******************************************** 54/55) Determining CHI2DOF Change for MQL1R09********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.498u 9.522s 0:34.92 83.0%	0+0k 216+37200io 45pf+0w
+******************************************** 55/55) Determining CHI2DOF Change for MQB1R10********************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+findChange.sh                            -Determining BPM change after each quadrupole
+19.350u 9.759s 0:20.37 142.8%	0+0k 216+37200io 45pf+0w
+fileRecombine.sh                         -Dividing by change
+fileRecombine.sh                         -Recombining changeVResponse files
+mSVD.sh                                  -Applying Opposite Q Matrix Values
+******************************************Starting Trial 1******************************************
+cleanUp.sh                               -Removing excess files and resetting file structure
+setup.sh                                 -Generating unit circle
+setup.sh                                 -Performing inverse floquet transformation on modified beamline
+determineStrengths.sh                    -Calculating Quadrupole Strengths
+addStrengthError.sh                      -Adding strength error
+runPPSSElegant.sh                        -Running Elegant to generate centroidValue data files
+runPPSSPseudoinverse.sh                  -Generating Transportation Matrices
+runPPSSCompareM.sh                       -Comparing Transportation Matrix Values
+Current CHI2DOF total: 3.14088 - Tolerance: 3.5
+Final CHI2DOF sum: 3.14088, Trials required: 1
