@@ -27,7 +27,7 @@ end
 
 # Run parallelCompareM.sh using compareM.ppss to compare each Transportation Matrix element at each downstream BPM
 $FPATH/ppss -f 'compareM.ppss' -c "$FPATH/parallelCompareM.sh " -p 4 > /dev/null
-$FPATH/catPPSSOutput.sh
+#$FPATH/catPPSSOutput.sh
 
 paste -d " " downstreamBPM.dat $CHI2PATH/newComparison1.dat $CHI2PATH/newComparison2.dat $CHI2PATH/newComparison3.dat $CHI2PATH/newComparison4.dat >! $CHI2PATH/comparisons.fin
 
