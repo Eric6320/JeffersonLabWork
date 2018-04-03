@@ -16,20 +16,10 @@ foreach i (`ls $FINALPATH/*.dat`)
 	echo "$S $QUADNAME $CURRENT $FINAL $SEED" | tee -a "$FINALPATH/finalData.fin"
 end
 
-gnuplot -p "plot" 
+cd $FINALPATH
 
-gedit "$FINALPATH/finalData.fin"
-exit
+gnuplot -persist -e "plot 'finalData.fin' using 1:3 with points title 'Pre-Minimized CHI2DOF Values'"
 
-foreach i (`ls $FINALPATH/*.fin`)
-	cat $i >>! "$FINALPATH/finalData.fin"
-end
+gnuplot -persist -e "plot 'finalData.fin' using 1:4 with points title 'Minimized CHI2DOF Values'"
 
-
-exit
-
-grep -hE 'Final|\/\*|Current CHI2DOF total' $FINALPATH/* >! finalData.dat
-
-set NEXTBPM = `sed -n -e '/'$QUAD'/,$p' $DESIGNLATTICE | grep -m 1 "IPM" | awk '{print $1}' | sed "s/://g"`
-
-gedit finalData.dat
+cd ..

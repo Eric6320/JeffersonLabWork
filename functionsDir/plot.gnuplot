@@ -1,4 +1,4 @@
-set title 'Downstream Error Example'
+set title 'Final data plot'
 set xlabel 'S Coordinate'
 set ylabel 'CHI2DOF'
 
