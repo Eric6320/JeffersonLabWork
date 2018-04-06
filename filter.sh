@@ -1,17 +1,25 @@
 #!/bin/tcsh
 unset noclobber
 
+#Current CHI2DOF total: 3.11798 - Tolerance: 3.5
+#Final CHI2DOF sum: 3.11798, Trials required: 1
+
+rm $FINALPATH/*.fin > /dev/null
 foreach i (`ls $FINALPATH/*.dat`)
-	set QUADNAME = `echo $i | awk -F"-" '{print $1}'`
+	set QUADNAME = `echo $i | awk -F"-" '{print $1}' | awk -F"/" '{print $8}'`
 	set SEED = `echo $i | awk -F"-" '{print $2}' | awk -F"." '{print $1}'`
-	
-	grep -hE 'Final|\/\*|Current CHI2DOF total' $i >! 
+	set S = `$FPATH/pullS.sh $QUADNAME`
+
+	set CURRENT = `grep -m 1 'Current' $i | awk '{print $4}' | sed 's/,//g'`
+	set FINAL = `grep 'Final' $i | awk '{print $4}' | sed 's/,//g'`
+
+	echo "$S $QUADNAME $CURRENT $FINAL $SEED" | tee -a "$FINALPATH/finalData.fin"
 end
 
-exit
+cd $FINALPATH
 
-grep -hE 'Final|\/\*|Current CHI2DOF total' $FINALPATH/* >! finalData.dat
+gnuplot -persist -e "plot 'finalData.fin' using 1:3 with points title 'Pre-Minimized CHI2DOF Values'"
 
-set NEXTBPM = `sed -n -e '/'$QUAD'/,$p' $DESIGNLATTICE | grep -m 1 "IPM" | awk '{print $1}' | sed "s/://g"`
+gnuplot -persist -e "plot 'finalData.fin' using 1:4 with points title 'Minimized CHI2DOF Values'"
 
-gedit finalData.dat
+cd ..
