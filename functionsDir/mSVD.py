@@ -63,3 +63,8 @@ for n in range(Q.shape[0]):
 
 # Close the file writer
 outfile.close()
+
+print (X.size())
+print (M.size())
+print (Q.size())
+print (S.size())
