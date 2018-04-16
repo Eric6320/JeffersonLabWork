@@ -1,7 +1,0 @@
-#!/bin/tcsh
-
-rm *.fin *.dat >& /dev/null
-
-foreach x ($argv)
-	./resetBeamline.sh $x > /dev/null
-end
