@@ -52,7 +52,7 @@ set CORRECTED = `$FPATH/setArg.sh corrected 0 $argv`
 
 # Remove all excess data files from the main directory, and auxillary folders in preparation for a new run
 $FPATH/cleanUp.sh
-set S = `$FPATH/pullS.sh $BPM1 $DESIGNBEAMLINE`
+set S = `$FPATH/pullS.sh $BPM1`
 
 # Generate a unit circle and perform a floquet transformation at the specified bpm
 # Output: $MODIFIEDBEAMLINE"EllipseOne.dat" - Coordinate pairs of design betatron ellipse
